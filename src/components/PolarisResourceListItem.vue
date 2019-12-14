@@ -5,16 +5,17 @@
      @blur="onBlur"
      @mouseenter="onMouseEnter"
      @mouseleave="onMouseLeave">
-    <polaris-unstyled-link 
+    <polaris-unstyled-link
         v-if="url"
         :aria-describedby="realId"
         class="Polaris-ResourceList__Link"
         :url="url">
     </polaris-unstyled-link>
-    
+    <slot name="url"></slot>
+
     <div class="Polaris-ResourceList__Container"
          :id="realId">
-        
+
         <template v-if="media || $slots.media">
             <div class="Polaris-ResourceList__Media">
                 <slot name="media">
@@ -26,20 +27,20 @@
                 </slot>
             </div>
         </template>
-        
+
         <div class="Polaris-ResourceList__Content">
             <div class="Polaris-ResourceList__Attributes">
                 <p class="Polaris-ResourceList__AttributeOne">
                     {{ attributeOne }}
                 </p>
-                
+
                 <div v-if="attributeTwo || $slots.attributeTwo"
                      class="Polaris-ResourceList__AttributeTwo">
                     <slot name="attributeTwo">
                         {{ attributeTwo }}
                     </slot>
                 </div>
-                
+
                 <div v-if="badges" class="Polaris-ResourceList__Badge">
                     <polaris-badge
                         v-for="(badge, i) in badges"
@@ -48,7 +49,7 @@
                         {{ badge.content }}
                     </polaris-badge>
                 </div>
-                
+
                 <div v-if="attributeThree || $slots.attributeThree"
                      class="Polaris-ResourceList__AttributeThree">
                     <slot name="attributeThree">
@@ -56,10 +57,10 @@
                     </slot>
                 </div>
             </div>
-            
+
             <ul v-if="exceptions"
                 class="Polaris-ResourceList__Exceptions">
-                <li v-for="ex in exceptions" 
+                <li v-for="ex in exceptions"
                     key="ex"
                     :class="exceptionItemClass(ex)">
                     <div v-if="ex.title"
@@ -73,7 +74,7 @@
                 </li>
             </ul>
         </div>
-        
+
         <template v-if="actions">
             <template v-if="persistActions">
                 <div class="Polaris-ResourceList__Actions">
@@ -82,7 +83,7 @@
                             v-for="action in actions"
                             plain>
                             <polaris-button
-                                @click="handleAction(action)" 
+                                @click="handleAction(action)"
                                 :url="action.url"
                                 :destructive="action.destructive"
                                 :disabled="action.disabled"
@@ -96,7 +97,7 @@
                     </polaris-button-group>
                 </div>
                 <div class="Polaris-ResourceList__Disclosure">
-                    <polaris-popover 
+                    <polaris-popover
                         @click="onCloseActions"
                         :active="actionsMenuVisible">
                         <polaris-button
@@ -111,15 +112,15 @@
                     </polaris-popover>
                 </div>
             </template>
-            <div 
+            <div
                 v-if="!persistActions"
                 class="Polaris-ResourceList__Actions">
                 <polaris-button-group segmented>
                     <polaris-button
                         v-for="action in actions"
                         key="action"
-                        @click="handleAction(action)" 
-                        :primary="action.primary" 
+                        @click="handleAction(action)"
+                        :primary="action.primary"
                         :url="action.url"
                         :destructive="action.destructive"
                         :disabled="action.disabled"
@@ -200,11 +201,11 @@ export default {
                 'mediaType',
                 'mediaSize',
             ], this);
-            
+
             if (this.url) {
                 r['Polaris-ResourceList__Item--link'] = true;
             }
-            
+
             return r;
         }
     },
