@@ -1,11 +1,11 @@
 <template>
 <div :class="classes">
     <div v-if="hasBreadcrumbs || pagination" class="Polaris-Page__Navigation">
-        <polaris-breadcrumbs 
-            v-if="breadcrumbs.length > 0" 
+        <polaris-breadcrumbs
+            v-if="breadcrumbs.length > 0"
             :breadcrumbs="breadcrumbs"/>
         <div v-if="pagination" class="Polaris-Page__Pagination">
-            <polaris-pagination 
+            <polaris-pagination
                 plain
                 :has-next="pagination.hasNext"
                 :has-previous="pagination.hasPrevious"
@@ -25,7 +25,7 @@
                 </div>
                 <div class="Polaris-Page__Actions">
                     <div class="Polaris-Page__PrimaryAction">
-                        <polaris-button 
+                        <polaris-button
                             primary
                             @click="handleAction(primaryAction, true)"
                             :accessibility-label="primaryAction.accessibiltyLabel"
@@ -39,7 +39,7 @@
                         </polaris-button>
                     </div>
                     <div class="Polaris-Page__SecondaryActions">
-                        <div 
+                        <div
                             v-if="hasRollup"
                             class="Polaris-Page__Rollup">
                             <polaris-popover
@@ -57,10 +57,11 @@
                                     :sections="actionGroupsAsListSections"
                                     @action-any-item="handleRollupToggle"/>
                             </polaris-popover>
-                        </div>                               
+                        </div>
                         <div class="Polaris-Page__IndividualActions">
                             <polaris-page-action
-                                v-for="action in secondaryActions"
+                                v-for="(action, i) in secondaryActions"
+                                :key="`action_${i}`"
                                 @click="handleAction(action, true)"
                                 :accessibility-label="action.accessibiltyLabel"
                                 :url="action.url"
@@ -71,7 +72,7 @@
                                 :loading="action.loading">
                                     {{ action.content }}
                             </polaris-page-action>
-                            <div 
+                            <div
                                 v-for="group in actionGroups"
                                 class="Polaris-Page__ActionGroup">
                                 <polaris-popover
@@ -98,7 +99,7 @@
                 </div>
             </div>
             <div class="Polaris-Page__PrimaryAction">
-                <polaris-button 
+                <polaris-button
                     primary
                     @click="handleAction(primaryAction, true)"
                     :accessibility-label="primaryAction.accessibiltyLabel"
@@ -123,7 +124,7 @@
         </div>
         <div class="Polaris-Page__Actions">
             <div class="Polaris-Page__SecondaryActions">
-                <div 
+                <div
                     v-if="hasRollup"
                     class="Polaris-Page__Rollup">
                     <polaris-popover
@@ -141,10 +142,11 @@
                             :sections="actionGroupsAsListSections"
                             @action-any-item="handleRollupToggle"/>
                     </polaris-popover>
-                </div>                               
+                </div>
                 <div class="Polaris-Page__IndividualActions">
                     <polaris-page-action
-                        v-for="action in secondaryActions"
+                        v-for="(action,i) in secondaryActions"
+                        :key="`action_${i}`"
                         @click="handleAction(action, true)"
                         :accessibility-label="action.accessibiltyLabel"
                         :url="action.url"
@@ -155,7 +157,7 @@
                         :loading="action.loading">
                             {{ action.content }}
                     </polaris-page-action>
-                    <div 
+                    <div
                         v-for="group in actionGroups"
                         class="Polaris-Page__ActionGroup">
                         <polaris-popover

@@ -8,7 +8,8 @@
         </p>
         <ul class="Polaris-ActionList__Actions">
             <polaris-action-list-item
-                v-for="item in section.items"
+                v-for="(item, i) in section.items"
+                :key="`action_${i}`"
                 :content="item.content"
                 :action="wrapAction(item)"/>
         </ul>

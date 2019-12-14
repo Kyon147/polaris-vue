@@ -80,7 +80,8 @@
                 <div class="Polaris-ResourceList__Actions">
                     <polaris-button-group>
                         <polaris-button-group-item
-                            v-for="action in actions"
+                            v-for="(action, i) in actions"
+                            :key="`action_${i}`"
                             plain>
                             <polaris-button
                                 @click="handleAction(action)"
@@ -117,8 +118,8 @@
                 class="Polaris-ResourceList__Actions">
                 <polaris-button-group segmented>
                     <polaris-button
-                        v-for="action in actions"
-                        key="action"
+                        v-for="(action, i) in actions"
+                        :key="`action_${i}`"
                         @click="handleAction(action)"
                         :primary="action.primary"
                         :url="action.url"
@@ -138,6 +139,7 @@
 
 
 <script>
+import PolarisActionList from './PolarisActionList.vue';
 import PolarisUnstyledLink from './PolarisUnstyledLink.vue';
 import PolarisThumbnail from './PolarisThumbnail.vue';
 import PolarisButtonGroup from './PolarisButtonGroup.vue';
@@ -150,6 +152,7 @@ import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
     components: {
+        PolarisActionList,
         PolarisUnstyledLink,
         PolarisThumbnail,
         PolarisButtonGroup,
