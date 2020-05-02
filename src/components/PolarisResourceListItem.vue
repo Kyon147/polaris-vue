@@ -60,8 +60,8 @@
 
             <ul v-if="exceptions"
                 class="Polaris-ResourceList__Exceptions">
-                <li v-for="ex in exceptions"
-                    key="ex"
+                <li v-for="(ex, i) in exceptions"
+                    :key="`ex_${i}`"
                     :class="exceptionItemClass(ex)">
                     <div v-if="ex.title"
                          class="Polaris-ResourceList__Title">
