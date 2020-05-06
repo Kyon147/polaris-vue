@@ -61,7 +61,7 @@ import PolarisPagination from './components/PolarisPagination.vue';
 import PolarisTabs from './components/PolarisTabs.vue';
 
 import PolarisPopover from './components/PolarisPopover.vue';
-
+import PolarisModal from "./components/PolarisModal.vue";
 
 import PolarisTextStyle from './components/PolarisTextStyle.vue';
 import PolarisSettingAction from './components/PolarisSettingAction.vue';
@@ -87,6 +87,7 @@ import config from 'config/config.js';
 import log from 'util/log.js';
 import ConsoleLogger from 'util/loggers/ConsoleLogger.js';
 
+
 const TAG = 'Bootstrap';
 
 // Configure logging
@@ -111,7 +112,7 @@ export default {
         ComponentHelpers.setComponentNameFormat(options.componentNameFormat);
 
 
-        log.send(log.DEBUG, TAG, 'Installing...');
+        log.send(log.DEBUG, TAG, 'Installing...new');
 
         const components = {
             // Main components
@@ -175,6 +176,7 @@ export default {
             Tabs:                   PolarisTabs,
 
             Popover:                PolarisPopover,
+            Modal:                  PolarisModal,
 
 
             // Not in main docs
