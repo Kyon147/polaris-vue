@@ -36,7 +36,7 @@
     import cancelSmall from '../resources/cancel-small.svg';
     export default {
         mounted(){
-          console.log( 'Modal Mounted' );
+          console.log( 'Modal Mounted V2' );
         },
         components: {
             PolarisIcon
