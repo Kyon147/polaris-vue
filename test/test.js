@@ -1,8 +1,8 @@
 (function() {
     function init() {
-        
+
         Vue.use(PolarisVue);
-        
+
         var root = new Vue({
             el: '#app',
             methods: {
@@ -17,12 +17,12 @@
                 value3: null,
                 value4: null,
                 value5: null,
-                value6: null,
+                value6: 'desc',
                 value7: null,
                 value8: null,
                 value9: null,
                 value10: null,
-                
+
 
                 test0: false,
                 test1: false,
@@ -30,7 +30,7 @@
 
                 pickerMonth: 4,
                 pickerYear: 2017,
-                
+
                 colorValue: {
                     hue: 0,
                     saturation: 1,
@@ -42,7 +42,7 @@
                     end: new Date(2017, 4, 12),
                 },
                 testDate: new Date(2017, 4, 12),
-                
+
                 accounts: 'disabled',
             },
             computed: {
@@ -73,12 +73,12 @@
             }
         });
     }
-    
-    
+
+
     if (document.readyState != 'loading') {
         init();
     } else {
         document.addEventListener('DOMContentLoaded', init);
     }
-    
+
 })();
