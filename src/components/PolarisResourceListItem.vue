@@ -18,7 +18,7 @@
 
         <div class="Polaris-ResourceItem__Owned">
 
-            <template>
+            <template v-if="selectable">
                 <div class="Polaris-ResourceItem__Handle">
                     <polaris-checkbox
                         @change.native="updateListItems"
@@ -202,7 +202,8 @@ export default {
             }
         },
         persistActions: Boolean,
-        index: String
+        index: String,
+        selectable: Boolean
     },
     data() {
         return {
@@ -225,6 +226,10 @@ export default {
 
             if (this.url) {
                 r['Polaris-ResourceList__Item--link'] = true;
+            }
+
+            if (this.checkValue) {
+                r['Polaris-ResourceItem--selected'] = true;
             }
 
             return r;
@@ -283,5 +288,8 @@ export default {
         align-items: center;
         margin: -1.2rem .4rem -1.2rem -1.2rem;
         display: flex;
+    }
+    .Polaris-ResourceItem--selected:not(.Polaris-ResourceItem--newDesignLanguage) {
+        background-image: linear-gradient(rgba(179,188,245,.15),rgba(179,188,245,.15));
     }
 </style>

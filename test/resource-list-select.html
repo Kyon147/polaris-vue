@@ -20,6 +20,8 @@
                         <polaris-resource-list-item
                             :attribute-one="item.title"
                             :index="index.toString()"
+                            :media="{src: 'https://via.placeholder.com/50x50', alt: ''}"
+                            selectable
                         >
                         </polaris-resource-list-item>
                     </template>
@@ -52,10 +54,12 @@
                     selectedItems : [],
                     products: [
                         {
-                            title: 'Product 1'
+                            title: 'Product 1',
+                            value: 1,
                         },
                         {
-                            title: 'Product 2'
+                            title: 'Product 2',
+                            value: 344,
                         },
                     ],
                     value1: ''

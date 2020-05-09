@@ -53,6 +53,8 @@ export default {
             console.log(value);
             this.value = value;
         }
+    },
+    computed: {
     }
 };
 </script>
