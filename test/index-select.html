@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <style>
+        .hljs {
+          display: block;
+          overflow-x: auto;
+          padding: 0.5em;
+          background: #f9fafb;
+        }
+
+        .hljs-built_in,
+        .hljs-selector-tag,
+        .hljs-section,
+        .hljs-link {
+          color: #8be9fd;
+        }
+
+        .hljs-keyword {
+          color: #5C6AC4;
+        }
+
+        .hljs {
+            color: #212B35;
+        }
+        .hljs-subst {
+            color:
+#43467F;
+        }
+
+        .hljs-attr {
+            color: #4059ff;
+        }
+
+        .hljs-tag {
+            color: #5C6AC4;
+        }
+
+        .hljs-title {
+            color: #50fa7b;
+        }
+
+        .hljs-string {
+            color:
+#43467F;
+        }
+
+        .hljs-meta,
+        .hljs-name,
+        .hljs-type,
+        .hljs-attribute,
+        .hljs-symbol,
+        .hljs-bullet,
+        .hljs-addition,
+        .hljs-variable,
+        .hljs-template-tag,
+        .hljs-template-variable {
+          color: #5b69c4;
+        }
+
+        .hljs-comment,
+        .hljs-quote,
+        .hljs-deletion {
+          color: #6272a4;
+        }
+
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-literal,
+        .hljs-title,
+        .hljs-section,
+        .hljs-doctag,
+        .hljs-type,
+        .hljs-name,
+        .hljs-strong {
+          font-weight: bold;
+        }
+
+        .hljs-literal,
+        .hljs-number {
+          color: #bd93f9;
+        }
+
+        .hljs-emphasis {
+          font-style: italic;
+        }
+        </style>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+        <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+
+        <script src="../lib/polaris-vue.js"></script>
+        <link rel="stylesheet" href="../lib/polaris-vue.css"></link>
+
+        <script src="test.js"></script>
+
+        <style>
+            body {
+                padding: 0 40px;
+            }
+
+            #app {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .testSection {
+                margin: 20px 0;
+                margin-top: 60px;
+                font-size: 35px;
+                font-weight: bold;
+                margin-left: -30px;
+            }
+
+            .testHeader {
+                margin: 20px 0;
+                margin-top: 60px;
+                font-size: 20px;
+                font-weight: bold;
+                margin-left: -30px;
+            }
+
+            .testCase {
+                margin: 15px 0;
+
+                display: flex;
+            }
+            .testCase .example {
+                flex-shrink: 0;
+                flex-grow: 0;
+                width: 60%;
+                padding-right: 40px;
+            }
+            .testCase .code {
+                flex-shrink: 0;
+                flex-grow: 0;
+                width: 40%;
+                background: rgb(251, 251, 251);
+                color: black;
+                margin: 0;
+                padding: 0;
+                overflow-x: auto;
+                border-radius: 3px;
+                box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+            }
+            .testCase .output {
+                flex-shrink: 0;
+                flex-grow: 0;
+                width: 100%;
+                background: rgb(200,200,200);
+                color: black;
+                margin: 0;
+                padding: 0;
+                overflow-x: auto;
+                border-radius: 3px;
+                box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+                background: #f9fafb;
+            }
+
+            .testTitle {
+                margin: 20px 0;
+                margin-top: 60px;
+                font-size: 50px;
+                font-weight: normal;
+                margin-left: -30px;
+            }
+
+            .testSubtitle {
+                margin: 20px 0;
+                margin-top: 30px;
+                font-size: 20px;
+                font-weight: 600;
+                margin-left: -30px;
+            }
+
+            .testDescription p {
+                margin-top: 20px;
+            }
+        </style>
+
+
+        <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+        <div id="app">
+
+            <div class="testSection">
+                Forms
+            </div>
+
+
+            <div class="testHeader">&lt;polaris-select&gt;</div>
+            <div class="testCase">
+                <div class="example">
+                    <polaris-select
+                        v-model="value6"
+                        label="Sort by"
+                        :options="[
+                            'asc',
+                            'desc',
+                            'newest'
+                        ]"
+                        placeholder="Select">
+                    </polaris-select>
+                </div>
+                <pre class="code"><code class="html">&#x3C;polaris-select
+    v-model=&#x22;value6&#x22;
+    label=&#x22;Count&#x22;
+    :options=&#x22;[
+        &#x27;one&#x27;,
+        &#x27;two&#x27;,
+        &#x27;three&#x27;
+    ]&#x22;
+    placeholder=&#x22;Select&#x22;&#x3E;
+&#x3C;/polaris-select&#x3E;</code></pre>
+            </div>
+            <div class="testCase">
+                <div class="example">
+                    <polaris-select
+                        v-model="value6"
+                        label-inline
+                        label="Sort by"
+                        :options="[
+                            {label: 'Asc', value: 'asc'},
+                            {label: 'Desc', value: 'desc'},
+                            {label: 'Newest', value: 'new', disabled: true}
+                        ]"
+                        placeholder="Select an amount">
+                    </polaris-select>
+                </div>
+                <pre class="code"><code class="html">&#x3C;polaris-select
+    v-model=&#x22;value6&#x22;
+    label=&#x22;Count&#x22;
+    label-inline
+    :options=&#x22;[
+        {label: &#x27;Asc&#x27;, value: &#x27;asc&#x27;},
+        {label: &#x27;Desc&#x27;, value: &#x27;desc&#x27;},
+        {label: &#x27;Newest&#x27;, value: &#x27;new&#x27;, disabled: true}
+    ]&#x22;
+    placeholder=&#x22;Select an amount&#x22;&#x3E;
+&#x3C;/polaris-select&#x3E;</code></pre>
+            </div>
+            <div class="testCase">
+                <div class="example">
+                    <polaris-select
+                        v-model="value6"
+                        label="Count"
+                        :options="[
+                            {label: 'Only one', value: 'one'},
+                            {label: 'Two', value: 'two'},
+                            {label: 'The whole lot', value: 'three', disabled: true}
+                        ]"
+                        placeholder="Select an amount">
+                    </polaris-select>
+                </div>
+                <pre class="code"><code class="html">&#x3C;polaris-select
+    v-model=&#x22;value6&#x22;
+    label=&#x22;Count&#x22;
+    :options=&#x22;[
+        {label: &#x27;Only one&#x27;, value: &#x27;one&#x27;},
+        {label: &#x27;Two&#x27;, value: &#x27;two&#x27;},
+        {label: &#x27;The whole lot&#x27;, value: &#x27;three&#x27;, disabled: true}
+    ]&#x22;
+    placeholder=&#x22;Select an amount&#x22;&#x3E;
+&#x3C;/polaris-select&#x3E;</code></pre>
+            </div>
+            <div class="testCase">
+                <div class="example">
+                    <polaris-select
+                        v-model="value6"
+                        label="count"
+                        :options="['one', 'two', 'three']"
+                        placeholder="Select an amount"
+                        error="Required">
+                    </polaris-select>
+                </div>
+                <pre class="code"><code class="html">&#x3C;polaris-select
+    v-model=&#x22;value6&#x22;
+    label=&#x22;count&#x22;
+    :options=&#x22;[&#x27;one&#x27;, &#x27;two&#x27;, &#x27;three&#x27;]&#x22;
+    placeholder=&#x22;Select an amount&#x22;
+    error=&#x22;Required&#x22;&#x3E;
+&#x3C;/polaris-select&#x3E;</code></pre>
+            </div>
+            <div class="testCase">
+                <div class="example">
+                    <polaris-select
+                        v-model="value6"
+                        label="count"
+                        :options="['one', 'two', 'three']"
+                        placeholder="Select an amount"
+                        disabled>
+                    </polaris-select>
+                </div>
+                <pre class="code"><code class="html">&#x3C;polaris-select
+    v-model=&#x22;value6&#x22;
+    label=&#x22;count&#x22;
+    :options=&#x22;[&#x27;one&#x27;, &#x27;two&#x27;, &#x27;three&#x27;]&#x22;
+    placeholder=&#x22;Select an amount&#x22;
+    disabled&#x3E;
+&#x3C;/polaris-select&#x3E;</code></pre>
+            </div>
+
+        </div>
+    </body>
+</html>
+<script>
+
+</script>
