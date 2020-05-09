@@ -247,7 +247,7 @@ export default {
     }
 
     @media (min-width: 40em) {
-        .Polaris-Select__Content {
+        .Polaris-Select__Content, .Polaris-Select__Input  {
             font-size: 1.4rem;
         }
     }
