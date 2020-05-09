@@ -93,7 +93,8 @@
 
         <div class="Polaris-Select__Content">
             <span v-if="labelInline" class="Polaris-Select__InlineLabel">{{label}}</span>
-            <span class="Polaris-Select__SelectedOption">{{(!value && placeholder) ? placeholder : value}}</span>
+            <span class="Polaris-Select__SelectedOption">{{ (!value && placeholder) ? placeholder : selectedOptionValue }}</span>
+<!--            <span class="Polaris-Select__SelectedOption">{{(!value && placeholder) ? placeholder : value}}</span>-->
             <div class="Polaris-Select__Icon">
                 <polaris-icon :source="arrowUpDown"></polaris-icon>
             </div>
@@ -120,7 +121,8 @@ export default {
     },
     data() {
         return {
-            arrowUpDown: arrowUpDown
+            arrowUpDown: arrowUpDown,
+            selectedOptionValue: ''
         };
     },
     props: {
@@ -176,7 +178,7 @@ export default {
                 r.push(this.realId+'Error');
             }
             return r;
-        }
+        },
     },
     methods: {
         onFocus() {
@@ -187,6 +189,9 @@ export default {
         },
         onChange(e) {
             this.$emit('change', e.currentTarget.value);
+            const options = e.target.options;
+            const selectedOption = options[options.selectedIndex];
+            this.selectedOptionValue = selectedOption.textContent
         }
     }
 };
