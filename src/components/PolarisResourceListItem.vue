@@ -16,17 +16,31 @@
     <div class="Polaris-ResourceList__Container"
          :id="realId">
 
-        <template v-if="media || $slots.media">
-            <div class="Polaris-ResourceList__Media">
-                <slot name="media">
-                    <polaris-thumbnail
-                        :source="media.src"
-                        :alt="media.alt"
-                        :size="media.size">
-                    </polaris-thumbnail>
-                </slot>
-            </div>
-        </template>
+        <div class="Polaris-ResourceItem__Owned">
+
+            <template>
+                <div class="Polaris-ResourceItem__Handle">
+                    <polaris-checkbox
+                        @change.native="updateListItems"
+                        v-model="checkValue"
+                        :value="index"
+                        label-hidden
+                    />
+                </div>
+            </template>
+
+            <template v-if="media || $slots.media">
+                <div class="Polaris-ResourceList__Media">
+                    <slot name="media">
+                        <polaris-thumbnail
+                            :source="media.src"
+                            :alt="media.alt"
+                            :size="media.size">
+                        </polaris-thumbnail>
+                    </slot>
+                </div>
+            </template>
+        </div>
 
         <div class="Polaris-ResourceList__Content">
             <div class="Polaris-ResourceList__Attributes">
@@ -149,9 +163,11 @@ import PolarisPopover from './PolarisPopover.vue';
 import PolarisBadge from './PolarisBadge.vue';
 
 import ComponentHelpers from '../ComponentHelpers.js';
+import PolarisCheckbox from "./PolarisCheckbox.vue";
 
 export default {
     components: {
+        PolarisCheckbox,
         PolarisActionList,
         PolarisUnstyledLink,
         PolarisThumbnail,
@@ -185,12 +201,14 @@ export default {
                 return [];
             }
         },
-        persistActions: Boolean
+        persistActions: Boolean,
+        index: String
     },
     data() {
         return {
             actionsMenuVisible: false,
             focused: false,
+            checkValue: false,
         };
     },
     computed: {
@@ -243,6 +261,27 @@ export default {
                 action.onAction();
             }
         },
+        updateListItems(e){
+            console.log( "emit selection change from check" );
+            this.$parent.$emit('on-selection-change', this);
+        }
     }
 };
 </script>
+<style>
+    .Polaris-ResourceList__Container{
+        pointer-events: all;
+    }
+    .Polaris-ResourceItem__Owned{
+        display: flex;
+    }
+
+    .Polaris-ResourceItem__Handle {
+        width: 4.8rem;
+        min-height: 4.4rem;
+        justify-content: center;
+        align-items: center;
+        margin: -1.2rem .4rem -1.2rem -1.2rem;
+        display: flex;
+    }
+</style>

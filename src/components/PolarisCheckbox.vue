@@ -1,10 +1,11 @@
 <template>
-<div>
-    <label :class="labelClasses" :for="realId">
+<div class="Polaris-ResourceItem__CheckboxWrapper">
+    <div>
+        <label :class="labelClasses" :for="realId">
         <span class="Polaris-Choice__Control">
-            <div :class="checkboxClasses">
-                <input type="checkbox" 
-                       :id="realId" 
+            <span :class="checkboxClasses">
+                <input type="checkbox"
+                       :id="realId"
                        :name="name"
                        :value="value"
                        :class="inputClasses"
@@ -17,28 +18,29 @@
                        @change="onChange"
                        @focus="onFocus"
                        @blur="onBlur">
-                
+
                 <div class="Polaris-Checkbox__Backdrop"></div>
                 <div class="Polaris-Checkbox__Icon">
                     <polaris-icon :source="checkIcon"></polaris-icon>
                 </div>
-            </div>
+            </span>
         </span>
-        <span class="Polaris-Choice__Label">
-            {{ label }}    
+            <span class="Polaris-Choice__Label">
+            {{ label }}
         </span>
-    </label>
-    <div v-if="helpText || $slots.helpText || (error && (typeof error == 'string'))" class="Polaris-Choice__Descriptions">
-        <div v-if="error && (typeof error == 'string')" 
-             class="Polaris-Choice__Error" 
-             id="errorId">
-            <div class="Polaris-Choice__ErrorIcon">
-                <polaris-icon :source="checkboxErrorIcon"></polaris-icon>
+        </label>
+        <div v-if="helpText || $slots.helpText || (error && (typeof error == 'string'))" class="Polaris-Choice__Descriptions">
+            <div v-if="error && (typeof error == 'string')"
+                 class="Polaris-Choice__Error"
+                 id="errorId">
+                <div class="Polaris-Choice__ErrorIcon">
+                    <polaris-icon :source="checkboxErrorIcon"></polaris-icon>
+                </div>
+                {{ error }}
             </div>
-            {{ error }}
-        </div>
-        <div v-if="helpText || $slots.helpText" class="Polaris-Choice__HelpText" :id="helpTextId">
-            <slot name="helpText">{{ helpText }}</slot>
+            <div v-if="helpText || $slots.helpText" class="Polaris-Choice__HelpText" :id="helpTextId">
+                <slot name="helpText">{{ helpText }}</slot>
+            </div>
         </div>
     </div>
 </div>
@@ -65,7 +67,7 @@ export default {
             type: [Boolean, String],
             default: false,
             validator(v) {
-                console.log({v});
+              /*  console.log({v});*/
                 return (v && typeof v === 'string') ? (v === 'indeterminate') : true;
             }
         },
@@ -89,7 +91,7 @@ export default {
             return this.checked == 'indeterminate';
         },
         realId() {
-            return this.id || 'Checkbox' + this._uid;    
+            return this.id || 'Checkbox' + this._uid;
         },
         helpTextId() {
             if (!this.helpText) {
@@ -135,5 +137,18 @@ export default {
             this.$emit('blur', e);
         }
     }
-}; 
+};
 </script>
+<style>
+    .Polaris-ResourceItem__CheckboxWrapper{
+        display: flex;
+    }
+    .Polaris-Choice .Polaris-Choice--labelHidden{
+        padding: 0;
+    }
+
+    .Polaris-Choice--labelHidden .Polaris-Choice__Control {
+        margin-top: 0;
+        margin-right: 0;
+    }
+</style>

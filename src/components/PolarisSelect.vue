@@ -202,10 +202,7 @@ export default {
         },
         onChange(e) {
             this.$emit('change', e.currentTarget.value);
-          /*  const options = e.target.options;
-            const selectedOption = options[options.selectedIndex];
-            this.selectedOptionValue = selectedOption.textContent*/
-        }
+        },
     }
 };
 </script>
