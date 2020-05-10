@@ -178,6 +178,10 @@ export default {
         PolarisBadge,
     },
     props: {
+        id: {
+            type: [String, Number],
+            required: true
+        },
         url: String,
         media: Object,
         attributeOne: String,
@@ -214,7 +218,7 @@ export default {
     },
     computed: {
         realId() {
-            return 'PolarisResourceListItem'+this._uid;
+            return (this.id) ? this.id : 'PolarisResourceListItem'+this._uid;
         },
         classes() {
             var r = ComponentHelpers.makeComponentClass('Polaris-ResourceList__Item', [
@@ -269,6 +273,7 @@ export default {
         updateListItems(e){
             console.log( "emit selection change from check" );
             this.$parent.$emit('on-selection-change', this);
+            console.log( this );
         }
     }
 };

@@ -12,20 +12,23 @@
 
             <polaris-page title="Test Page">
 
-                <polaris-resource-list
-                    :items="products"
-                    @on-selection-change="setSelectedItems"
-                >
-                    <template slot="item" slot-scope="{item, index}">
-                        <polaris-resource-list-item
-                            :attribute-one="item.title"
-                            :index="index.toString()"
-                            :media="{src: 'https://via.placeholder.com/50x50', alt: ''}"
-                            selectable
-                        >
-                        </polaris-resource-list-item>
-                    </template>
-                </polaris-resource-list>
+                <polaris-card>
+                    <polaris-resource-list
+                        :items="products"
+                        @on-selection-change="setSelectedItems"
+                    >
+                        <template slot="item" slot-scope="{item, index}">
+                            <polaris-resource-list-item
+                                :id="item.id"
+                                :attribute-one="item.title"
+                                :index="index.toString()"
+                                :media="{src: 'https://via.placeholder.com/50x50', alt: '', size: 'small'}"
+                                selectable
+                            >
+                            </polaris-resource-list-item>
+                        </template>
+                    </polaris-resource-list>
+                </polaris-card>
 
                 {{selectedItems}}
 
@@ -46,7 +49,7 @@
                         if( value.checkValue){
                             this.selectedItems.push(this.products[value.index])
                         } else {
-                            this.selectedItems.splice(value.index,1)
+                            this.selectedItems.splice(this.selectedItems.findIndex(item => item.id === value.id),1)
                         }
                     }
                 },
@@ -54,11 +57,23 @@
                     selectedItems : [],
                     products: [
                         {
+                            id: 245,
                             title: 'Product 1',
                             value: 1,
                         },
                         {
+                            id: 300,
                             title: 'Product 2',
+                            value: 344,
+                        },
+                        {
+                            id: 6667,
+                            title: 'Product 4',
+                            value: 1,
+                        },
+                        {
+                            id: 897,
+                            title: 'Product 5',
                             value: 344,
                         },
                     ],
