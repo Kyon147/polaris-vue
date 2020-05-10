@@ -21,7 +21,6 @@
             <template v-if="selectable">
                 <div class="Polaris-ResourceItem__Handle">
                     <polaris-checkbox
-                        @change.native="updateListItems"
                         v-model="checkValue"
                         label-hidden
                     />
@@ -235,6 +234,13 @@ export default {
             }
 
             return r;
+        }
+    },
+    watch: {
+        checkValue : function (newVal, oldVal) {
+            console.log(newVal);
+            console.log(oldVal);
+            this.updateListItems()
         }
     },
     methods: {
