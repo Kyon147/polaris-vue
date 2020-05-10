@@ -14,7 +14,6 @@
                 :exceptions="item.exceptions"
                 :actions="item.actions"
                 :persist-actions="item.persistActions"
-                :index="index.toString()"
             >
             </polaris-resource-list-item>
         </slot>

@@ -23,7 +23,6 @@
                     <polaris-checkbox
                         @change.native="updateListItems"
                         v-model="checkValue"
-                        :value="index"
                         label-hidden
                     />
                 </div>
@@ -206,7 +205,6 @@ export default {
             }
         },
         persistActions: Boolean,
-        index: String,
         selectable: Boolean
     },
     data() {

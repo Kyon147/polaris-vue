@@ -14,14 +14,14 @@
 
                 <polaris-card>
                     <polaris-resource-list
+                        ref="list"
                         :items="products"
                         @on-selection-change="setSelectedItems"
                     >
-                        <template slot="item" slot-scope="{item, index}">
+                        <template slot="item" slot-scope="{item}">
                             <polaris-resource-list-item
                                 :id="item.id"
                                 :attribute-one="item.title"
-                                :index="index.toString()"
                                 :media="{src: 'https://via.placeholder.com/50x50', alt: '', size: 'small'}"
                                 selectable
                             >
@@ -31,6 +31,8 @@
                 </polaris-card>
 
                 {{selectedItems}}
+
+                <polaris-button @click="selectAll">Select All</polaris-button>
 
             </polaris-page>
 
@@ -45,9 +47,18 @@
             var root = new Vue({
                 el: '#app',
                 methods: {
+                    selectAll(){
+                        console.log("Select All");
+                        console.log(this.$refs);
+                        for (let i in this.$refs.list.$children){
+                            let item = this.$refs.list.$children[i]
+                            console.log(item);
+                            item.checkValue = true;
+                        }
+                    },
                     setSelectedItems(value) {
                         if( value.checkValue){
-                            this.selectedItems.push(this.products[value.index])
+                            this.selectedItems.push(this.products[this.products.findIndex(item => item.id === value.id)])
                         } else {
                             this.selectedItems.splice(this.selectedItems.findIndex(item => item.id === value.id),1)
                         }
@@ -64,12 +75,12 @@
                         {
                             id: 300,
                             title: 'Product 2',
-                            value: 344,
+                            value: 667,
                         },
                         {
                             id: 6667,
                             title: 'Product 4',
-                            value: 1,
+                            value: 222,
                         },
                         {
                             id: 897,
