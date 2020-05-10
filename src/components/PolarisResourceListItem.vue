@@ -4,7 +4,9 @@
      @focus="onFocus"
      @blur="onBlur"
      @mouseenter="onMouseEnter"
-     @mouseleave="onMouseLeave">
+     @mouseleave="onMouseLeave"
+     @click="onClick"
+>
     <polaris-unstyled-link
         v-if="url"
         :aria-describedby="realId"
@@ -257,6 +259,9 @@ export default {
         },
         onFocus() {
             this.focused = true;
+        },
+        onClick() {
+            this.$emit('click', this);
         },
         onBlur(e) {
             if (!this.$refs.element || !this.$refs.element.contains(e.relatedTarget)) {

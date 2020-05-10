@@ -24,6 +24,7 @@
                                 :attribute-one="item.title"
                                 :media="{src: 'https://via.placeholder.com/50x50', alt: '', size: 'small'}"
                                 selectable
+                                @click="clickItem"
                             >
                             </polaris-resource-list-item>
                         </template>
@@ -47,6 +48,9 @@
             var root = new Vue({
                 el: '#app',
                 methods: {
+                    clickItem: function(e){
+                        e.checkValue = !e.checkValue
+                    },
                     selectAll(){
                         console.log("Select All");
                         console.log(this.$refs);
