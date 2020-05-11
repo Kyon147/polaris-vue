@@ -318,7 +318,15 @@ export default {
         outline: none;
         cursor: pointer;
     }
+    .Polaris-ResourceList__Link{
+        z-index: 30;
+        cursor: pointer;
+    }
     .Polaris-ResourceItem--disabled{
+        pointer-events: none;
+        cursor: default;
+    }
+    .Polaris-ResourceItem--disabled a{
         pointer-events: none;
         cursor: default;
     }
