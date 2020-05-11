@@ -8,12 +8,12 @@
      @click="onClick"
 >
     <polaris-unstyled-link
-        v-if="url"
+        v-if="url && !disabled"
         :aria-describedby="realId"
         class="Polaris-ResourceList__Link"
         :url="url">
     </polaris-unstyled-link>
-    <slot name="url"></slot>
+    <slot v-if="!disabled" name="url"></slot>
 
     <div class="Polaris-ResourceList__Container"
          :id="realId">
@@ -25,6 +25,7 @@
                     <polaris-checkbox
                         v-model="checkValue"
                         label-hidden
+                        :disabled="disabled"
                     />
                 </div>
             </template>
@@ -206,7 +207,8 @@ export default {
             }
         },
         persistActions: Boolean,
-        selectable: Boolean
+        selectable: Boolean,
+        disabled: Boolean
     },
     data() {
         return {
@@ -235,6 +237,10 @@ export default {
                 r['Polaris-ResourceItem--selected'] = true;
             }
 
+            if (this.disabled) {
+                r['Polaris-ResourceItem--disabled'] = true;
+            }
+
             return r;
         }
     },
@@ -261,6 +267,7 @@ export default {
             this.focused = true;
         },
         onClick() {
+            if (this.disabled) {return}
             this.$emit('click', this);
         },
         onBlur(e) {
@@ -305,5 +312,14 @@ export default {
     }
     .Polaris-ResourceItem--selected:not(.Polaris-ResourceItem--newDesignLanguage) {
         background-image: linear-gradient(rgba(179,188,245,.15),rgba(179,188,245,.15));
+    }
+    .Polaris-ResourceList__Item {
+        position: relative;
+        outline: none;
+        cursor: pointer;
+    }
+    .Polaris-ResourceItem--disabled{
+        pointer-events: none;
+        cursor: default;
     }
 </style>
