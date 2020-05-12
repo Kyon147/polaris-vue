@@ -366,6 +366,7 @@ export default {
 
     .Polaris-ResourceItem--selectable.Polaris-ResourceItem--selectMode {
         transform: translateX(0);
+        cursor: pointer;
     }
 
     .Polaris-ResourceItem--selectMode a{
