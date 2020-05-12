@@ -208,13 +208,14 @@ export default {
         },
         persistActions: Boolean,
         selectable: Boolean,
-        disabled: Boolean
+        disabled: Boolean,
     },
     data() {
         return {
             actionsMenuVisible: false,
             focused: false,
             checkValue: false,
+            selectMode: false,
         };
     },
     computed: {
@@ -237,8 +238,16 @@ export default {
                 r['Polaris-ResourceItem--selected'] = true;
             }
 
+            if (this.selectable){
+                r['Polaris-ResourceItem--selectable'] = true;
+            }
+
             if (this.disabled) {
                 r['Polaris-ResourceItem--disabled'] = true;
+            }
+
+            if (this.selectMode) {
+                r['Polaris-ResourceItem--selectMode'] = true;
             }
 
             return r;
@@ -246,10 +255,8 @@ export default {
     },
     watch: {
         checkValue : function (newVal, oldVal) {
-            console.log(newVal);
-            console.log(oldVal);
             this.updateListItems()
-        }
+        },
     },
     methods: {
         exceptionItemClass(ex) {
@@ -267,7 +274,7 @@ export default {
             this.focused = true;
         },
         onClick() {
-            if (this.disabled) {return}
+            if (this.disabled || !this.selectMode) {return}
             this.$emit('click', this);
         },
         onBlur(e) {
@@ -296,10 +303,19 @@ export default {
 </script>
 <style>
     .Polaris-ResourceList__Container{
-        pointer-events: all;
+        z-index: 2;
     }
     .Polaris-ResourceItem__Owned{
         display: flex;
+    }
+    .Polaris-ResourceItem__Handle{
+        pointer-events: bounding-box;
+    }
+
+    .Polaris-Choice {
+        display: inline-flex;
+        justify-content: flex-start;
+        padding: 1.7rem 1.7rem;
     }
 
     .Polaris-ResourceItem__Handle {
@@ -316,10 +332,10 @@ export default {
     .Polaris-ResourceList__Item {
         position: relative;
         outline: none;
-        cursor: pointer;
+        cursor: default;
     }
     .Polaris-ResourceList__Link{
-        z-index: 30;
+        z-index: 1;
         cursor: pointer;
     }
     .Polaris-ResourceItem--disabled{
@@ -330,4 +346,31 @@ export default {
         pointer-events: none;
         cursor: default;
     }
+
+    .Polaris-ResourceItem--selectable {
+        width: calc(100% + 4rem);
+        transform: translateX(-4rem);
+        transition: transform .2s cubic-bezier(.64,0,.35,1);
+        margin-right: -4rem;
+    }
+    @media screen and (min-width: 28.625em){
+
+        .Polaris-ResourceItem--selectable {
+            width: 100%;
+            transform: translateX(0);
+            margin-right: 0;
+        }
+
+    }
+
+    .Polaris-ResourceItem--selectable.Polaris-ResourceItem--selectMode {
+        transform: translateX(0);
+    }
+
+    .Polaris-ResourceItem--selectMode a{
+        pointer-events: none;
+        cursor: default;
+    }
+
+
 </style>

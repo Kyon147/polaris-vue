@@ -13,6 +13,7 @@
             <polaris-page title="Test Page">
 
                 <polaris-card>
+<!--                    <polaris-button icon="enableSelection" @click="dosomething">Select Mode</polaris-button>-->
                     <polaris-resource-list
                         ref="list"
                         :items="products"
@@ -21,11 +22,13 @@
                         <template slot="item" slot-scope="{item}">
                             <polaris-resource-list-item
                                 :id="item.id"
+                                :url="item.url"
                                 :attribute-one="item.title"
                                 :media="{src: 'https://via.placeholder.com/50x50', alt: '', size: 'small'}"
                                 @click="clickItem"
                                 :disabled="item.disabled"
                                 selectable
+                                select-mode
                             >
                             </polaris-resource-list-item>
                         </template>
@@ -48,7 +51,21 @@
 
             var root = new Vue({
                 el: '#app',
+                created(){
+                    console.log("Root View created");
+                    console.log(this.$refs);
+                },
                 methods: {
+                    dosomething(e){
+                        console.log(e);
+                        console.log(this);
+                        console.log(this.$refs.list.$children);
+                        for(let i in this.$refs.list.$children){
+                            var item = this.$refs.list.$children[i];
+                            item.selectMode = !item.selectMode;
+                        }
+
+                    },
                     clickItem: function(e){
                         e.checkValue = !e.checkValue
                     },
@@ -58,7 +75,9 @@
                         for (let i in this.$refs.list.$children){
                             let item = this.$refs.list.$children[i]
                             console.log(item);
-                            console.log( item.checkValue = true);
+                            if (!item.disabled){
+                                item.checkValue = true;
+                            }
                         }
                     },
                     setSelectedItems(value) {
@@ -82,6 +101,7 @@
                             id: 300,
                             title: 'Product 2',
                             value: 667,
+                            url: 'https://google.com'
                         },
                         {
                             id: 6667,
@@ -103,3 +123,5 @@
 
     </body>
 </html>
+<script>
+</script>

@@ -27,6 +27,7 @@ export {default as disable} from './disable.svg';
 export {default as dispute} from './dispute.svg';
 export {default as duplicate} from './duplicate.svg';
 export {default as embed} from './embed.svg';
+export {default as enableSelection} from './enable-selection.svg';
 export {default as export} from './export.svg';
 export {default as external} from './external.svg';
 export {default as help} from './help.svg';

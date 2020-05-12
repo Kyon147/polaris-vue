@@ -1,7 +1,7 @@
 <template>
 <span :class="classes" :aria-label="accessibilityLabel">
     <div v-if="source == 'placeholder' || !finalSource" class="Polaris-Icon__Placeholder"></div>
-    <svg 
+    <svg
         v-if="source != 'placeholder' && finalSource"
         class="Polaris-Icon__Svg"
         :viewBox="finalSource.viewBox"
@@ -43,6 +43,7 @@ import {
     dispute,
     duplicate,
     embed,
+    enableSelection,
     export as exportIcon,
     external,
     help,
@@ -88,6 +89,7 @@ export const BUNDLED_ICONS = {
     dispute,
     duplicate,
     embed,
+    enableSelection,
     export: exportIcon,
     external,
     help,
