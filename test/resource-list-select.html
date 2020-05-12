@@ -27,8 +27,8 @@
                                 :media="{src: 'https://via.placeholder.com/50x50', alt: '', size: 'small'}"
                                 @click="clickItem"
                                 :disabled="item.disabled"
+                                :select-mode="selectMode"
                                 selectable
-                                select-mode
                             >
                             </polaris-resource-list-item>
                         </template>
@@ -60,10 +60,11 @@
                         console.log(e);
                         console.log(this);
                         console.log(this.$refs.list.$children);
-                        for(let i in this.$refs.list.$children){
+                        /*for(let i in this.$refs.list.$children){
                             var item = this.$refs.list.$children[i];
                             item.selectMode = !item.selectMode;
-                        }
+                        }*/
+                        this.selectMode = !this.selectMode
 
                     },
                     clickItem: function(e){
@@ -114,7 +115,8 @@
                             value: 344,
                         },
                     ],
-                    value1: ''
+                    value1: '',
+                    selectMode: false
                 },
                 computed: {}
 

@@ -209,13 +209,14 @@ export default {
         persistActions: Boolean,
         selectable: Boolean,
         disabled: Boolean,
+        selectMode: Boolean,
     },
     data() {
         return {
             actionsMenuVisible: false,
             focused: false,
             checkValue: false,
-            selectMode: false,
+            // selectMode: false,
         };
     },
     computed: {
