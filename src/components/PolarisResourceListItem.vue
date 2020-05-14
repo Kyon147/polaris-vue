@@ -310,7 +310,8 @@ export default {
         display: flex;
     }
     .Polaris-ResourceItem__Handle{
-        pointer-events: bounding-box;
+        pointer-events: all;
+        cursor: pointer !important;
     }
 
     .Polaris-Choice {
@@ -354,6 +355,11 @@ export default {
         transition: transform .2s cubic-bezier(.64,0,.35,1);
         margin-right: -4rem;
     }
+
+    .Polaris-ResourceItem--selectable.Polaris-ResourceItem--selectMode .Polaris-ResourceItem__Handle{
+        pointer-events: none;
+    }
+
     @media screen and (min-width: 28.625em){
 
         .Polaris-ResourceItem--selectable {
