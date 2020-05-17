@@ -1,8 +1,9 @@
 <template>
 <nav role="navigation">
-    <polaris-unstyled-link 
+    <polaris-unstyled-link
         v-if="breadcrumbAction"
         :url="breadcrumbAction.url"
+        @click="handleAction(breadcrumbAction)"
         class="Polaris-Breadcrumbs__Breadcrumb">
         <span  class="Polaris-Breadcrumbs__Icon">
             <polaris-icon :source="chevronIcon"></polaris-icon>
@@ -35,6 +36,13 @@ export default {
             chevronIcon: chevronIcon
         };
     },
+    methods: {
+        handleAction(action) {
+            if (action.onAction) {
+                action.onAction();
+            }
+        },
+    },
     computed: {
         breadcrumbAction() {
             if (this.breadcrumbs.length < 1) {
@@ -45,3 +53,8 @@ export default {
     }
 };
 </script>
+<style>
+    .Polaris-Breadcrumbs__Breadcrumb{
+        cursor: pointer;
+    }
+</style>

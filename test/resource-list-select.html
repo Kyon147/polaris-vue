@@ -10,7 +10,9 @@
     <body>
         <div id="app">
 
-            <polaris-page title="Test Page">
+            <polaris-page title="Test Page"
+            :breadcrumbs="[{content: 'back', onAction: doSomething}]"
+            >
 
                 <polaris-button icon="enableSelection" @click="dosomething">Select Mode</polaris-button>
                 <polaris-card>
@@ -56,7 +58,7 @@
                     console.log(this.$refs);
                 },
                 methods: {
-                    dosomething(e){
+                    dosomething: function(e){
                         console.log(e);
                         console.log(this);
                         console.log(this.$refs.list.$children);
@@ -87,6 +89,9 @@
                         } else {
                             this.selectedItems.splice(this.selectedItems.findIndex(item => item.id === value.id),1)
                         }
+                    },
+                    doSomething: function(){
+                        console.log('done somethign in breadcrumb');
                     }
                 },
                 data: {
@@ -125,5 +130,3 @@
 
     </body>
 </html>
-<script>
-</script>
