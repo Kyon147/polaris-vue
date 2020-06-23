@@ -1,9 +1,9 @@
 <template>
-<div ref="track" 
+<div ref="track"
      class="Polaris-ColorPicker__Slidable"
      @mousedown="startDrag"
      @touchstart="startDrag">
-    
+
     <div :style="draggerStyle"
          class="Polaris-ColorPicker__Dragger"
          ref="dragger">
@@ -28,10 +28,10 @@ export default {
     mounted() {
         console.log('draggerheight', this.$refs.dragger.clientWidth);
         this.$emit('draggerheight', this.$refs.dragger.clientWidth);
-        
-      
+
+
         window.addEventListener('mousemove', this.handleMove);
-        window.addEventListener('touchmove', this.handleMove);
+        window.addEventListener('touchmove', this.handleMove, {passive: false});
         window.addEventListener('mouseup', this.endDrag);
         window.addEventListener('touchend', this.endDrag);
         window.addEventListener('touchcancel', this.endDrag);
@@ -52,30 +52,35 @@ export default {
     },
     methods: {
         startDrag(e) {
+            console.log(e);
             if (e.type === 'mousedown') {
                 this.handleDraggerMove(e.clientX, e.clientY);
             }
+            if (e.type === 'touchstart') {
+                var rect = e.target.getBoundingClientRect();
+                this.handleDraggerMove(e.touches[0].clientX, e.touches[0].clientY);
+            }
             this.dragging = true;
         },
-        
+
         handleMove(e) {
             if (!this.dragging) { return; }
             e.stopImmediatePropagation();
             e.stopPropagation();
             e.preventDefault();
-            
+
             if (e.type === 'mousemove') {
                 this.handleDraggerMove(e.clientX, e.clientY);
                 return;
             }
-            
-            this.handleDraggerMove(e.touches[0].clientX, e.touches[1].clientY);
+            var rect = e.target.getBoundingClientRect();
+            this.handleDraggerMove(e.touches[0].clientX, e.touches[0].clientY) ;
         },
-        
+
         endDrag() {
             this.dragging = false;
         },
-        
+
         handleDraggerMove(x, y) {
             const rect = this.$refs.track.getBoundingClientRect();
             this.$emit('change', {

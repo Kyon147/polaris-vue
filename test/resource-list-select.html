@@ -15,33 +15,41 @@
             >
 
                 <polaris-button icon="enableSelection" @click="dosomething">Select Mode</polaris-button>
-                <polaris-card>
-                    <polaris-resource-list
-                        ref="list"
-                        :items="products"
-                        @on-selection-change="setSelectedItems"
-                    >
-                        <template slot="item" slot-scope="{item}">
-                            <polaris-resource-list-item
-                                :id="item.id"
-                                :url="item.url"
-                                :attribute-one="item.title"
-                                :media="{src: 'https://via.placeholder.com/50x50', alt: '', size: 'small'}"
-                                @click="clickItem"
-                                :disabled="item.disabled"
-                                selectable
-                                select-mode
-                            >
-                            </polaris-resource-list-item>
-                        </template>
-                    </polaris-resource-list>
-                </polaris-card>
+<!--                <polaris-card>-->
+<!--                    <polaris-resource-list-->
+<!--                        ref="list"-->
+<!--                        :items="products"-->
+<!--                        @on-selection-change="setSelectedItems"-->
+<!--                    >-->
+<!--                        <template slot="item" slot-scope="{item}">-->
+<!--                            <polaris-resource-list-item-->
+<!--                                :id="item.id"-->
+<!--                                :url="item.url"-->
+<!--                                :attribute-one="item.title"-->
+<!--                                :media="{src: 'https://via.placeholder.com/50x50', alt: '', size: 'small'}"-->
+<!--                                @click="clickItem"-->
+<!--                                :disabled="item.disabled"-->
+<!--                                selectable-->
+<!--                                select-mode-->
+<!--                            >-->
+<!--                            </polaris-resource-list-item>-->
+<!--                        </template>-->
+<!--                    </polaris-resource-list>-->
+<!--                </polaris-card>-->
 
                 {{selectedItems}}
 
                 <polaris-button @click="selectAll">Select All</polaris-button>
 
             </polaris-page>
+
+            <polaris-color-picker
+            v-model="color"
+            @dragover.prevent
+            >
+            </polaris-color-picker>
+
+            {{color}}
 
 
 
@@ -95,6 +103,7 @@
                     }
                 },
                 data: {
+                    color: {},
                     selectedItems : [],
                     products: [
                         {
@@ -130,3 +139,6 @@
 
     </body>
 </html>
+<script>
+
+</script>

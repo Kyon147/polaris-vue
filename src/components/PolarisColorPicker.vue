@@ -6,14 +6,15 @@
         <polaris-color-picker-slidable
             :dragger-x="draggerX"
             :dragger-y="draggerY"
-            @change="handleDraggerMove">
+            @change="handleDraggerMove"
+        >
         </polaris-color-picker-slidable>
     </div>
-    <polaris-color-picker-hue-picker 
+    <polaris-color-picker-hue-picker
         :hue="color.hue"
         @change="handleHueChange">
     </polaris-color-picker-hue-picker>
-    <polaris-color-picker-alpha-picker 
+    <polaris-color-picker-alpha-picker
         v-if="allowAlpha"
         :alpha="color.alpha"
         @change="handleAlphaChange">
@@ -77,7 +78,7 @@ export default {
                 this.color.saturation,
                 this.color.brightness,
                 this.color.alpha);
-            
+
             this.$emit('change', newColor);
         },
         handleAlphaChange(e) {
@@ -86,19 +87,20 @@ export default {
                 this.color.saturation,
                 this.color.brightness,
                 e);
-            
+
             this.$emit('change', newColor);
         },
         handleDraggerMove(e) {
+            console.log(e);
             const saturation = Math.max(0, Math.min(1, e.x / this.pickerSize));
             const brightness = Math.max(0, Math.min(1, 1 - e.y / this.pickerSize));
-            
+
             var newColor = new HSBColor(
                 this.color.hue,
                 saturation,
                 brightness,
                 this.color.alpha);
-            
+
             this.$emit('change', newColor);
         }
     }
