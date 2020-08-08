@@ -210,6 +210,7 @@ export default {
         selectable: Boolean,
         disabled: Boolean,
         selectMode: Boolean,
+        checkValue: Boolean,
     },
     data() {
         return {
