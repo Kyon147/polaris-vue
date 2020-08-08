@@ -210,13 +210,17 @@ export default {
         selectable: Boolean,
         disabled: Boolean,
         selectMode: Boolean,
-        checkValue: Boolean,
+        checkValue: {
+            type: Boolean,
+            default(){
+                return false;
+            }
+        },
     },
     data() {
         return {
             actionsMenuVisible: false,
             focused: false,
-            checkValue: false,
             // selectMode: false,
         };
     },
