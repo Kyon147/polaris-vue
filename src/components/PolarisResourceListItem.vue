@@ -23,9 +23,10 @@
             <template v-if="selectable">
                 <div class="Polaris-ResourceItem__Handle">
                     <polaris-checkbox
-                        v-model="checkValue"
+                        v-model="checkedValue"
                         label-hidden
                         :disabled="disabled"
+                        @change="onChange"
                     />
                 </div>
             </template>
@@ -178,6 +179,10 @@ export default {
         PolarisPopover,
         PolarisBadge,
     },
+    model: {
+        prop: 'checked',
+        event: 'change'
+    },
     props: {
         id: {
             type: [String, Number],
@@ -210,7 +215,7 @@ export default {
         selectable: Boolean,
         disabled: Boolean,
         selectMode: Boolean,
-        checkValue: {
+        checked: {
             type: Boolean,
             default(){
                 return false;
@@ -222,9 +227,11 @@ export default {
             actionsMenuVisible: false,
             focused: false,
             // selectMode: false,
+            checkedValue: this.checked
         };
     },
     computed: {
+
         realId() {
             return (this.id) ? this.id : 'PolarisResourceListItem'+this._uid;
         },
@@ -260,7 +267,7 @@ export default {
         }
     },
     watch: {
-        checkValue : function (newVal, oldVal) {
+        checkedValue : function (newVal, oldVal) {
             this.updateListItems()
         },
     },
@@ -280,8 +287,15 @@ export default {
             this.focused = true;
         },
         onClick() {
+            console.log('clicked');
             if (this.disabled || !this.selectMode) {return}
+            this.checkedValue = !this.checkedValue;
             this.$emit('click', this);
+        },
+        onChange(e) {
+            console.log( e );
+            var target = e.target || e.srcElement;
+            this.$emit('change', e);
         },
         onBlur(e) {
             if (!this.$refs.element || !this.$refs.element.contains(e.relatedTarget)) {

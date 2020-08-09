@@ -27,7 +27,7 @@
                                 :url="item.url"
                                 :attribute-one="item.title"
                                 :media="{src: 'https://via.placeholder.com/50x50', alt: '', size: 'small'}"
-                                @click="clickItem"
+                                :checked="item.checked"
                                 :disabled="item.disabled"
                                 selectable
                                 select-mode
@@ -42,15 +42,6 @@
                 <polaris-button @click="selectAll">Select All</polaris-button>
 
             </polaris-page>
-
-            <polaris-color-picker
-            v-model="color"
-            @dragover.prevent
-            >
-            </polaris-color-picker>
-
-            {{color}}
-
 
 
 
@@ -79,6 +70,7 @@
                     },
                     clickItem: function(e){
                         e.checkValue = !e.checkValue
+
                     },
                     selectAll(){
                         console.log("Select All");
@@ -92,7 +84,8 @@
                         }
                     },
                     setSelectedItems(value) {
-                        if( value.checkValue){
+                        console.log(value);
+                        if(value.checkedValue){
                             this.selectedItems.push(this.products[this.products.findIndex(item => item.id === value.id)])
                         } else {
                             this.selectedItems.splice(this.selectedItems.findIndex(item => item.id === value.id),1)
@@ -116,7 +109,8 @@
                             id: 300,
                             title: 'Product 2',
                             value: 667,
-                            url: 'https://google.com'
+                            url: 'https://google.com',
+                            checked: true,
                         },
                         {
                             id: 6667,
