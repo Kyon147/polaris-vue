@@ -180,6 +180,7 @@ export default {
         },
         selectedText(){
             let v = this.value || '';
+            console.log(v);
             if (v){
                 if(this.options){
                     let option =  this.options.find( e => e.value.toString() === v)
