@@ -31,16 +31,16 @@
             </option>
 
             <template v-if="options">
-                <template v-for="option in options">
+                <template v-for="(option, index) in options">
                     <option
                         v-if="typeof option == 'string'"
-                        :key="option"
+                        :key="`${option}-${index}-${Math.random(99999)}`"
                         :value="option">
                         {{ option }}
                     </option>
                     <option
                         v-if="typeof option != 'string'"
-                        :key="option.value"
+                        :key="`${option.value}-${Math.random(99999)}`"
                         :value="option.value"
                         :disabled="option.disabled">
                         {{ option.label }}
@@ -182,7 +182,7 @@ export default {
             let v = this.value || '';
             if (v){
                 if(this.options){
-                    let option =  this.options.find( e => e.value === v)
+                    let option =  this.options.find( e => e.value.toString() === v)
                     if (option) {
                         return option.label;
                     } else {

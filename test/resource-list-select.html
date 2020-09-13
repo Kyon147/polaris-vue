@@ -42,6 +42,26 @@
                 <polaris-button @click="selectAll">Select All</polaris-button>
 
             </polaris-page>
+            <polaris-select
+                placeholder="Please select an option"
+                label="I currently set my product costs in Shopify"
+                :options="[
+                         {label: 'Yes', value: 1},
+                        {label: 'No', value: 0}
+                    ]"
+                v-model="value1"
+            ></polaris-select>
+
+            <polaris-select
+                placeholder="Please select an option"
+                label="I currently set Something"
+                :options="[
+                         {label: 'Yes', value: 1},
+                        {label: 'No', value: 0}
+                    ]"
+                v-model="value2"
+            ></polaris-select>
+
 
 
 
@@ -124,6 +144,7 @@
                         },
                     ],
                     value1: '',
+                    value2: '',
                     selectMode: false
                 },
                 computed: {}
@@ -133,6 +154,9 @@
 
     </body>
 </html>
+<script>
+
+</script>
 <script>
 
 </script>
