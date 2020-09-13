@@ -27,6 +27,7 @@
                 :label="placeholder"
                 :value="null"
                 disabled
+                selected
                 hidden>
             </option>
 
@@ -35,7 +36,8 @@
                     <option
                         v-if="typeof option == 'string'"
                         :key="`${option}-${index}-${Math.random(99999)}`"
-                        :value="option">
+                        :value="option"
+                    >
                         {{ option }}
                     </option>
                     <option
@@ -179,8 +181,7 @@ export default {
             return r;
         },
         selectedText(){
-            let v = this.value || '';
-            console.log(v);
+            let v = this.value || null;
             if (v){
                 if(this.options){
                     let option =  this.options.find( e => e.value.toString() === v)
@@ -192,6 +193,17 @@ export default {
                 }
                 return v;
            }
+        },
+        isSelected() {
+            let v = this.value || null;
+            console.log(v);
+            if (v) {
+                if (this.options) {
+                    let option = this.options.find(e => e.value.toString() === v)
+                    console.log(!!option);
+                    return (!!option) ? 'selected' : '';
+                }
+            }
         }
     },
     methods: {
