@@ -2,22 +2,22 @@ Allows you to use [Shopify Polaris](http://polaris.shopify.com/) components in [
 
 This library currently contains components up-to-date with: _@shopify/polaris `v1.9.1`_
 
-`polaris-vue` has been used in production and been exposed to thousands of merchants, but please note that there may still be some rough edges. If you notice any bugs, please submit a PR or issue. You can also contact apps@eastsideco.com.
+`polaris-vue` has been used in production and been exposed to thousands of merchants, but please note that there may still be some rough edges. If you notice any bugs, please submit a PR or issue. You can also contact support@appydesign.co.uk
 
 
 
 ## Getting started
 ```
-npm install @eastsideco/polaris-vue
+npm install @appydesign/polaris-vue
 ```
 
 When initializing Vue, i.e. in `main.js`:
 ```
 import Vue from 'vue';
-import PolarisVue from '@eastsideco/polaris-vue';
+import PolarisVue from '@appydesign/polaris-vue';
 
 // Recommended: import the correct CSS for the version of Polaris the library uses.
-import '@eastsideco/polaris-vue/lib/polaris-vue.css';
+import '@appydesign/polaris-vue/lib/polaris-vue.css';
 
 // Register the plugin with Vue
 Vue.use(PolarisVue);
