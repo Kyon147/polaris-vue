@@ -1,3 +1,6 @@
+#Notice:
+I recently decided to detatch the fork from EastsideCo and work on this properly and look to maintain it and update it more frequently. Feel free to Watch for when I get started on the bulk of it.
+
 Allows you to use [Shopify Polaris](http://polaris.shopify.com/) components in [Vue 2](http://vuejs.org/).
 
 This library currently contains components up-to-date with: _@shopify/polaris `v1.9.1`_
