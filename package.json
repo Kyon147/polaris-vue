@@ -1,5 +1,5 @@
 {
-  "name": "@eastsideco/polaris-vue",
+  "name": "@kyon147/polaris-vue",
   "version": "0.1.22",
   "description": "Shopify Polaris for Vue 2",
   "main": "lib/polaris-vue.min.js",
@@ -24,14 +24,14 @@
     "mocha": "3.3.0",
     "style-loader": "^0.18.2",
     "svg-inline-loader": "^0.8.2",
-    "vue-loader": "^13.7.3",
-    "vue-template-compiler": "^2.6.12",
+    "vue-loader": "^14.2.4",
+    "vue-template-compiler": "^2.6.14",
     "webpack": "3.1.0",
     "yargs": "7.1.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/EastsideCo/polaris-vue.git"
+    "url": "https://github.com/kyon147/polaris-vue.git"
   },
   "keywords": [],
   "author": "ESC Apps Team <support@appydesign.co.uk>",
