@@ -3,16 +3,20 @@
 const webpack = require('webpack');
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const DropConsoleWebpackPlugin = require('drop-console-webpack-plugin')
 const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 
 let libraryName = 'polaris-vue';
-let libraryNameCamelCase= 'PolarisVue';
+let libraryNameCamelCase = 'PolarisVue';
 
 let plugins = [], outputFile;
 
 if (env === 'build') {
-    plugins.push(new UglifyJsPlugin({ minimize: true, comments: false, }));
+    plugins.push(new UglifyJsPlugin({
+        minimize: true,
+    }));
+    plugins.push(new DropConsoleWebpackPlugin())
     plugins.push(new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: '"production"'
@@ -28,7 +32,7 @@ if (env === 'build') {
     outputFile = libraryName + '.js';
 }
 
-plugins.push(new ExtractTextPlugin(libraryName+".css"));
+plugins.push(new ExtractTextPlugin(libraryName + ".css"));
 
 const config = {
     entry: __dirname + '/src/index.js',
