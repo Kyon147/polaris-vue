@@ -1,6 +1,6 @@
 {
-    "name": "@kyon147/polaris-vue",
-    "version": "0.1.22",
+    "name": "@appydesign/polaris-vue",
+    "version": "0.1.23",
     "description": "Shopify Polaris for Vue 2",
     "main": "lib/polaris-vue.min.js",
     "scripts": {
@@ -37,6 +37,9 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/kyon147/polaris-vue.git"
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "keywords": [],
     "author": "ESC Apps Team <support@appydesign.co.uk>",
