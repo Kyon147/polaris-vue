@@ -1,13 +1,12 @@
-#Notice:
-I recently decided to detatch the fork from EastsideCo and work on this properly and look to maintain it and update it more frequently. Feel free to Watch for when I get started on the bulk of it.
+**Notice:** This has recently been detached so I am working on updating NPM modules and bringing the components up to date.
 
 Allows you to use [Shopify Polaris](http://polaris.shopify.com/) components in [Vue 2](http://vuejs.org/).
 
-This library currently contains components up-to-date with: _@shopify/polaris `v1.9.1`_
+This library currently contains components up-to-date with: @shopify/polaris `v1.9.1`
 
-`polaris-vue` has been used in production and been exposed to thousands of merchants, but please note that there may still be some rough edges. If you notice any bugs, please submit a PR or issue. You can also contact support@appydesign.co.uk
-
-
+`polaris-vue` has been used in production and been exposed to thousands of merchants, 
+but please note that there may still be some rough edges. If you notice any bugs, 
+please submit a PR or issue. You can also contact support@appydesign.co.uk
 
 ## Getting started
 ```
@@ -100,6 +99,12 @@ Vue.use(PolarisVue, {
     },
 });
 ```
+
+## Contribution
+If you are interested contributing all PRs are welcomed.
+
+## Issues
+Please file an issue on the [Github Repo](https://github.com/Kyon147/polaris-vue)
 
 ## License
 
