@@ -99,7 +99,7 @@ $spinner-size: rem(20px);
 }
 
 .Polaris-Button--primary {
-  @include button-filled(color(indigo), color(indigo, dark));
+  @include button-filled(color(primary), color(primary, hover));
   @include recolor-icon(color(white));
 
   &.Polaris-Button--disabled {

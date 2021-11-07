@@ -1,5 +1,5 @@
 
-import styles from './resources/styles/styles.css'; // eslint-disable-line no-unused-vars
+import styles from './resources/styles/styles.scss'; // eslint-disable-line no-unused-vars
 
 import PolarisAccountConnection from './components/PolarisAccountConnection.vue';
 import PolarisActionList from './components/PolarisActionList.vue';

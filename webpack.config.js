@@ -1,11 +1,10 @@
 /* global __dirname, require, module*/
 
 const webpack = require('webpack');
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const DropConsoleWebpackPlugin = require('drop-console-webpack-plugin')
 const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 let libraryName = 'polaris-vue';
 let libraryNameCamelCase = 'PolarisVue';
@@ -13,10 +12,6 @@ let libraryNameCamelCase = 'PolarisVue';
 let plugins = [], outputFile;
 
 if (env === 'build') {
-    plugins.push(new UglifyJsPlugin({
-        minimize: true,
-    }));
-    plugins.push(new DropConsoleWebpackPlugin())
     plugins.push(new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: '"production"'
@@ -32,7 +27,7 @@ if (env === 'build') {
     outputFile = libraryName + '.js';
 }
 
-plugins.push(new ExtractTextPlugin(libraryName + ".css"));
+plugins.push(new MiniCssExtractPlugin({filename: libraryName + '.css'}));
 
 const config = {
     entry: __dirname + '/src/index.js',
@@ -52,9 +47,27 @@ const config = {
                 exclude: /(node_modules|bower_components)/
             },
             {
+                test: /\.(css|sass|scss)$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            // Prefer `dart-sass`
+                            implementation: require("sass"),
+                        },
+                    }
+                ]
+            },
+/*            {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract("css-loader")
-            },
+            },*/
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
