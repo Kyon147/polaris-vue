@@ -1,44 +1,44 @@
 {
-  "name": "@kyon147/polaris-vue",
-  "version": "0.1.22",
-  "description": "Shopify Polaris for Vue 2",
-  "main": "lib/polaris-vue.min.js",
-  "scripts": {
-    "build": "webpack --env build",
-    "dev": "webpack --progress --colors --watch --env dev",
-    "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
-    "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
-  },
-  "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-core": "6.24.1",
-    "babel-eslint": "7.2.3",
-    "babel-loader": "7.0.0",
-    "babel-plugin-add-module-exports": "0.2.1",
-    "babel-preset-es2015": "6.24.1",
-    "chai": "3.5.0",
-    "css-loader": "^0.28.11",
-    "eslint": "3.19.0",
-    "eslint-loader": "1.7.1",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "mocha": "3.3.0",
-    "style-loader": "^0.18.2",
-    "svg-inline-loader": "^0.8.2",
-    "vue-loader": "^14.2.4",
-    "vue-template-compiler": "^2.6.14",
-    "webpack": "3.1.0",
-    "yargs": "7.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kyon147/polaris-vue.git"
-  },
-  "keywords": [],
-  "author": "ESC Apps Team <support@appydesign.co.uk>",
-  "license": "MIT",
-  "dependencies": {
-    "change-case": "^3.1.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^6.0.7"
-  }
+    "name": "@kyon147/polaris-vue",
+    "version": "0.1.22",
+    "description": "Shopify Polaris for Vue 2",
+    "main": "lib/polaris-vue.min.js",
+    "scripts": {
+        "build": "webpack --env build",
+        "dev": "webpack --progress --colors --watch --env dev",
+        "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
+        "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
+    },
+    "dependencies": {
+        "change-case": "^3.1.0",
+        "sass": "^1.43.4",
+        "sass-loader": "^7.0.3"
+    },
+    "devDependencies": {
+        "babel-cli": "6.24.1",
+        "babel-core": "6.24.1",
+        "babel-eslint": "7.2.3",
+        "babel-loader": "^7.1.5",
+        "babel-plugin-add-module-exports": "0.2.1",
+        "babel-preset-es2015": "6.24.1",
+        "chai": "3.5.0",
+        "css-loader": "^0.28.11",
+        "eslint": "3.19.0",
+        "eslint-loader": "1.7.1",
+        "extract-text-webpack-plugin": "^3.0.2",
+        "mocha": "6.2.3",
+        "style-loader": "^0.18.2",
+        "svg-inline-loader": "^0.8.2",
+        "vue-loader": "^14.2.4",
+        "vue-template-compiler": "^2.6.14",
+        "webpack": "3.1.0",
+        "yargs": "7.1.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kyon147/polaris-vue.git"
+    },
+    "keywords": [],
+    "author": "ESC Apps Team <support@appydesign.co.uk>",
+    "license": "MIT"
 }
