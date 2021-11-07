@@ -91,7 +91,6 @@ export default {
             this.$emit('change', newColor);
         },
         handleDraggerMove(e) {
-            console.log(e);
             const saturation = Math.max(0, Math.min(1, e.x / this.pickerSize));
             const brightness = Math.max(0, Math.min(1, 1 - e.y / this.pickerSize));
 

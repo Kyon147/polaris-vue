@@ -24,8 +24,7 @@
 <script>
 import PolarisResourceListItem from './PolarisResourceListItem.vue';
 export default {
-    created: function(){
-        console.log( this );
+    created(){
     },
     components: {
         PolarisResourceListItem,
@@ -46,9 +45,6 @@ export default {
     },
     methods: {
         setSelectedItems(index, value){
-            console.log( "set selected items happened" );
-            console.log( index );
-            console.log(value);
             this.value = value;
         }
     },

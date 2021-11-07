@@ -35,8 +35,8 @@
     import PolarisButton from "./PolarisButton.vue";
 
     export default {
-        created: function(){
-            console.log( this );
+        created(){
+
         },
         components: {
             PolarisButton,

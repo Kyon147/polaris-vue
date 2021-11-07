@@ -26,10 +26,7 @@ export default {
         };
     },
     mounted() {
-        console.log('draggerheight', this.$refs.dragger.clientWidth);
         this.$emit('draggerheight', this.$refs.dragger.clientWidth);
-
-
         window.addEventListener('mousemove', this.handleMove);
         window.addEventListener('touchmove', this.handleMove, {passive: false});
         window.addEventListener('mouseup', this.endDrag);
@@ -52,7 +49,6 @@ export default {
     },
     methods: {
         startDrag(e) {
-            console.log(e);
             if (e.type === 'mousedown') {
                 this.handleDraggerMove(e.clientX, e.clientY);
             }

@@ -67,7 +67,6 @@ export default {
             type: [Boolean, String],
             default: false,
             validator(v) {
-              /*  console.log({v});*/
                 return (v && typeof v === 'string') ? (v === 'indeterminate') : true;
             }
         },

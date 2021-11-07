@@ -196,11 +196,9 @@ export default {
         },
         isSelected() {
             let v = this.value || null;
-            console.log(v);
             if (v) {
                 if (this.options) {
                     let option = this.options.find(e => e.value.toString() === v)
-                    console.log(!!option);
                     return (!!option) ? 'selected' : '';
                 }
             }

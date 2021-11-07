@@ -23,7 +23,7 @@
             <template v-if="!icon && !disclosure">
                 <slot v-if="!icon && !disclosure"></slot>
             </template>
-        </polaris-unstyled-link>            
+        </polaris-unstyled-link>
     </template>
     <template v-if="!url" slot="active">
         <button
@@ -91,7 +91,7 @@ export default {
     },
     methods: {
         handleMouseUp() {
-            console.log('todo');
+           // TODO Do this
         },
         onAction() {
             this.$emit('click');

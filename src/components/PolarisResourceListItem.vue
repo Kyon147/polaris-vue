@@ -287,13 +287,11 @@ export default {
             this.focused = true;
         },
         onClick() {
-            console.log('clicked');
             if (this.disabled || !this.selectMode) {return}
             this.checkedValue = !this.checkedValue;
             this.$emit('click', this);
         },
         onChange(e) {
-            console.log( e );
             var target = e.target || e.srcElement;
             this.$emit('change', e);
         },
@@ -314,9 +312,7 @@ export default {
             }
         },
         updateListItems(e){
-            console.log( "emit selection change from check" );
             this.$parent.$emit('on-selection-change', this);
-            console.log( this );
         }
     }
 };
