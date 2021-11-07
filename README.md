@@ -39,13 +39,9 @@ Check the demo page for usage examples.
 ## Viewing the demo page
 The demo page contains code examples of almost all the functionality in the library, so it can be pretty helpful.
 
-To view the demo, open up `node_modules/@eastsideco/polaris-vue/test/index.html` after installing the library.
-
-Online version: http://demo.polaris-vue.eastsideco.io/
+To view the demo, open up `node_modules/@appydesign/polaris-vue/test/index.html` after installing the library.
 
 Or to create a standalone copy: clone the repo, run `npm run dev`, then open the file at `test/index.html`.
-
-
 
 ## Differences to @shopify/polaris
 
@@ -85,11 +81,7 @@ Check out the `<polaris-resource-list>` examples on the demo page for examples.
 #### 4. No support for the Polaris EASDK integrations.
 This library doesn't currently support complete integration with the EASDK. 
 
-You can still use this library in EASDK apps, but the page header will not be automatically hidden and synced with the EASDK header. 
-
 Support for the official behavior is planned.
-
-
 
 ## Configuration
 
