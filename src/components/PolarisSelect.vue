@@ -233,7 +233,7 @@ export default {
     }
 };
 </script>
-<style>
+<style lang="scss">
 
     .Polaris-Select__Input {
         font-size: 1.6rem;

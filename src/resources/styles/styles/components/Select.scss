@@ -67,18 +67,17 @@ $input-vertical-adjust: rem(1px);
 
 .Polaris-Select__Icon {
     @include recolor-icon(color(ink, lighter));
-    position: absolute;
+    // position: absolute;
     z-index: z-index(icon, $stacking-order);
-    top: 50%;
+/*    top: 50%;
     right: $input-horizontal-padding;
     transform: translateY(-50%);
-    margin-right: (-0.25 * $icon-size);
+    margin-right: (-0.25 * $icon-size);*/
     pointer-events: none;
 }
 
 .Polaris-Select__Input {
     @include text-style-input;
-    position: absolute;
     z-index: z-index(input, $stacking-order);
     width: 100%;
     min-height: control-height();
