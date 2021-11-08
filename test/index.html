@@ -692,6 +692,17 @@
             <div class="testHeader">&lt;polaris-button&gt;</div>
             <div class="testCase">
                 <div class="example">
+                    <polaris-button @click="testAlert">
+                        Hello World!
+                    </polaris-button>
+                </div>
+                <pre class="code"><code class="html">&#x3C;polaris-button @click=&#x22;testAlert&#x22;&#x3E;
+    Hello World!
+&#x3C;/polaris-button&#x3E;</code></pre>
+            </div>
+
+            <div class="testCase">
+                <div class="example">
                     <polaris-button primary @click="testAlert">
                         Hello World!
                     </polaris-button>
@@ -700,6 +711,7 @@
     Hello World!
 &#x3C;/polaris-button&#x3E;</code></pre>
             </div>
+
             <div class="testCase">
                 <div class="example">
                     <polaris-button outline>
