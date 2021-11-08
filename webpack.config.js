@@ -5,6 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 let libraryName = 'polaris-vue';
 let libraryNameCamelCase = 'PolarisVue';
@@ -30,8 +31,9 @@ if (env === 'build') {
 plugins.push(new MiniCssExtractPlugin({filename: libraryName + '.css'}));
 
 const config = {
+    mode:  env === 'build' ? 'production' : 'development',
     entry: __dirname + '/src/index.js',
-    devtool: 'source-map',
+    devtool: env === 'build' ? false : 'source-map',
     output: {
         path: __dirname + '/lib',
         filename: outputFile,
@@ -85,7 +87,11 @@ const config = {
     plugins: plugins,
     externals: {
         vue: 'vue'
-    }
+    },
+    optimization: {
+        minimizer:[new TerserPlugin()]
+    },
+    performance: { hints: false }
 };
 
 module.exports = config;
