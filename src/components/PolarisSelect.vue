@@ -37,6 +37,7 @@
                         v-if="typeof option == 'string'"
                         :key="`${option}-${index}-${Math.random(99999)}`"
                         :value="option"
+                        :selected="selectedText === option ? 'selected' : ''"
                     >
                         {{ option }}
                     </option>
@@ -44,7 +45,9 @@
                         v-if="typeof option != 'string'"
                         :key="`${option.value}-${Math.random(99999)}`"
                         :value="option.value"
-                        :disabled="option.disabled">
+                        :disabled="option.disabled"
+                        :selected="selectedText === option.value  ? 'selected' : ''"
+                    >
                         {{ option.label }}
                     </option>
                 </template>
@@ -56,14 +59,18 @@
                             <option
                                 v-if="typeof option == 'string'"
                                 :key="option"
-                                :value="option">
+                                :value="option"
+                                :selected="selectedText === option ? 'selected' : ''"
+                            >
                                 {{ option }}
                             </option>
                             <option
                                 v-if="typeof option != 'string'"
                                 :key="option.value"
                                 :value="option.value"
-                                :disabled="option.disabled">
+                                :disabled="option.disabled"
+                                :selected="selectedText === option.value ? 'selected' : ''"
+                            >
                                 {{ option.label }}
                             </option>
                         </template>
@@ -76,14 +83,18 @@
                                 <option
                                     v-if="typeof option == 'string'"
                                     :key="option"
-                                    :value="option">
+                                    :value="option"
+                                    :selected="selectedText === option ? 'selected' : ''"
+                                >
                                     {{ option }}
                                 </option>
                                 <option
                                     v-if="typeof option != 'string'"
                                     :key="option.value"
                                     :value="option.value"
-                                    :disabled="option.disabled">
+                                    :disabled="option.disabled"
+                                    :selected="selectedText === option.value ? 'selected' : ''"
+                                >
                                     {{ option.label }}
                                 </option>
                             </template>
@@ -194,15 +205,6 @@ export default {
                 return v;
            }
         },
-        isSelected() {
-            let v = this.value || null;
-            if (v) {
-                if (this.options) {
-                    let option = this.options.find(e => e.value === v)
-                    return (!!option) ? 'selected' : '';
-                }
-            }
-        }
     },
     methods: {
         onFocus() {
