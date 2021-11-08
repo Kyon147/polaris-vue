@@ -28,6 +28,8 @@
                 test1: false,
                 test2: false,
 
+                modalToggle: false,
+
                 pickerMonth: 4,
                 pickerYear: 2017,
 

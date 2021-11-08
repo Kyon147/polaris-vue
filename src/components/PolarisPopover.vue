@@ -1,14 +1,14 @@
 <template>
 <dynamic-tag :tag="activatorWrapper || 'div'" ref="container">
     <slot name="activator" :activate="onActivate"></slot>
-    
+
     <polaris-popover-overlay
         :id="realId+'Overlay'"
         :active="active"
         :activator-id="activatorId"
         :preferred-position="preferredPosition"
         @close="onClose">
-        <template slot="overlay" scope="props">
+        <template slot="overlay" slot-scope="props">
             <div :class="classes" ref="content">
                 <div v-if="!props.data.measuring"
                      :style="{ left: props.data.tipPosition+'px' }"
@@ -25,7 +25,7 @@
                      @focus="handleFocusLastItem"
                      tabindex="0">
                 </div>
-            </div>  
+            </div>
         </template>
     </polaris-popover-overlay>
 </dynamic-tag>
@@ -73,17 +73,23 @@ export default {
     },
     mounted() {
         this.$refs.container.$el.firstElementChild.id = this.activatorId;
-        
+
         window.addEventListener('click', this.handlePageClick);
         window.addEventListener('touchstart', this.handlePageClick);
         document.addEventListener('keyup', this.handleKeyPress);
     },
     methods: {
+        /*
+        * Find the activator for this popover.
+        * */
         findActivator() {
             return document.getElementById(this.activatorId);
         },
+        /*
+        * Close the popover when wes key is pressed.
+        * */
         handleKeyPress(e) {
-            if (e.keyCode != 27) {
+            if (e.keyCode !== 27) {
                 return;
             }
             this.$emit('close', 'EscapeKeypress');
@@ -103,7 +109,7 @@ export default {
             }
             let parent = needle.parentNode;
             while (parent != null) {
-                if (parent === haystack) { 
+                if (parent === haystack) {
                     return true;
                 }
                 parent = parent.parentNode;

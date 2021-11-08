@@ -1,100 +1,94 @@
 <!DOCTYPE html>
 <html>
-    <head>
-
+    <head title="@appydesign/polaris-vue">
         <style>
-        .hljs {
-          display: block;
-          overflow-x: auto;
-          padding: 0.5em;
-          background: #f9fafb;
-        }
+            .hljs {
+                display: block;
+                overflow-x: auto;
+                padding: 0.5em;
+                background: #f9fafb;
+            }
 
-        .hljs-built_in,
-        .hljs-selector-tag,
-        .hljs-section,
-        .hljs-link {
-          color: #8be9fd;
-        }
+            .hljs-built_in,
+            .hljs-selector-tag,
+            .hljs-section,
+            .hljs-link {
+                color: #8be9fd;
+            }
 
-        .hljs-keyword {
-          color: #5C6AC4;
-        }
+            .hljs-keyword {
+                color: #5C6AC4;
+            }
 
-        .hljs {
-            color: #212B35;
-        }
-        .hljs-subst {
-            color:
-#43467F;
-        }
+            .hljs {
+                color: #212B35;
+            }
 
-        .hljs-attr {
-            color: #4059ff;
-        }
+            .hljs-subst {
+                color: #43467F;
+            }
 
-        .hljs-tag {
-            color: #5C6AC4;
-        }
+            .hljs-attr {
+                color: #4059ff;
+            }
 
-        .hljs-title {
-            color: #50fa7b;
-        }
+            .hljs-tag {
+                color: #5C6AC4;
+            }
 
-        .hljs-string {
-            color:
-#43467F;
-        }
+            .hljs-title {
+                color: #50fa7b;
+            }
 
-        .hljs-meta,
-        .hljs-name,
-        .hljs-type,
-        .hljs-attribute,
-        .hljs-symbol,
-        .hljs-bullet,
-        .hljs-addition,
-        .hljs-variable,
-        .hljs-template-tag,
-        .hljs-template-variable {
-          color: #5b69c4;
-        }
+            .hljs-string {
+                color: #43467F;
+            }
 
-        .hljs-comment,
-        .hljs-quote,
-        .hljs-deletion {
-          color: #6272a4;
-        }
+            .hljs-meta,
+            .hljs-name,
+            .hljs-type,
+            .hljs-attribute,
+            .hljs-symbol,
+            .hljs-bullet,
+            .hljs-addition,
+            .hljs-variable,
+            .hljs-template-tag,
+            .hljs-template-variable {
+                color: #5b69c4;
+            }
 
-        .hljs-keyword,
-        .hljs-selector-tag,
-        .hljs-literal,
-        .hljs-title,
-        .hljs-section,
-        .hljs-doctag,
-        .hljs-type,
-        .hljs-name,
-        .hljs-strong {
-          font-weight: bold;
-        }
+            .hljs-comment,
+            .hljs-quote,
+            .hljs-deletion {
+                color: #6272a4;
+            }
 
-        .hljs-literal,
-        .hljs-number {
-          color: #bd93f9;
-        }
+            .hljs-keyword,
+            .hljs-selector-tag,
+            .hljs-literal,
+            .hljs-title,
+            .hljs-section,
+            .hljs-doctag,
+            .hljs-type,
+            .hljs-name,
+            .hljs-strong {
+                font-weight: bold;
+            }
 
-        .hljs-emphasis {
-          font-style: italic;
-        }
+            .hljs-literal,
+            .hljs-number {
+                color: #bd93f9;
+            }
+
+            .hljs-emphasis {
+                font-style: italic;
+            }
         </style>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-        <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
-
+        <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
         <script src="../lib/polaris-vue.js"></script>
         <link rel="stylesheet" href="../lib/polaris-vue.css"></link>
-
         <script src="test.js"></script>
-
         <style>
             body {
                 padding: 0 40px;
@@ -126,12 +120,14 @@
 
                 display: flex;
             }
+
             .testCase .example {
                 flex-shrink: 0;
                 flex-grow: 0;
                 width: 60%;
                 padding-right: 40px;
             }
+
             .testCase .code {
                 flex-shrink: 0;
                 flex-grow: 0;
@@ -144,11 +140,12 @@
                 border-radius: 3px;
                 box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
             }
+
             .testCase .output {
                 flex-shrink: 0;
                 flex-grow: 0;
                 width: 100%;
-                background: rgb(200,200,200);
+                background: rgb(200, 200, 200);
                 color: black;
                 margin: 0;
                 padding: 0;
@@ -178,15 +175,12 @@
                 margin-top: 20px;
             }
         </style>
-
-
         <script>hljs.initHighlightingOnLoad();</script>
     </head>
     <body>
         <div id="app">
-
             <div class="testTitle">
-                Esc/polaris-vue pre-release
+                @appydesign/polaris-vue
             </div>
             <div class="testSubtitle">
                 Current target: Shopify/polaris v1.9.1
@@ -198,14 +192,12 @@
                     thing imported directly is the stylesheet and a few snippets
                     of the math / util code.
                 </p>
-                <br>
                 <p>
                     Project aim is to have complete feature parity with the React version,
                     only making small tweaks in order to stick to Vue conventions --
                     developers familiar with Vue and the React/Sass Polaris docs should be
                     comfortable using these components without further explaination.
                 </p>
-
                 <p>
                     Prop names have been kept the same, but now follow Vue conventions,
                     (i.e. <code>help-text</code> in HTML vs. <code>helpText</code> in JS).
@@ -228,7 +220,15 @@
                     in Polaris-Vue we use a scoped slot instead.
                 </p>
             </div>
-
+            <br>
+            <div class="testDescription">
+                <h3 class="testSubtitle">Recent Additions</h3>
+                <ul>
+                    <li>Polaris Modal</li>
+                    <li>Theme update - 11/7/21</li>
+                    <li>Popover update - 11/8/21</li>
+                </ul>
+            </div>
             <div class="testSection">
                 PolarisVue-specific
             </div>
@@ -318,12 +318,12 @@
             <div class="testCase">
                 <div class="example">
                     &lt;polaris-setting-toggle
-                        enabled
-                        :action="{
-                            content: 'Disable',
-                            onAction: testAlert
-                        }"&gt;
-                        This setting is &lt;polaris-text-style variation="strong"&gt;enabled&lt;/polaris-text-style&gt;.
+                    enabled
+                    :action="{
+                    content: 'Disable',
+                    onAction: testAlert
+                    }"&gt;
+                    This setting is &lt;polaris-text-style variation="strong"&gt;enabled&lt;/polaris-text-style&gt;.
                     &lt;/polaris-setting-toggle&gt;
                 </div>
                 <pre class="code"><code class="html">&lt;polaris-setting-toggle
@@ -344,7 +344,9 @@
                             onAction: testAlert,
                             icon: '&lt;svg class=&quot;Polaris-Icon__Svg&quot; viewBox=&quot;0 0 20 20&quot;&gt;&lt;path d=&quot;M13.707 10.707a.997.997 0 0 1-1.414 0L11 9.414V17a1 1 0 1 1-2 0V9.414l-1.293 1.293a.999.999 0 1 1-1.414-1.414l3-3a.999.999 0 0 1 1.414 0l3 3a.999.999 0 0 1 0 1.414zM17 2a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-3a1 1 0 1 1 0-2h2V4H4v9h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14z&quot; fill-rule=&quot;evenodd&quot;&gt;&lt;/path&gt;&lt;/svg&gt;'
                         }">
-                        This setting is <polaris-text-style variation="strong">enabled</polaris-text-style>.
+                        This setting is
+                        <polaris-text-style variation="strong">enabled</polaris-text-style>
+                        .
                     </polaris-setting-toggle>
                 </div>
                 <pre class="code"><code class="html">&lt;polaris-setting-toggle
@@ -367,7 +369,9 @@
                             onAction: testAlert,
                             destructive: true
                         }">
-                        This setting is <polaris-text-style variation="strong">enabled</polaris-text-style>.
+                        This setting is
+                        <polaris-text-style variation="strong">enabled</polaris-text-style>
+                        .
                     </polaris-setting-toggle>
                 </div>
                 <pre class="code"><code class="html">&lt;polaris-setting-toggle
@@ -389,7 +393,9 @@
                             onAction: testAlert,
                             disabled: true
                         }">
-                        This setting is <polaris-text-style variation="strong">enabled</polaris-text-style>.
+                        This setting is
+                        <polaris-text-style variation="strong">enabled</polaris-text-style>
+                        .
                     </polaris-setting-toggle>
                 </div>
                 <pre class="code"><code class="html">&lt;polaris-setting-toggle
@@ -404,21 +410,21 @@
             </div>
 
 
-
-
-
-
             <div class="testSection">
                 Undocumented / Misc
             </div>
-
 
 
             <div class="testHeader">&lt;polaris-text-container&gt;</div>
             <div class="testCase">
                 <div class="example">
                     <polaris-text-container>
-                         Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text containerText container
+                        Text container Text container Text container Text container Text container Text container Text
+                        container Text container Text container Text container Text container Text container Text
+                        container Text container Text container Text container Text container Text container Text
+                        container Text container Text container Text container Text container Text container Text
+                        container Text container Text container Text container Text container Text containerText
+                        container
                     </polaris-text-container>
                 </div>
                 <pre class="code"><code class="html">&lt;polaris-text-container&gt;
@@ -428,7 +434,12 @@
             <div class="testCase">
                 <div class="example">
                     <polaris-text-container spacing="loose">
-                         Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text container Text containerText container
+                        Text container Text container Text container Text container Text container Text container Text
+                        container Text container Text container Text container Text container Text container Text
+                        container Text container Text container Text container Text container Text container Text
+                        container Text container Text container Text container Text container Text container Text
+                        container Text container Text container Text container Text container Text containerText
+                        container
                     </polaris-text-container>
                 </div>
                 <pre class="code"><code class="html">&lt;polaris-text-container spacing="loose"&gt;
@@ -487,7 +498,6 @@
     Negative text
 &lt;/polaris-text-style&gt;</code></pre>
             </div>
-
 
 
             <div class="testHeader">&lt;polaris-setting-action&gt;</div>
@@ -551,7 +561,6 @@
             </div>
 
 
-
             <div class="testHeader">&lt;polaris-unstyled-link&gt;</div>
             <div class="testCase">
                 <div class="example">
@@ -563,7 +572,6 @@
     This is an unstyled link.
 &#x3C;/polaris-unstyled-link&#x3E;</code></pre>
             </div>
-
 
 
             <div class="testHeader">&lt;polaris-breadcrumbs&gt;</div>
@@ -583,9 +591,6 @@
             </div>
 
 
-
-
-
             <div class="testSection">
                 Actions
             </div>
@@ -599,7 +604,8 @@
                         details="No account connected">
                         <p>
                             By clicking Connect, you agree to accept Sample App's
-                            <polaris-link url="https://google.com/">Terms and conditions</polaris-link>.
+                            <polaris-link url="https://google.com/">Terms and conditions</polaris-link>
+                            .
                             You'll pay a commission rate of 15% on sales made through Example App.
                         </p>
                     </polaris-account-connection>
@@ -646,7 +652,8 @@
                         </div>
                         <p slot="termsOfService">
                             By clicking Connect, you agree to accept Sample App's
-                            <polaris-link url="https://google.com/">Terms and conditions</polaris-link>.
+                            <polaris-link url="https://google.com/">Terms and conditions</polaris-link>
+                            .
                             You'll pay a commission rate of 15% on sales made through Example App.
                         </p>
                         <span slot="details">
@@ -859,7 +866,9 @@
             <div class="testCase">
                 <div class="example">
                     <polaris-setting-toggle :action="{content: 'Enabled', onAction: testAlert}">
-                        This setting is <polaris-text-style variation="strong">disabled</polaris-text-style>.
+                        This setting is
+                        <polaris-text-style variation="strong">disabled</polaris-text-style>
+                        .
                     </polaris-setting-toggle>
                 </div>
                 <pre class="code"><code class="html">&#x3C;polaris-setting-toggle :action=&#x22;{content: &#x27;Enabled&#x27;, onAction: testAlert}&#x22;&#x3E;
@@ -869,17 +878,15 @@
             <div class="testCase">
                 <div class="example">
                     <polaris-setting-toggle :action="{content: 'Disabled', onAction: testAlert}" enabled>
-                        This setting is <polaris-text-style variation="strong">enabled</polaris-text-style>.
+                        This setting is
+                        <polaris-text-style variation="strong">enabled</polaris-text-style>
+                        .
                     </polaris-setting-toggle>
                 </div>
                 <pre class="code"><code class="html">&#x3C;polaris-setting-toggle :action=&#x22;{content: &#x27;Disabled&#x27;, onAction: testAlert}&#x22; enabled&#x3E;
     This setting is &#x3C;polaris-text-style variation=&#x22;strong&#x22;&#x3E;enabled&#x3C;/polaris-text-style&#x3E;.
 &#x3C;/polaris-setting-toggle&#x3E;</code></pre>
             </div>
-
-
-
-
 
 
             <div class="testSection">
@@ -1080,10 +1087,6 @@
             </div>
 
 
-
-
-
-
             <div class="testSection">
                 Feedback indicators
             </div>
@@ -1220,10 +1223,9 @@
             </div>
             <div class="testCase">
                 <div class="example">
-                    <polaris-progress-bar :progress="30" size="small" />
+                    <polaris-progress-bar :progress="30" size="small"/>
                 </div>
             </div>
-
 
 
             <div class="testSection">
@@ -1318,7 +1320,8 @@
                             <p>View a summary of your online store's performance.</p>
                         </polaris-card-section>
                         <polaris-card-section>
-                            <p>View a summary of your online store's performance, including sales, visitors, top products, and referrals.</p>
+                            <p>View a summary of your online store's performance, including sales, visitors, top
+                               products, and referrals.</p>
                         </polaris-card-section>
                     </polaris-card>
                 </div>
@@ -1340,7 +1343,8 @@
                             <p>View a summary of your online store's performance.</p>
                         </polaris-card-section>
                         <polaris-card-section subdued title="Deactivated staff accounts">
-                            <p>View a summary of your online store's performance, including sales, visitors, top products, and referrals.</p>
+                            <p>View a summary of your online store's performance, including sales, visitors, top
+                               products, and referrals.</p>
                         </polaris-card-section>
                     </polaris-card>
                 </div>
@@ -1788,11 +1792,6 @@
             </div>
 
 
-
-
-
-
-
             <div class="testSection">
                 Titles and text
             </div>
@@ -1846,7 +1845,9 @@
                 <div class="example">
                     <polaris-footer-help>
                         Learn more about
-                        <polaris-link url="https://help.shopify.com/manual/orders/fulfill-orders">fulfilling orders</polaris-link>.
+                        <polaris-link url="https://help.shopify.com/manual/orders/fulfill-orders">fulfilling orders
+                        </polaris-link>
+                        .
                     </polaris-footer-help>
                 </div>
                 <pre class="code"><code class="html">&#x3C;polaris-footer-help&#x3E;
@@ -2011,7 +2012,8 @@
     value=&#x22;on&#x22;
     help-text=&#x22;Help text&#x22;&#x3E;
 &#x3C;/polaris-checkbox&#x3E;</code></pre>
-            </div><div class="testCase">
+            </div>
+            <div class="testCase">
                 <div class="example">
                     <polaris-checkbox
                         label="Basic checkbox"
@@ -2151,7 +2153,7 @@
             <div class="testHeader">&lt;polaris-color-picker&gt;</div>
             <div class="testCase">
                 <div class="example">
-                    <polaris-color-picker  v-model="colorValue">
+                    <polaris-color-picker v-model="colorValue">
                     </polaris-color-picker>
                 </div>
                 <pre class="code"><code class="html">&#x3C;polaris-color-picker v-model=&#x22;colorValue&#x22;&#x3E;
@@ -2497,7 +2499,6 @@
             </div>
 
 
-
             <div class="testHeader">&lt;polaris-select&gt;</div>
             <div class="testCase">
                 <div class="example">
@@ -2590,7 +2591,8 @@
                 <div class="example">
                     <polaris-tag>Wholesale</polaris-tag>
                 </div>
-                <pre class="code"><code class="html">&#x3C;polaris-tag&#x3E;Wholesale&#x3C;/polaris-tag&#x3E;</code></pre>
+                <pre class="code"><code
+                    class="html">&#x3C;polaris-tag&#x3E;Wholesale&#x3C;/polaris-tag&#x3E;</code></pre>
             </div>
 
             <div class="testHeader">&lt;polaris-text-field&gt;</div>
@@ -2792,7 +2794,17 @@
                         <polaris-scrollable
                             shadow
                             :style="{ height: '100px' }">
-                            <p>By signing up for the Shopify service ("Service") or any of the services of Shopify Inc. ("Shopify") you are agreeing to be bound by the following terms and conditions ("Terms of Service"). The Services offered by Shopify under the Terms of Service include various products and services to help you create and manage a retail store, whether an online store (Online Services), a physical retail store (POS Services), or both. Any new features or tools which are added to the current Service shall be also subject to the Terms of Service. You can review the current version of the Terms of Service at any time at https://www.shopify.com/legal/terms. Shopify reserves the right to update and change the Terms of Service by posting updates and changes to the Shopify website. You are advised to check the Terms of Service from time to time for any updates or changes that may impact you.</p>
+                            <p>By signing up for the Shopify service ("Service") or any of the services of Shopify Inc.
+                               ("Shopify") you are agreeing to be bound by the following terms and conditions ("Terms of
+                               Service"). The Services offered by Shopify under the Terms of Service include various
+                               products and services to help you create and manage a retail store, whether an online
+                               store (Online Services), a physical retail store (POS Services), or both. Any new
+                               features or tools which are added to the current Service shall be also subject to the
+                               Terms of Service. You can review the current version of the Terms of Service at any time
+                               at https://www.shopify.com/legal/terms. Shopify reserves the right to update and change
+                               the Terms of Service by posting updates and changes to the Shopify website. You are
+                               advised to check the Terms of Service from time to time for any updates or changes that
+                               may impact you.</p>
                         </polaris-scrollable>
                     </polaris-card>
                 </div>
@@ -3197,12 +3209,12 @@
                     <polaris-popover
                         :active="value9"
                         @close="value9 = false">
-                        <template slot="activator" scope="props">
+                        <template slot="activator" slot-scope="props">
                             <polaris-button @click="value9 = !value9">
                                 More actions
                             </polaris-button>
                         </template>
-                        <template slot="content" scope="props">
+                        <template>
                             <polaris-action-list
                                 :items="[
                                     {content: 'Import'},
@@ -3220,7 +3232,7 @@
             More actions
         &lt;/polaris-button&gt;
     &lt;/template&gt;
-    &lt;template slot=&quot;content&quot; scope=&quot;props&quot;&gt;
+    &lt;template scope=&quot;props&quot;&gt;
         &lt;polaris-action-list
             :items=&quot;[
                 {content: 'Import'},
@@ -3231,7 +3243,58 @@
 &lt;/polaris-popover&gt;</code></pre>
             </div>
 
-
+            <div class="testHeader">&lt;polaris-modal&gt;</div>
+            <div class="testCase">
+            <div class="example">
+                <polaris-button @click="modalToggle = true">
+                    Open Modal
+                </polaris-button>
+            <polaris-modal
+                id="MyModal"
+                v-if="modalToggle"
+                @close="modalToggle = !modalToggle"
+            >
+                <div slot="header">Duplicate Sale</div>
+                <div slot="body">
+                    <polaris-display-text>
+                        Your Body Text Here
+                    </polaris-display-text>
+                </div>
+                <div slot="footer">
+                    <polaris-button @click="modalToggle = false"
+                    >Cancel</polaris-button
+                    >
+                    <polaris-button primary @click="alert('save clicked')">
+                       Save
+                    </polaris-button>
+                </div>
+            </polaris-modal>
+            </div>
+            <pre class="code">
+                <code class="html">
+                     &lt;polaris-modal
+                id="MyModal"
+                v-if="modalToggle"
+                @close="modalToggle = !modalToggle"
+            &gt;
+                &lt;div slot="header"&gt;Duplicate Sale&lt;/div&gt;
+                &lt;div slot="body"&gt;
+                    &lt;polaris-display-text&gt;
+                        Your Body Text Here
+                    &lt;/polaris-display-text&gt;
+                &lt;/div&gt;
+                &lt;div slot="footer"&gt;
+                    &lt;polaris-button @click="modalToggle = false"
+                    &gt;Cancel&lt;/polaris-button
+                    &gt;
+                    &lt;polaris-button primary @click="alert('save clicked')"&gt;
+                       Save
+                    &lt;/polaris-button&gt;
+                &lt;/div&gt;
+            &lt;/polaris-modal&gt;
+                </code>
+            </pre>
+            </div>
             <div class="testSection">
                 To do
             </div>
@@ -3255,5 +3318,9 @@
     </body>
 </html>
 <script>
-
+    import PolarisDisplayText from "../src/components/PolarisDisplayText";
+    import PolarisButton from "../src/components/PolarisButton";
+    export default {
+        components: {PolarisButton, PolarisDisplayText}
+    }
 </script>
