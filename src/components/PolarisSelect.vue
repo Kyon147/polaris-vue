@@ -184,8 +184,8 @@ export default {
             let v = this.value || null;
             if (v){
                 if(this.options){
-                    let option =  this.options.find( e => e.value.toString() === v)
-                    if (option) {
+                    let option =  this.options.find( e => e.value === v)
+                    if (option && option.length > 0) {
                         return option.label;
                     } else {
                         return v;
@@ -198,7 +198,7 @@ export default {
             let v = this.value || null;
             if (v) {
                 if (this.options) {
-                    let option = this.options.find(e => e.value.toString() === v)
+                    let option = this.options.find(e => e.value === v)
                     return (!!option) ? 'selected' : '';
                 }
             }

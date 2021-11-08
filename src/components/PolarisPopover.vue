@@ -19,7 +19,7 @@
                      tabindex="0">
                 </div>
                 <div class="Polaris-Popover__Wrapper">
-                    <slot></slot>
+                    <slot name="content"></slot>
                 </div>
                 <div class="Polaris-Popover__FocusTracker"
                      @focus="handleFocusLastItem"

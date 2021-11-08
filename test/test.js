@@ -17,7 +17,7 @@
                 value3: null,
                 value4: null,
                 value5: null,
-                value6: 'desc',
+                value6: null,
                 value7: null,
                 value8: null,
                 value9: null,
@@ -27,6 +27,9 @@
                 test0: false,
                 test1: false,
                 test2: false,
+
+                popover2: false,
+                popover2Select: 'tagged',
 
                 modalToggle: false,
 
