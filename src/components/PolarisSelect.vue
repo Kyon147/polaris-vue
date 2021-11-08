@@ -37,7 +37,7 @@
                         v-if="typeof option == 'string'"
                         :key="`${option}-${index}-${Math.random(99999)}`"
                         :value="option"
-                        :selected="selectedText === option ? 'selected' : ''"
+                        :selected="hasSelected === option ? 'selected' : ''"
                     >
                         {{ option }}
                     </option>
@@ -46,7 +46,7 @@
                         :key="`${option.value}-${Math.random(99999)}`"
                         :value="option.value"
                         :disabled="option.disabled"
-                        :selected="selectedText === option.value  ? 'selected' : ''"
+                        :selected="hasSelected === option.value  ? 'selected' : ''"
                     >
                         {{ option.label }}
                     </option>
@@ -60,7 +60,7 @@
                                 v-if="typeof option == 'string'"
                                 :key="option"
                                 :value="option"
-                                :selected="selectedText === option ? 'selected' : ''"
+                                :selected="hasSelected === option ? 'selected' : ''"
                             >
                                 {{ option }}
                             </option>
@@ -69,7 +69,7 @@
                                 :key="option.value"
                                 :value="option.value"
                                 :disabled="option.disabled"
-                                :selected="selectedText === option.value ? 'selected' : ''"
+                                :selected="hasSelected === option.value ? 'selected' : ''"
                             >
                                 {{ option.label }}
                             </option>
@@ -84,7 +84,7 @@
                                     v-if="typeof option == 'string'"
                                     :key="option"
                                     :value="option"
-                                    :selected="selectedText === option ? 'selected' : ''"
+                                    :selected="hasSelected === option ? 'selected' : ''"
                                 >
                                     {{ option }}
                                 </option>
@@ -93,7 +93,7 @@
                                     :key="option.value"
                                     :value="option.value"
                                     :disabled="option.disabled"
-                                    :selected="selectedText === option.value ? 'selected' : ''"
+                                    :selected="hasSelected === option.value ? 'selected' : ''"
                                 >
                                     {{ option.label }}
                                 </option>
@@ -196,7 +196,7 @@ export default {
             if (v){
                 if(this.options){
                     let option =  this.options.find( e => e.value === v)
-                    if (option && option.length > 0) {
+                    if (option) {
                         return option.label;
                     } else {
                         return v;
@@ -205,6 +205,20 @@ export default {
                 return v;
            }
         },
+        hasSelected(){
+            let v = this.value || null;
+            if (v){
+                if(this.options){
+                    let option =  this.options.find( e => e.value === v)
+                    if (option && option.length > 0) {
+                        return option.label;
+                    } else {
+                        return v;
+                    }
+                }
+                return v;
+            }
+        }
     },
     methods: {
         onFocus() {
