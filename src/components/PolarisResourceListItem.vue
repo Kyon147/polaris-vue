@@ -124,8 +124,10 @@
                             plain
                             icon="horizontalDots">
                         </polaris-button>
-                        <polaris-action-list :items="actions">
-                        </polaris-action-list>
+                        <template slot="content">
+                            <polaris-action-list :items="actions">
+                            </polaris-action-list>
+                        </template>
                     </polaris-popover>
                 </div>
             </template>

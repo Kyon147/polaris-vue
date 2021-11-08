@@ -1,5 +1,6 @@
 <template>
 <polaris-positioned-overlay
+    :id="id"
     :full-width="fullWidth"
     :active="active"
     :preferred-position="preferredPosition"
