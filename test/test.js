@@ -30,6 +30,7 @@
 
                 popover2: false,
                 popover2Select: 'tagged',
+                popover3: false,
 
                 modalToggle: false,
 

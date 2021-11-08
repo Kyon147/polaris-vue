@@ -3304,6 +3304,53 @@
 &lt;/polaris-popover&gt;</code></pre>
             </div>
 
+            <p>Popover with datepicker</p>
+            <div class="testCase">
+                <div class="example">
+                    <polaris-popover
+                        :active="popover3"
+                        @close="popover3 = false"
+                    >
+                        <template slot="activator" slot-scope="props">
+                            <polaris-button @click="popover3 = !popover3">
+                                More actions
+                            </polaris-button>
+                        </template>
+                        <template slot="content" slot-scope="props">
+                            <polaris-popover-section>
+                                <polaris-date-picker
+                                    :month="pickerMonth"
+                                    :year="pickerYear"
+                                    v-model="testDateRange"
+                                    @monthchange="pickerMonth = $event.month; pickerYear = $event.year;">
+                                </polaris-date-picker>
+                            </polaris-popover-section>
+                        </template>
+                    </polaris-popover>
+                </div>
+                <pre class="code"><code class="html">&lt;polaris-popover
+&lt;polaris-popover
+    :active="popover3"
+    @close="popover3 = false"
+&gt;
+    &lt;template slot="activator" slot-scope="props"&gt;
+        &lt;polaris-button @click="popover3 = !popover3"&gt;
+            More actions
+        &lt;/polaris-button&gt;
+    &lt;/template&gt;
+    &lt;template slot="content" slot-scope="props"&gt;
+        &lt;polaris-popover-section&gt;
+            &lt;polaris-date-picker
+                :month="pickerMonth"
+                :year="pickerYear"
+                v-model="testDateRange"
+                @monthchange="pickerMonth = $event.month; pickerYear = $event.year;"&gt;
+            &lt;/polaris-date-picker&gt;
+        &lt;/polaris-popover-section&gt;
+    &lt;/template&gt;
+&lt;/polaris-popover&gt;</code></pre>
+            </div>
+
             <div class="testHeader">&lt;polaris-modal&gt;</div>
             <div class="testCase">
             <div class="example">
@@ -3390,6 +3437,10 @@
         components: {
             PolarisFormLayoutItem,
             PolarisSelect,
-            PolarisPopoverSection, PolarisTextField, PolarisFormLayoutGroup, PolarisButton, PolarisDisplayText}
+            PolarisPopoverSection,
+            PolarisTextField,
+            PolarisFormLayoutGroup,
+            PolarisButton,
+            PolarisDisplayText}
     }
 </script>
