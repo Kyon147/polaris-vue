@@ -600,14 +600,14 @@ a:not([data-polaris-unstyled]):hover, a:not([data-polaris-unstyled]):focus, a:no
 
 .Polaris-Button--primary {
   background: linear-gradient(to bottom, #008a68, #007658);
-  border-color: #004d3a;
+  border-color: transparent;
   box-shadow: inset 0 1px 0 0 #008f6b, 0 1px 0 0 rgba(22, 29, 37, 0.05), 0 0 0 0 transparent;
   color: #ffffff;
   fill: #ffffff;
 }
 .Polaris-Button--primary:hover {
   background: linear-gradient(to bottom, #008060, #00674d);
-  border-color: #004d3a;
+  border-color: transparent;
   color: #ffffff;
   text-decoration: none;
 }
@@ -622,22 +622,22 @@ a:not([data-polaris-unstyled]):hover, a:not([data-polaris-unstyled]):focus, a:no
 }
 .Polaris-Button--primary.Polaris-Button--disabled {
   fill: #ffffff;
-  background: linear-gradient(to bottom, #bac0e6, #bac0e6);
-  border-color: #a7aedf;
+  background: #f1f1f1;
+  border-color: transparent;
   box-shadow: none;
-  color: #ffffff;
+  color: #8c9196;
 }
 
 .Polaris-Button--destructive {
   background: linear-gradient(to bottom, #ee6b50, #ec5b3e);
-  border-color: #e83c19;
+  border-color: transparent;
   box-shadow: inset 0 1px 0 0 #ee6f55, 0 1px 0 0 rgba(22, 29, 37, 0.05), 0 0 0 0 transparent;
   color: #ffffff;
   fill: #ffffff;
 }
 .Polaris-Button--destructive:hover {
   background: linear-gradient(to bottom, #ed6347, #eb4f30);
-  border-color: #e83c19;
+  border-color: transparent;
   color: #ffffff;
   text-decoration: none;
 }
@@ -652,10 +652,10 @@ a:not([data-polaris-unstyled]):hover, a:not([data-polaris-unstyled]):focus, a:no
 }
 .Polaris-Button--destructive.Polaris-Button--disabled {
   fill: #ffffff;
-  background: linear-gradient(to bottom, #f8c5bb, #f8c5bb);
-  border-color: #f6b2a4;
+  background: #f1f1f1;
+  border-color: transparent;
   box-shadow: none;
-  color: #ffffff;
+  color: #8c9196;
 }
 
 .Polaris-Button--outline {

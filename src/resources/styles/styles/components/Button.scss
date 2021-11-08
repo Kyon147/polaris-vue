@@ -103,7 +103,7 @@ $spinner-size: rem(20px);
   @include recolor-icon(color(white));
 
   &.Polaris-Button--disabled {
-    @include button-filled-disabled(color(indigo));
+    @include button-filled-disabled(color(primary));
   }
 }
 
