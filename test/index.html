@@ -2898,12 +2898,14 @@
                     <polaris-resource-list
                         :items="[
                                     {
+                                        id: 1,
                                         url: '#',
                                         attributeOne: 'How to Get Value from Wireframes',
                                         attributeTwo: 'by Jonathan Mangrove',
                                         attributeThree: 'Today, 7:14pm',
                                     },
                                     {
+                                        id: 2,
                                         url: '#',
                                         attributeOne: 'Test blog post',
                                         attributeTwo: 'by Jonathan Mangrove',
@@ -2918,12 +2920,14 @@
                 <pre class="code"><code class="html">&#x3C;polaris-resource-list
     :items=&#x22;[
                 {
+                    id: 1,
                     url: &#x27;#&#x27;,
                     attributeOne: &#x27;How to Get Value from Wireframes&#x27;,
                     attributeTwo: &#x27;by Jonathan Mangrove&#x27;,
                     attributeThree: &#x27;Today, 7:14pm&#x27;,
                 },
                 {
+                    id: 2,
                     url: &#x27;#&#x27;,
                     attributeOne: &#x27;Test blog post&#x27;,
                     attributeTwo: &#x27;by Jonathan Mangrove&#x27;,
@@ -2945,12 +2949,14 @@
                     <polaris-resource-list
                         :items="[
                                     {
+                                        id: 1,
                                         url: '#',
                                         attributeOne: 'How to Get Value from Wireframes',
                                         attributeTwo: 'by Jonathan Mangrove',
                                         attributeThree: 'Today, 7:14pm',
                                     },
                                     {
+                                        id: 2,
                                         url: '#',
                                         attributeOne: 'Test blog post',
                                         attributeTwo: 'by Jonathan Mangrove',
@@ -2972,12 +2978,14 @@
                     attributeOne: &#x27;How to Get Value from Wireframes&#x27;,
                         :items="[
                                     {
+                                        id: 1,
                                         url: '#',
                                         attributeOne: 'How to Get Value from Wireframes',
                                         attributeTwo: 'by Jonathan Mangrove',
                                         attributeThree: 'Today, 7:14pm',
                                     },
                                     {
+                                        id: 2,
                                         url: '#',
                                         attributeOne: 'Test blog post',
                                         attributeTwo: 'by Jonathan Mangrove',
@@ -3010,12 +3018,14 @@
                     <polaris-resource-list
                         :items="[
                                     {
+                                        id: 1,
                                         url: '#',
                                         attributeOne: 'How to Get Value from Wireframes',
                                         attributeTwo: 'by Jonathan Mangrove',
                                         attributeThree: 'Today, 7:14pm',
                                     },
                                     {
+                                        id: 2,
                                         url: '#',
                                         attributeOne: 'Test blog post',
                                         attributeTwo: 'by Jonathan Mangrove',
@@ -3027,6 +3037,7 @@
                                 ]">
                         <template slot="item" scope="props">
                             <polaris-resource-list-item
+                                :id="props.item.id"
                                 :url="props.item.url"
                                 :media="props.item.media"
                                 :attribute-one="props.item.attributeOne"
@@ -3083,16 +3094,18 @@
             </div>
 
             <div class="testCase">
-                <div class="exmaple">
+                <div class="example">
                     <polaris-resource-list
                         :items="[
                                     {
+                                        id: 1,
                                         attributeOne: 'How to Get Value from Wireframes',
                                         actions: [
                                             {content: 'Process', onAction: testAlert},
                                         ],
                                     },
                                     {
+                                        id: 2,
                                         attributeOne: 'Test blog post',
                                         badges: [
                                             {content: 'Hidden'},
@@ -3104,6 +3117,28 @@
                                     },
                                 ]"/>
                 </div>
+                <pre class="code">
+                    <code class="html">&lt;polaris-resource-list
+    :items="[
+    {
+        id: 1,
+        attributeOne: 'How to Get Value from Wireframes',
+        actions: [
+            {content: 'Process', onAction: testAlert},
+        ],
+    },
+    {
+        id: 2,
+        attributeOne: 'Test blog post',
+        badges: [
+            {content: 'Hidden'},
+        ],
+        actions: [
+            {content: 'Process', onAction: testAlert},
+        ],
+        persistActions: true,
+    },
+]"/&gt;</code></pre>
             </div>
 
 

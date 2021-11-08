@@ -5,6 +5,7 @@
             >
                 <slot name="item" :item="item" :index="index">
                     <polaris-resource-list-item
+                        :id="item.id"
                         :url="item.url"
                         :media="item.media"
                         :attribute-one="item.attributeOne"
