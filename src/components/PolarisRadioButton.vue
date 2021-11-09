@@ -7,7 +7,7 @@
     <template v-if="$slots.helpText" slot="helpText">
         <slot name="helpText"></slot>
     </template>
-    
+
     <div class="Polaris-RadioButton">
         <input :id="realId"
                :name="name"
@@ -19,8 +19,7 @@
                @change="onChange"
                @focus="onFocus"
                @blur="onBlur"
-               :aria-describedby="helpText ? id+'HelpText' : ''">
-               
+               :aria-describedby="helpText ? realId + 'HelpText' : ''">
         <div class="Polaris-RadioButton__Backdrop"></div>
         <div class="Polaris-RadioButton__Icon"></div>
     </div>
@@ -64,6 +63,9 @@ export default {
         onBlur() {
             this.$emit('blur');
         }
+    },
+    mounted(){
+        console.log( 'RadioButtonHelpText', this.helpText );
     }
 }
 </script>

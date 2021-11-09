@@ -18,7 +18,6 @@
                        @change="onChange"
                        @focus="onFocus"
                        @blur="onBlur">
-
                 <div class="Polaris-Checkbox__Backdrop"></div>
                 <div class="Polaris-Checkbox__Icon">
                     <polaris-icon :source="checkIcon"></polaris-icon>

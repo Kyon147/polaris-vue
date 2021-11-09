@@ -11,7 +11,7 @@
                 :value="choice.value"
                 :label="choice.label"
                 :help-text="choice.helpText"
-                :disabled="disabled"
+                :disabled="choice.disabled"
                 :checked="choiceIsSelected(choice)"
                 @change="handleChange($event, choice)">
             </polaris-checkbox>
@@ -21,7 +21,7 @@
                 :value="choice.value"
                 :label="choice.label"
                 :help-text="choice.helpText"
-                :disabled="disabled"
+                :disabled="choice.disabled"
                 :checked="choiceIsSelected(choice)"
                 @change="handleChange($event, choice)">
             </polaris-radio-button>
