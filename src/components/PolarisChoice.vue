@@ -50,6 +50,10 @@ export default {
             alertIcon: alertIcon
         };
     },
+    mounted(){
+        console.log( 'ht slot', this.$slots.helpText );
+        console.log( 'ht prop', this.helpText );
+    },
     computed: {
         labelClasses() {
             return ComponentHelpers.makeComponentClass('Polaris-Choice', [

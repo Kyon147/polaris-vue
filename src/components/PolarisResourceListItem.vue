@@ -319,7 +319,7 @@ export default {
     }
 };
 </script>
-<style>
+<style scoped>
     .Polaris-ResourceList__Container{
         z-index: 2;
     }
