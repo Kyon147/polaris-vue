@@ -11,10 +11,10 @@
             {{ label }}
         </span>
     </label>
-    <div v-if="typeof error === 'string' || helpText || $slots.helpText" 
+    <div v-if="typeof error === 'string' || helpText || $slots.helpText"
         class="Polaris-Choice__Descriptions">
-        <div v-if="typeof error === 'string'" 
-             class="Polaris-Choice__Error" 
+        <div v-if="typeof error === 'string'"
+             class="Polaris-Choice__Error"
              :id="id+'Error'">
             <div class="Polaris-Choice__ErrorIcon">
                 <polaris-icon :source="alertIcon"></polaris-icon>
