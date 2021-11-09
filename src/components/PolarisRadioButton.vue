@@ -63,9 +63,6 @@ export default {
         onBlur() {
             this.$emit('blur');
         }
-    },
-    mounted(){
-        console.log( 'RadioButtonHelpText', this.helpText );
     }
 }
 </script>
