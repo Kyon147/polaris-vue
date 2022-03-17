@@ -31,7 +31,7 @@ if (env === 'build') {
 plugins.push(new MiniCssExtractPlugin({filename: libraryName + '.css'}));
 
 const config = {
-    mode:  env === 'build' ? 'production' : 'development',
+    mode: env === 'build' ? 'production' : 'development',
     entry: __dirname + '/src/index.js',
     devtool: env === 'build' ? false : 'source-map',
     output: {
@@ -66,10 +66,10 @@ const config = {
                     }
                 ]
             },
-/*            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract("css-loader")
-            },*/
+            /*            {
+                            test: /\.css$/,
+                            loader: ExtractTextPlugin.extract("css-loader")
+                        },*/
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -89,9 +89,15 @@ const config = {
         vue: 'vue'
     },
     optimization: {
-        minimizer:[new TerserPlugin()]
+        minimizer: [new TerserPlugin({
+            terserOptions: {
+                compress: {
+                    drop_console: true,
+                }
+            }
+        })]
     },
-    performance: { hints: false }
+    performance: {hints: false},
 };
 
 module.exports = config;

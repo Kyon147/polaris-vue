@@ -1,6 +1,4 @@
-
 import styles from './resources/styles/styles.scss'; // eslint-disable-line no-unused-vars
-
 import PolarisAccountConnection from './components/PolarisAccountConnection.vue';
 import PolarisActionList from './components/PolarisActionList.vue';
 import PolarisButton from './components/PolarisButton.vue';
@@ -87,8 +85,6 @@ import ComponentHelpers from './ComponentHelpers.js';
 import config from 'config/config.js';
 import log from 'util/log.js';
 import ConsoleLogger from 'util/loggers/ConsoleLogger.js';
-
-
 
 const TAG = 'Bootstrap';
 
@@ -207,6 +203,7 @@ export default {
         var count = 0;
         for (var polarisName in components) {
             var componentName = ComponentHelpers.getComponentName(polarisName);
+            console.log( 'component name '+ componentName + ' -> ' + polarisName, components[polarisName]);
             Vue.component(componentName, components[polarisName]);
             count++;
             log.send(log.DEBUG, TAG, componentName + ' -> ' + polarisName);
