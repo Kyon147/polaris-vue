@@ -1,5 +1,5 @@
 <template>
-<div class="Polaris-ColorPicker__HuePicker" ref="picker">
+<div class="Polaris-ColorPicker__HuePicker" ref="picker" v-observe-visibility="visibilityChanged">
     <polaris-color-picker-slidable
         :dragger-y="offset"
         :dragger-x="0"
@@ -55,8 +55,11 @@ export default {
             const selectionHeight = offset - VERTICAL_PADDING;
             const slidableArea = sliderHeight - (2 * VERTICAL_PADDING);
             return Math.max(0, Math.min(360, (selectionHeight / slidableArea) * 360));
+        },
+        visibilityChanged(isVisible, entry){
+            this.sliderHeight = this.$refs.picker.clientHeight;
         }
     }
-    
+
 };
 </script>

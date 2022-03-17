@@ -121,7 +121,7 @@ export default {
                 width: window.innerWidth
             };
 
-            const zIndexForLayer = 10;
+            const zIndexForLayer = 500;
             const verticalPosition = this.calculateVerticalPosition(activatorRect,
                                                                overlayRect,
                                                                overlayMargins,

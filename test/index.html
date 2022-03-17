@@ -512,8 +512,8 @@
                     <polaris-image
                         style="width: 100%;"
                         src="https://vuejs.org/images/logo.png"
-                                   alt="image with source sets"
-                                   :source-set="[
+                        alt="image with source sets"
+                        :source-set="[
                                        { source: 'https://vuejs.org/images/logo.png?1',
                                          descriptor: '800w' },
                                        { source: 'https://coligo.io/vuejs-the-basics/cover-850x416.jpg?2',
@@ -3342,7 +3342,7 @@
                         </template>
                     </polaris-popover>
                 </div>
-                <pre class="code"><code class="html">&lt;polaris-popover
+                <pre class="code"><code class="html">
 &lt;polaris-popover
     :active="popover3"
     @close="popover3 = false"
@@ -3365,34 +3365,76 @@
 &lt;/polaris-popover&gt;</code></pre>
             </div>
 
+
+            <p>Popover with colorpicker</p>
+            <div class="testCase">
+                <div class="example">
+                    <polaris-popover
+                        :active="popoverColor"
+                        @close="popoverColor = false"
+                    >
+                        <template slot="activator" slot-scope="props">
+                            <polaris-button @click="popoverColor = !popoverColor">
+                                Show Color picker
+                            </polaris-button>
+                        </template>
+                        <template slot="content" slot-scope="props">
+                            <polaris-popover-section>
+                               <polaris-color-picker allow-alpha v-model="popoverColorValue" />
+                            </polaris-popover-section>
+                        </template>
+                    </polaris-popover>
+                </div>
+                <pre class="code"><code class="html">
+&lt;polaris-popover
+    :active="popover3"
+    @close="popover3 = false"
+&gt;
+    &lt;template slot="activator" slot-scope="props"&gt;
+        &lt;polaris-button @click="popover3 = !popover3"&gt;
+           Show Color Picker
+        &lt;/polaris-button&gt;
+    &lt;/template&gt;
+    &lt;template slot="content" slot-scope="props"&gt;
+        &lt;polaris-popover-section&gt;
+            &lt;polaris-color-picker
+                allow-alpha
+                v-model="popoverColorValue" &gt;
+            &lt;/polaris-color-picker&gt;
+        &lt;/polaris-popover-section&gt;
+    &lt;/template&gt;
+&lt;/polaris-popover&gt;</code></pre>
+            </div>
+
             <div class="testHeader">&lt;polaris-modal&gt;</div>
             <div class="testCase">
-            <div class="example">
-                <polaris-button @click="modalToggle = true">
-                    Open Modal
-                </polaris-button>
-            <polaris-modal
-                id="MyModal"
-                v-if="modalToggle"
-                @close="modalToggle = !modalToggle"
-            >
-                <div slot="header">Duplicate Sale</div>
-                <div slot="body">
-                    <polaris-display-text>
-                        Your Body Text Here
-                    </polaris-display-text>
-                </div>
-                <div slot="footer">
-                    <polaris-button @click="modalToggle = false"
-                    >Cancel</polaris-button
-                    >
-                    <polaris-button primary @click="alert('save clicked')">
-                       Save
+                <div class="example">
+                    <polaris-button @click="modalToggle = true">
+                        Open Modal
                     </polaris-button>
+                    <polaris-modal
+                        id="MyModal"
+                        v-if="modalToggle"
+                        @close="modalToggle = !modalToggle"
+                    >
+                        <div slot="header">Duplicate Sale</div>
+                        <div slot="body">
+                            <polaris-display-text>
+                                Your Body Text Here
+                            </polaris-display-text>
+                        </div>
+                        <div slot="footer">
+                            <polaris-button @click="modalToggle = false"
+                            >Cancel
+                            </polaris-button
+                            >
+                            <polaris-button primary @click="alert('save clicked')">
+                                Save
+                            </polaris-button>
+                        </div>
+                    </polaris-modal>
                 </div>
-            </polaris-modal>
-            </div>
-            <pre class="code">
+                <pre class="code">
                 <code class="html">
                      &lt;polaris-modal
                 id="MyModal"
@@ -3448,8 +3490,11 @@
     import PolarisSelect from "../src/components/PolarisSelect";
     import PolarisFormLayoutItem from "../src/components/PolarisFormLayoutItem";
     import PolarisChoiceList from "../src/components/PolarisChoiceList";
+    import PolarisColorPicker from "../src/components/PolarisColorPicker";
+
     export default {
         components: {
+            PolarisColorPicker,
             PolarisChoiceList,
             PolarisFormLayoutItem,
             PolarisSelect,
@@ -3457,6 +3502,7 @@
             PolarisTextField,
             PolarisFormLayoutGroup,
             PolarisButton,
-            PolarisDisplayText}
+            PolarisDisplayText
+        }
     }
 </script>

@@ -1,7 +1,7 @@
 <template>
-<div class="Polaris-ColorPicker__AlphaPicker" ref="slider">
+<div class="Polaris-ColorPicker__AlphaPicker" ref="slider" v-observe-visibility="visibilityChanged">
     <div class="Polaris-ColorPicker__ColorLayer" :style="background"></div>
-    <polaris-color-picker-slidable 
+    <polaris-color-picker-slidable
         :dragger-y="offset"
         :dragger-x="0"
         @change="onChange"
@@ -55,7 +55,7 @@ export default {
             const rgb = rgbColor.red + ', ' +
                         rgbColor.green + ', ' +
                         rgbColor.blue;
-                        
+
             return {
                 background: 'linear-gradient(to top, rgba('+rgb+', 0) 18px, rgba('+rgb+', 1) calc(100% - 18px))'
             };
@@ -76,7 +76,10 @@ export default {
         offsetForAlpha(alpha, sliderHeight, draggerHeight) {
             const slideableArea = sliderHeight - (draggerHeight + VERTICAL_PADDING);
             return Math.max(0, Math.min(sliderHeight - draggerHeight, (1-alpha) * slideableArea) + VERTICAL_PADDING);
-            
+
+        },
+        visibilityChanged(isVisible, entry){
+            this.sliderHeight = this.$refs.slider.clientHeight;
         }
     }
 }

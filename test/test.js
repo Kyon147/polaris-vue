@@ -31,6 +31,13 @@
                 popover2: false,
                 popover2Select: 'tagged',
                 popover3: false,
+                popoverColor: false,
+                popoverColorValue: {
+                    hue: 0,
+                    saturation: 1,
+                    brightness: 1,
+                    alpha: 1,
+                },
 
                 modalToggle: false,
 

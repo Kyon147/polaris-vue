@@ -1,5 +1,5 @@
 <template>
-<div class="Polaris-ColorPicker">
+<div class="Polaris-ColorPicker" v-observe-visibility="visibilityChanged">
     <div ref="palette" class="Polaris-ColorPicker__MainColor">
         <div class="Polaris-ColorPicker__ColorLayer"
              :style="colorLayerStyle"></div>
@@ -101,6 +101,9 @@ export default {
                 this.color.alpha);
 
             this.$emit('change', newColor);
+        },
+        visibilityChanged(isVisible, entry){
+            this.pickerSize = this.$refs.palette.clientWidth;
         }
     }
 };
