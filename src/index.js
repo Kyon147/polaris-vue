@@ -39,6 +39,7 @@ import PolarisChoiceList from './components/PolarisChoiceList.vue';
 import PolarisColorPicker from './components/PolarisColorPicker.vue';
 import PolarisDatePicker from './components/PolarisDatePicker.vue';
 import PolarisFormLayout from './components/PolarisFormLayout.vue';
+import PolarisFormLayoutItem from './components/PolarisFormLayoutItem.vue';
 import PolarisFormLayoutGroup from './components/PolarisFormLayoutGroup.vue';
 import PolarisRadioButton from './components/PolarisRadioButton.vue';
 import PolarisSelect from './components/PolarisSelect.vue';
@@ -156,6 +157,7 @@ export default {
             ColorPicker:            PolarisColorPicker,
             DatePicker:             PolarisDatePicker,
             FormLayout:             PolarisFormLayout,
+            FormLayoutItem:         PolarisFormLayoutItem,
             FormLayoutGroup:        PolarisFormLayoutGroup,
             RadioButton:            PolarisRadioButton,
             Select:                 PolarisSelect,
@@ -203,7 +205,6 @@ export default {
         var count = 0;
         for (var polarisName in components) {
             var componentName = ComponentHelpers.getComponentName(polarisName);
-            console.log( 'component name '+ componentName + ' -> ' + polarisName, components[polarisName]);
             Vue.component(componentName, components[polarisName]);
             count++;
             log.send(log.DEBUG, TAG, componentName + ' -> ' + polarisName);
