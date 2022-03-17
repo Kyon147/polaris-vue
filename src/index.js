@@ -89,6 +89,7 @@ import log from 'util/log.js';
 import ConsoleLogger from 'util/loggers/ConsoleLogger.js';
 
 
+
 const TAG = 'Bootstrap';
 
 // Configure logging
@@ -99,10 +100,13 @@ if (!config.debug) {
 log.addLogger(logger);
 log.send(log.DEBUG, TAG, 'Initialized logging.');
 
-
+import VueObserveVisibility from 'vue-observe-visibility'
 
 export default {
     install(Vue, options) {
+
+        Vue.use(VueObserveVisibility)
+
         const defaults = {
             componentNameFormat: (polarisName, changeCase) => {
                 return 'polaris-'+changeCase.paramCase(polarisName);
@@ -111,7 +115,6 @@ export default {
         options = Object.assign(defaults, options);
 
         ComponentHelpers.setComponentNameFormat(options.componentNameFormat);
-
 
         log.send(log.DEBUG, TAG, 'Installing...new');
 
