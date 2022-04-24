@@ -202,13 +202,16 @@ export default {
                 return
             }
 
-            // Set the sorted index so the caret shows on the right column.
-            this.sortedIndex = index;
+            // Set the right direction first.
             if (this.sortedIndex === index){
                 this.sortedDirection = this.sortedDirection === 'ascending' ? 'descending' : 'ascending'
             } else {
+                console.log(' choose sort order' );
                 this.sortedDirection = this.defaultSortDirection
             }
+
+            // Update the sorted index.
+            this.sortedIndex = index;
 
             // If there is a custom function then run that one instead.
             if (this.onSort) {
@@ -216,19 +219,23 @@ export default {
                 return
             }
 
+            // Run the default sort if there is not one set.
             this.sortedRows = [...this.rows].sort((rowA, rowB) => this.sortAlphaNum(rowA, rowB, index))
 
         },
         sortAlphaNum(a, b, index) {
              const reA = /[^a-zA-Z]/g;
              const reN = /[^0-9]/g;
-             console.log( 'a', a[index] );
              const aA = a[index].replace(reA, "");
              const bA = b[index].replace(reA, "");
              if (aA === bA) {
                  const aN = parseInt(a[index].replace(reN, ""), 10);
                  const bN = parseInt(b[index].replace(reN, ""), 10);
-                 return aN === bN ? 0 : aN > bN ? 1 : -1;
+                 if (this.sortedDirection === 'ascending') {
+                     return aN === bN ? 0 : aN > bN ? 1 : -1;
+                 } else {
+                     return aN === bN ? 0 : aN < bN ? 1 : -1;
+                 }
              } else {
                  if (this.sortedDirection === 'ascending') {
                      return aA > bA ? 1 : -1;
