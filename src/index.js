@@ -49,6 +49,7 @@ import PolarisTextField from './components/PolarisTextField.vue';
 import PolarisCollapsible from './components/PolarisCollapsible.vue';
 import PolarisScrollable from './components/PolarisScrollable.vue';
 
+import PolarisDataTable from "./components/PolarisDataTable.vue";
 import PolarisDescriptionList from './components/PolarisDescriptionList.vue';
 import PolarisList from './components/PolarisList.vue';
 import PolarisListItem from './components/PolarisListItem.vue';
@@ -167,6 +168,7 @@ export default {
             Collapsible:            PolarisCollapsible,
             Scrollable:             PolarisScrollable,
 
+            DataTable:              PolarisDataTable,
             DescriptionList:        PolarisDescriptionList,
             List:                   PolarisList,
             ListItem:               PolarisListItem,
