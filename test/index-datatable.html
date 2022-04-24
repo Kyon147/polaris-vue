@@ -201,16 +201,12 @@
                         'Net Sales'
                     ]"
                     :totals="['', '', '', 255, '$1500']"
-                    :rows="[
-                         ['Emerald Silk Gown', '$875.00', 124689, 140, '$122,500.00'],
-                         ['Mauve Cashmere Scarf', '$230.00', 124533, 83, '$19,090.00'],
-                         ['Navy Merino Wool Blazer with khaki chinos and yellow belt with some other long text',
-                         '$445.00', 123545, 21, '$14,1000'
-                         ]
-                    ]"
+                    :sortable="[true, true, false, false, true]"
+                    :rows="rows"
                     vertical-align="top"
                     show-totals-in-footer
                     hoverable
+                    default-sort-direction="descending"
                 />
             </polaris-card>
 
@@ -221,6 +217,11 @@
 <script>
     import PolarisCard from "../src/components/PolarisCard";
     export default {
-        components: {PolarisCard}
+        components: {PolarisCard},
+        methods: {
+            sort(){
+
+            }
+        }
     }
 </script>

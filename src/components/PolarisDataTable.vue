@@ -1,7 +1,9 @@
 <template>
     <div class="Polaris-DataTable">
         <div class="Polaris-DataTable__ScrollContainer">
-            <table class="Polaris-DataTable__Table">
+            <table :class="[
+                'Polaris-DataTable__Table',
+            ]">
                 <thead>
                     <tr v-if="headings && headings.length > 0">
                         <th v-for="(heading, index) in headings"
@@ -9,12 +11,21 @@
                             :class="[
                                 index === 0 ? 'Polaris-DataTable__Cell--firstColumn' : '',
                                 cellContentTypeClass(index),
-                                cellAlignment()
+                                cellAlignment(),
+                                sortedIndex === index ? 'Polaris-DataTable--sorted' : ''
                             ]"
                             class="Polaris-DataTable__Cell Polaris-DataTable__Cell--header"
                             scope="col"
+                            @click="handleOnSort(index, defaultSortDirection)"
                         >
-                            {{ heading }}
+                            <div class="Polaris-DataTable__Heading">
+                                <span class="Polaris-DataTable__Icon">
+                                <PolarisIcon
+                                    :source=" sortedDirection === 'ascending' ? 'caretUp' : 'caretDown'"
+                                />
+                                </span>
+                                {{ heading }}
+                            </div>
                         </th>
                     </tr>
                     <tr v-if="totals && totals.length > 0 && !showTotalsInFooter">
@@ -31,9 +42,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <template v-if="rows && rows.length > 0">
-                        <tr v-for="(row, index) in rows" :key="index"
-                        :class="[
+                    <template v-if="chosenRows && chosenRows.length > 0">
+                        <tr v-for="(row, index) in chosenRows" :key="index"
+                            :class="[
                             'Polaris-DataTable__TableRow',
                             hoverable ? 'Polaris-DataTable--hoverable' : ''
                         ]"
@@ -86,9 +97,11 @@
 </template>
 
 <script>
+import PolarisIcon from "@/components/PolarisIcon"
+
 export default {
     name: "PolarisDataTable",
-
+    components: {PolarisIcon},
     props: {
         columnContentTypes: {
             type: Array,
@@ -109,14 +122,20 @@ export default {
             type: Array,
             default: () => []
         },
-        truncate:{
+        /* List of booleans, which maps to whether sorting is enabled or not for each column.
+         * Defaults to false for all columns.*/
+        sortable: {
+            type: Array,
+            default: () => []
+        },
+        truncate: {
             type: Boolean,
             default: false
         },
         verticalAlign: {
             type: String,
             default: "middle",
-            validator(val){
+            validator(val) {
                 return [
                     'top',
                     'middle',
@@ -124,18 +143,51 @@ export default {
                 ].includes(val.toLowerCase())
             }
         },
-        hideScrollIndicator:{
+        hideScrollIndicator: {
             type: Boolean,
             default: false
         },
-        showTotalsInFooter:{
+        showTotalsInFooter: {
             type: Boolean,
             default: false
         },
-        hoverable:{
+        hoverable: {
             type: Boolean,
             default: false
+        },
+        initialSortColumnIndex: {
+            type: Number,
+            default: 0
+        },
+        defaultSortDirection: {
+            type: String,
+            default: "descending",
+            validator(val) {
+                return [
+                    'ascending',
+                    'descending',
+                ].includes(val.toLowerCase())
+            }
+        },
+        /**
+         * @param index
+         * @param direction
+         * */
+        onSort: {
+            type: Function,
         }
+    },
+
+    data() {
+        return {
+            sortedRows: [],
+            sortedIndex: this.initialSortColumnIndex,
+            sortedDirection: this.initialSortDirection
+        }
+    },
+
+    mounted(){
+        this.handleInitialSort()
     },
 
     methods: {
@@ -145,9 +197,57 @@ export default {
         cellContentTypeClass(index) {
             return this.columnContentTypes && this.columnContentTypes[index] ? 'Polaris-DataTable__Cell--' + this.columnContentTypes[index] : ''
         },
+        handleOnSort(index) {
+            if (typeof index !== 'undefined' && this.sortable[index] === false) {
+                return
+            }
+
+            // Set the sorted index so the caret shows on the right column.
+            this.sortedIndex = index;
+            if (this.sortedIndex === index){
+                this.sortedDirection = this.sortedDirection === 'ascending' ? 'descending' : 'ascending'
+            } else {
+                this.sortedDirection = this.defaultSortDirection
+            }
+
+            // If there is a custom function then run that one instead.
+            if (this.onSort) {
+                this.onSort(index, this.sortedDirection)
+                return
+            }
+
+            this.sortedRows = [...this.rows].sort((rowA, rowB) => this.sortAlphaNum(rowA, rowB, index))
+
+        },
+        sortAlphaNum(a, b, index) {
+             const reA = /[^a-zA-Z]/g;
+             const reN = /[^0-9]/g;
+             console.log( 'a', a[index] );
+             const aA = a[index].replace(reA, "");
+             const bA = b[index].replace(reA, "");
+             if (aA === bA) {
+                 const aN = parseInt(a[index].replace(reN, ""), 10);
+                 const bN = parseInt(b[index].replace(reN, ""), 10);
+                 return aN === bN ? 0 : aN > bN ? 1 : -1;
+             } else {
+                 if (this.sortedDirection === 'ascending') {
+                     return aA > bA ? 1 : -1;
+                 } else {
+                     return aA < bA ? 1 : -1;
+                 }
+             }
+         },
+        handleInitialSort(){
+            if(this.sortable && this.sortable.length){
+                this.handleOnSort(this.sortedIndex)
+            }
+        }
     },
 
     computed: {
+        chosenRows() {
+            return this.sortedRows && this.sortedRows.length > 0 ? this.sortedRows : this.rows
+        }
     }
 }
 </script>
@@ -165,6 +265,37 @@ export default {
 
     &__ScrollContainer {
         overflow-x: auto;
+    }
+
+    &__Heading{
+        -webkit-appearance: none;
+        appearance: none;
+        background: none;
+        border: none;
+        font-size: inherit;
+        line-height: inherit;
+        position: relative;
+        display: inline-flex;
+        justify-content: flex-end;
+        align-items: baseline;
+        color: var(--p-text);
+        transition: color var(--p-duration-200) var(--p-ease);
+        cursor: pointer;
+        padding: var(--p-space-2);
+        margin: var(--p-space-2);
+    }
+
+    &--sorted{
+        .Polaris-DataTable__Icon{
+            opacity: 1;
+        }
+    }
+
+    &__Icon {
+        display: flex;
+        align-self: flex-end;
+        opacity: 0;
+        transition: opacity var(--p-duration-200) var(--p-ease),fill var(--p-duration-200) var(--p-ease);
     }
 
     &__Table {
@@ -192,7 +323,7 @@ export default {
             white-space: normal;
         }
 
-        &--truncated{
+        &--truncated {
             white-space: nowrap;
             overflow-x: hidden;
             text-overflow: ellipsis;
@@ -214,7 +345,8 @@ export default {
         &--verticalAlignBottom {
             vertical-align: bottom;
         }
-        &--total{
+
+        &--total {
             font-weight: var(--p-font-weight-semibold);
             background: var(--p-surface-subdued);
             border-bottom: var(--p-border-divider);

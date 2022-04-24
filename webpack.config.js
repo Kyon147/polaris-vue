@@ -82,7 +82,10 @@ const config = {
     },
     resolve: {
         modules: [path.resolve('./node_modules'), path.resolve('./src')],
-        extensions: ['.json', '.js']
+        extensions: ['.json', '.js', '.vue'],
+        alias: {
+            '@': path.resolve(__dirname, 'src')
+        },
     },
     plugins: plugins,
     externals: {

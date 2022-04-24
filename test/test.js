@@ -8,7 +8,19 @@
             methods: {
                testAlert: function() {
                    alert('test');
-               }
+               },
+                sort(index, direction){
+                   console.log( 'sort' );
+                    this.rows = this.sortCurrency(this.rows, index, direction)
+                },
+                sortCurrency(rows, index, direction) {
+                    return [...rows].sort((rowA, rowB) => {
+                        const amountA = parseFloat(rowA[index].substring(1));
+                        const amountB = parseFloat(rowB[index].substring(1));
+
+                        return direction === 'descending' ? amountB - amountA : amountA - amountB;
+                    });
+                }
             },
             data: {
                 value0: null,
@@ -57,6 +69,14 @@
                 testDate: new Date(2017, 4, 12),
 
                 accounts: 'disabled',
+
+                rows: [
+                    ['Navy Merino Wool Blazer with khaki chinos and yellow belt with some other long text',
+                        '$445.00', 123545, 21, '$14,1000'
+                    ],
+                    ['Emerald Silk Gown', '$875.00', 124689, 140, '$122,500.00'],
+                    ['Mauve Cashmere Scarf', '$230.00', 124533, 83, '$19,090.00']
+                ]
             },
             computed: {
                 accountsAreDisabled: {
@@ -88,7 +108,7 @@
     }
 
 
-    if (document.readyState != 'loading') {
+    if (document.readyState !== 'loading') {
         init();
     } else {
         document.addEventListener('DOMContentLoaded', init);
