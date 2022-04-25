@@ -61,7 +61,7 @@
                                     scope="row"
                                     :title="rowData"
                                 >
-                                    {{ rowData }}
+                                        {{ rowData }}
                                 </th>
                                 <td v-else
                                     :class="[
