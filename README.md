@@ -1,4 +1,4 @@
-**Notice:** This has recently been detached so I am working on updating NPM modules and bringing the components up to date.
+**Notice:** This has recently been detached so I am working on updating NPM modules and bringing the components up to date. If you'd like to help I'd welcome PRs!
 
 Allows you to use [Shopify Polaris](http://polaris.shopify.com/) components in [Vue 2](http://vuejs.org/).
 
@@ -100,11 +100,18 @@ Vue.use(PolarisVue, {
 });
 ```
 
+## Roadmap
+- DataTable
+- Storybook support
+- Index Table
+- Section Header
+- Update Banner Styling to the latest Polaris version
+
 ## Contribution
 If you are interested contributing all PRs are welcomed.
 
 ## Issues
-Please file an issue on the [Github Repo](https://github.com/Kyon147/polaris-vue)
+Please file an issue on the [Github Repo](https://github.com/Kyon147/polaris-vue/issues)
 
 ## License
 
