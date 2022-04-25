@@ -38,7 +38,7 @@
                                 cellContentTypeClass(index),
                                 cellAlignment()
                             ]">
-                            {{ index === 0 ? 'Totals' : total }}
+                            {{ index === 0 ? totalsString : total }}
                         </th>
                     </tr>
                 </thead>
@@ -88,11 +88,14 @@
                                 cellContentTypeClass(index),
                                 cellAlignment()
                             ]">
-                            {{ index === 0 ? 'Totals' : total }}
+                            {{ index === 0 ? totalsString : total }}
                         </th>
                     </tr>
                 </tfoot>
             </table>
+        </div>
+        <div v-if="footerContent && footerContent.length > 0" class="Polaris-DataTable__Footer">
+            {{footerContent}}
         </div>
     </div>
 </template>
@@ -102,7 +105,9 @@ import PolarisIcon from "@/components/PolarisIcon"
 
 export default {
     name: "PolarisDataTable",
+
     components: {PolarisIcon},
+
     props: {
         columnContentTypes: {
             type: Array,
@@ -176,6 +181,19 @@ export default {
          * */
         onSort: {
             type: Function,
+        },
+        footerContent: {
+            type: String,
+            default: ''
+        },
+        totalsName: {
+            type: Object,
+            default: () => {
+                return {
+                    singular: '',
+                    plural: ''
+                }
+            }
         }
     },
 
@@ -263,6 +281,11 @@ export default {
         chosenRows() {
             return this.sortedRows && this.sortedRows.length > 0 ? this.sortedRows : this.rows
         },
+        totalsString(){
+            // Check whether we need to be plural or not.
+            const numberOfTotal = this.totals.filter(Boolean).length
+            return numberOfTotal > 1 && this.totalsName.plural ? this.totalsName.plural : numberOfTotal === 1 && this.totalsName.singular ? this.totalsName.singular : numberOfTotal < 1 ? 'Total' : 'Totals'
+        }
     }
 }
 </script>
@@ -271,12 +294,6 @@ export default {
 .Polaris-DataTable {
     position: relative;
     max-width: 100vw;
-
-    &--cellTotalFooter, &__Footer {
-        border-top: var(--p-border-divider);
-        border-bottom-left-radius: var(--p-border-radius-1);
-        border-bottom-right-radius: var(--p-border-radius-1);
-    }
 
     &__ScrollContainer {
         overflow-x: auto;
@@ -380,6 +397,20 @@ export default {
             background: var(--p-surface-subdued);
             border-bottom: var(--p-border-divider);
         }
+    }
+
+    &--cellTotalFooter, &__Footer {
+        border-top: var(--p-border-divider);
+        border-bottom-left-radius: var(--p-border-radius-1);
+        border-bottom-right-radius: var(--p-border-radius-1);
+        border-bottom: none;
+    }
+
+    &__Footer {
+        padding: var(--p-space-6);
+        background: var(--p-surface-subdued);
+        color: var(--p-text-subdued);
+        text-align: center;
     }
 
     .Polaris-DataTable__TableRow + .Polaris-DataTable__TableRow .Polaris-DataTable__Cell {
