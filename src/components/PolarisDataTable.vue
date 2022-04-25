@@ -17,7 +17,7 @@
                             ]"
                             class="Polaris-DataTable__Cell Polaris-DataTable__Cell--header"
                             scope="col"
-                            @click="handleOnSort(index, defaultSortDirection)"
+                            @click="handleOnSort(index)"
                         >
                             <div class="Polaris-DataTable__Heading">
                                 <span class="Polaris-DataTable__Icon">
@@ -216,7 +216,7 @@ export default {
         cellContentTypeClass(index) {
             return this.columnContentTypes && this.columnContentTypes[index] ? 'Polaris-DataTable__Cell--' + this.columnContentTypes[index] : ''
         },
-        handleOnSort(index, direction) {
+        handleOnSort(index, direction = null) {
             if (typeof index !== 'undefined' && this.sortable[index] === false) {
                 return
             }
@@ -225,7 +225,7 @@ export default {
             // If we have a specific direction set (like on load) then use that.
             if(direction){
                 this.sortedDirection = direction
-            }else if (this.sortedIndex === index){
+            } else if (this.sortedIndex === index){
                 // If we already have an index match then we need to flip the direction.
                 this.sortedDirection = this.sortedDirection === 'ascending' ? 'descending' : 'ascending'
             } else {
