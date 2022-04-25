@@ -176,8 +176,8 @@ export default {
             }
         },
         /**
-         * @param index
-         * @param direction
+         * @param index - the chosen column
+         * @param direction - direction to sort i.e ascending or descending.
          * */
         onSort: {
             type: Function,
@@ -278,9 +278,13 @@ export default {
     },
 
     computed: {
+        /** When filtering we will choose the sorted rows or the original ones. **/
         chosenRows() {
             return this.sortedRows && this.sortedRows.length > 0 ? this.sortedRows : this.rows
         },
+        /*
+        * Get the correct total name based on the amount of totals supplied and whether a specific one has been provided.
+        * */
         totalsString(){
             // Check whether we need to be plural or not.
             const numberOfTotal = this.totals.filter(Boolean).length
