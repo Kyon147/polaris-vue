@@ -12,7 +12,8 @@
                                 index === 0 ? 'Polaris-DataTable__Cell--firstColumn' : '',
                                 cellContentTypeClass(index),
                                 cellAlignment(),
-                                sortedIndex === index ? 'Polaris-DataTable--sorted' : ''
+                                sortedIndex === index ? 'Polaris-DataTable--sorted' : '',
+                                sortable[index] ? 'Polaris-DataTable--sortable' : ''
                             ]"
                             class="Polaris-DataTable__Cell Polaris-DataTable__Cell--header"
                             scope="col"
@@ -21,7 +22,7 @@
                             <div class="Polaris-DataTable__Heading">
                                 <span class="Polaris-DataTable__Icon">
                                 <PolarisIcon
-                                    :source=" sortedDirection === 'ascending' ? 'caretUp' : 'caretDown'"
+                                    :source="sortedDirectionIcon(index)"
                                 />
                                 </span>
                                 {{ heading }}
@@ -197,16 +198,20 @@ export default {
         cellContentTypeClass(index) {
             return this.columnContentTypes && this.columnContentTypes[index] ? 'Polaris-DataTable__Cell--' + this.columnContentTypes[index] : ''
         },
-        handleOnSort(index) {
+        handleOnSort(index, direction) {
             if (typeof index !== 'undefined' && this.sortable[index] === false) {
                 return
             }
 
             // Set the right direction first.
-            if (this.sortedIndex === index){
+            // If we have a specific direction set (like on load) then use that.
+            if(direction){
+                this.sortedDirection = direction
+            }else if (this.sortedIndex === index){
+                // If we already have an index match then we need to flip the direction.
                 this.sortedDirection = this.sortedDirection === 'ascending' ? 'descending' : 'ascending'
             } else {
-                console.log(' choose sort order' );
+                // If all else fails then fallback to the default.
                 this.sortedDirection = this.defaultSortDirection
             }
 
@@ -246,15 +251,18 @@ export default {
          },
         handleInitialSort(){
             if(this.sortable && this.sortable.length){
-                this.handleOnSort(this.sortedIndex)
+                this.handleOnSort(this.sortedIndex, this.defaultSortDirection)
             }
+        },
+        sortedDirectionIcon(index){
+            return (this.sortedIndex === index && this.sortedDirection === 'ascending') || this.defaultSortDirection === 'ascending' ? 'caretUp' : 'caretDown'
         }
     },
 
     computed: {
         chosenRows() {
             return this.sortedRows && this.sortedRows.length > 0 ? this.sortedRows : this.rows
-        }
+        },
     }
 }
 </script>
@@ -287,7 +295,7 @@ export default {
         align-items: baseline;
         color: var(--p-text);
         transition: color var(--p-duration-200) var(--p-ease);
-        cursor: pointer;
+        cursor: text;
         padding: var(--p-space-2);
         margin: var(--p-space-2);
     }
@@ -295,6 +303,20 @@ export default {
     &--sorted{
         .Polaris-DataTable__Icon{
             opacity: 1;
+        }
+    }
+
+    &--sortable{
+        &:hover{
+            .Polaris-DataTable__Icon{
+                opacity: 1;
+                color: var(--p-interactive-hovered);
+                filter: invert(16%) sepia(86%) saturate(2312%) hue-rotate(208deg) brightness(98%) contrast(78%);
+            }
+            .Polaris-DataTable__Heading {
+                cursor: pointer;
+                color: var(--p-interactive-hovered);
+            }
         }
     }
 
