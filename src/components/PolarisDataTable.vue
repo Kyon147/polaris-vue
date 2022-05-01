@@ -12,15 +12,18 @@
                                 index === 0 ? 'Polaris-DataTable__Cell--firstColumn' : '',
                                 cellContentTypeClass(index),
                                 cellAlignment(),
-                                sortedIndex === index ? 'Polaris-DataTable--sorted' : '',
-                                sortable[index] ? 'Polaris-DataTable--sortable' : ''
+                                sortable && sortable.length && sortedIndex === index ? 'Polaris-DataTable--sorted' : '',
+                                sortable && sortable.length > 0 && sortable[index] ? 'Polaris-DataTable--sortable' : ''
                             ]"
                             class="Polaris-DataTable__Cell Polaris-DataTable__Cell--header"
                             scope="col"
                             @click="handleOnSort(index)"
                         >
                             <div class="Polaris-DataTable__Heading">
-                                <span class="Polaris-DataTable__Icon">
+                                <span
+                                    v-if="sortable && sortable.length"
+                                    class="Polaris-DataTable__Icon"
+                                >
                                 <PolarisIcon
                                     :source="sortedDirectionIcon(index)"
                                 />
@@ -299,6 +302,10 @@ export default {
     position: relative;
     max-width: 100vw;
 
+    table{
+        font-size: inherit;
+    }
+
     &__ScrollContainer {
         overflow-x: auto;
     }
@@ -351,6 +358,7 @@ export default {
     &__Table {
         width: 100%;
         border-spacing: 0;
+        font-size: inherit;
     }
 
     &__Cell {
