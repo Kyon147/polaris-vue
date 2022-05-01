@@ -12,7 +12,7 @@
                                 index === 0 ? 'Polaris-DataTable__Cell--firstColumn' : '',
                                 cellContentTypeClass(index),
                                 cellAlignment(),
-                                sortable && sortable.length && sortedIndex === index ? 'Polaris-DataTable--sorted' : '',
+                                sortable && sortable.length > 0 && sortedIndex === index ? 'Polaris-DataTable--sorted' : '',
                                 sortable && sortable.length > 0 && sortable[index] ? 'Polaris-DataTable--sortable' : ''
                             ]"
                             class="Polaris-DataTable__Cell Polaris-DataTable__Cell--header"
@@ -220,7 +220,7 @@ export default {
             return this.columnContentTypes && this.columnContentTypes[index] ? 'Polaris-DataTable__Cell--' + this.columnContentTypes[index] : ''
         },
         handleOnSort(index, direction = null) {
-            if (typeof index !== 'undefined' && this.sortable[index] === false) {
+            if ((typeof index !== 'undefined' && this.sortable[index] === false) || !this.sortable[index]) {
                 return
             }
 
