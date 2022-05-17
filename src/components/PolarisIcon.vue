@@ -12,7 +12,6 @@
 
 <script>
 import SvgSource from '../SvgSource.js';
-
 import {
     add,
     alert,
@@ -57,7 +56,7 @@ import {
     search,
     subtract,
     view,
-} from '../resources/icons/';
+} from '@/resources/icons';
 
 export const BUNDLED_ICONS = {
     add,
@@ -119,6 +118,9 @@ export default {
         },
         accessibilityLabel: String
     },
+    mounted(){
+      console.log( 'bundled icons', BUNDLED_ICONS );
+    },
     computed: {
         finalSource() {
             var svgSource = this.source;
@@ -135,7 +137,7 @@ export default {
                 console.log( 'try svg source', svgObject );
                 return svgObject;
             } catch (e) {
-                console.error(e);
+                console.log(e);
                 return null;
             }
         },
