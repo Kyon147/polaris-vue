@@ -118,26 +118,19 @@ export default {
         },
         accessibilityLabel: String
     },
-    mounted(){
-      console.log( 'bundled icons', BUNDLED_ICONS );
-    },
     computed: {
         finalSource() {
             var svgSource = this.source;
-            console.log( 'svgSrouce', svgSource );
             if (typeof this.source == 'string') {
                 const bundled = BUNDLED_ICONS[this.source];
-                console.log( 'bundled', bundled );
                 if (bundled) {
                     svgSource = bundled;
                 }
             }
             try {
                 var svgObject = SvgSource.parseSVG(svgSource);
-                console.log( 'try svg source', svgObject );
                 return svgObject;
             } catch (e) {
-                console.log(e);
                 return null;
             }
         },
