@@ -56,7 +56,7 @@ import {
     search,
     subtract,
     view,
-} from '@/resources/icons';
+} from '../resources/icons';
 
 export const BUNDLED_ICONS = {
     add,
