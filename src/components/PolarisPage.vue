@@ -49,9 +49,6 @@ export default {
         pagination: Object,
         actionGroups: Array,
     },
-    mounted() {
-      console.log( 'PAGE MOUNRTEDDDDsD' );
-    },
     computed: {
         classes() {
             return ComponentHelpers.makeComponentClass('Polaris-Page', [

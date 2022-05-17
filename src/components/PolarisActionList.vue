@@ -41,6 +41,7 @@ export default {
     computed: {
         finalSections() {
             console.log( 'itemssss', this.items );
+            console.log( 'items 2', [{items: this.items}, ...this.sections] );
             if (this.items) {
                 return [{items: this.items}, ...this.sections];
             }
