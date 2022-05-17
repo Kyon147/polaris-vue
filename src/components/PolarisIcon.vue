@@ -135,6 +135,7 @@ export default {
                 console.log( 'try svg source', svgObject );
                 return svgObject;
             } catch (e) {
+                console.error(e);
                 return null;
             }
         },

@@ -7,19 +7,20 @@ export default {
         str = str.replace(FILL_REGEX, (fill) => {
             return fill.includes('#FFF') ? 'fill="currentColor"' : '';
         });
-        
+
         if (classes) {
             str = str.replace(/^<svg /, '<svg class="'+classes+'" ');
         }
-        
+
         return str;
     },
 
     parseSVG(str) {
+        console.log( 'svsource.js', str );
         return {
             viewBox: VIEWBOX_REGEX.exec(str)[1],
             body: str.replace(SVG_REGEX, '')
         };
     },
-        
+
 }
