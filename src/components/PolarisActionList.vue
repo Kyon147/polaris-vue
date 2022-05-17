@@ -35,17 +35,11 @@ export default {
             }
         },
     },
-    mounted() {
-        console.log( 'component action mounted' );
-    },
     computed: {
         finalSections() {
-            console.log( 'itemssss', this.items );
-            console.log( 'items 2', [{items: this.items}, ...this.sections] );
             if (this.items) {
                 return [{items: this.items}, ...this.sections];
             }
-            console.log( 'sections', this.items );
             return this.sections;
         },
         hasMultipleSections() {

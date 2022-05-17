@@ -177,9 +177,11 @@
                                     {{ group.title }}
                                 </polaris-page-action>
                             </template>
-                            <polaris-action-list
-                                :items="group.actions"
-                                @action-any-item="handleActionGroupClose(group)"/>
+                            <template slot="content">
+                                <polaris-action-list
+                                    :items="group.actions"
+                                    @action-any-item="handleActionGroupClose(group)"/>
+                            </template>
                             <div class="Polaris-Page__Details" v-if="group.details">
                                 {{ group.details }}
                             </div>
