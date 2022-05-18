@@ -100,9 +100,28 @@ Vue.use(PolarisVue, {
 });
 ```
 
+## Icons and Laravel Mix
+If you are using mix from Laravel, then you'll need to set up the inline loader for the svg icons otherwise you'll only see the grey square placeholder.
+
+You can add an override like so, where we run the `html-loader` to parse the svg files into their HTML.
+
+````js
+mix.override(config => {
+config.module.rules.find(rule =>
+rule.test.test('.svg')
+).exclude = /\.svg$/
+
+    config.module.rules.push({
+        test: /\.svg$/,
+        use: [
+            {loader: 'html-loader'}
+        ]
+    })
+})
+````
 ## Roadmap
-- DataTable
-- Storybook support
+- ~~DataTable~~ done.
+- Storybook support (80% done)
 - Index Table
 - Section Header
 - Update Banner Styling to the latest Polaris version
