@@ -22,6 +22,7 @@ import PolarisLayout from './components/PolarisLayout.vue';
 import PolarisPage from './components/PolarisPage.vue';
 import PolarisPageActions from './components/PolarisPageActions.vue';
 import PolarisStack from './components/PolarisStack.vue';
+import PolarisContextualSaveBar from "./components/PolarisContextualSaveBar";
 
 import PolarisCaption from './components/PolarisCaption.vue';
 import PolarisDisplayText from './components/PolarisDisplayText.vue';
@@ -141,6 +142,7 @@ export default {
             Page:                   PolarisPage,
             PageActions:            PolarisPageActions,
             Stack:                  PolarisStack,
+            ContextualSaveBar:      PolarisContextualSaveBar,
 
             Heading:                PolarisHeading,
             Subheading:             PolarisSubheading,

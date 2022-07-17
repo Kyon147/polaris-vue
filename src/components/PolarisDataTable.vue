@@ -324,8 +324,6 @@ export default {
         color: var(--p-text);
         transition: color var(--p-duration-200) var(--p-ease);
         cursor: text;
-        padding: var(--p-space-2);
-        margin: var(--p-space-2);
     }
 
     &--sorted{
