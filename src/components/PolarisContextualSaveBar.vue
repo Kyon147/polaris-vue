@@ -132,7 +132,7 @@ export default {
             align-items: center;
             justify-content: space-between;
             min-width: 0.0625rem;
-            max-width: 62.375rem;
+            max-width: 103.6rem;
             height: 100%;
             margin: 0 auto;
             padding: 0 var(--p-space-4);
