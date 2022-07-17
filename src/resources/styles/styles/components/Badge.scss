@@ -1,8 +1,9 @@
+@use 'sass:math';
 $height: rem(20px);
-$horizontal-padding: ($height / 2);
+$horizontal-padding: (math.div($height, 2));
 
 $pip-size: rem(10px);
-$pip-spacing: ($height - $pip-size) / 2;
+$pip-spacing: math.div(($height - $pip-size), 2);
 
 @mixin pip-color($color) {
   .Polaris-Badge__Pip {

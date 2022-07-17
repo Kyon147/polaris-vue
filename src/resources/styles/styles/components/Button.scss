@@ -1,9 +1,10 @@
+@use "sass:math";
 $min-height: control-height();
-$vertical-padding: ($min-height - line-height(body) - rem(2px)) / 2;
+$vertical-padding: math.div(($min-height - line-height(body) - rem(2px)), 2);
 $slim-min-height: rem(30px);
-$slim-vertical-padding: ($slim-min-height - line-height(body) - rem(2px)) / 2;
+$slim-vertical-padding:  math.div(($slim-min-height - line-height(body) - rem(2px)),  2);
 $large-min-height: rem(44px);
-$large-vertical-padding: ($large-min-height - line-height(body) - rem(2px)) / 2;
+$large-vertical-padding:  math.div(($large-min-height - line-height(body) - rem(2px)),  2);
 $spinner-size: rem(20px);
 
 .Polaris-Button {
@@ -94,8 +95,8 @@ $spinner-size: rem(20px);
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -($spinner-size / 2);
-  margin-left: -($spinner-size / 2);
+  margin-top: -(math.div($spinner-size, 2));
+  margin-left: -(math.div($spinner-size, 2));
 }
 
 .Polaris-Button--primary {

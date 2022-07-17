@@ -1,10 +1,11 @@
+@use 'sass:math';
 $key-base-height: rem(24px);
 $bottom-shadow-size: 2px;
 
 .Polaris-KeyboardKey {
   display: inline-block;
   height: $key-base-height;
-  margin: 0 (spacing(extra-tight) / 2) $bottom-shadow-size;
+  margin: 0 (math.div(spacing(extra-tight), 2)) $bottom-shadow-size;
   padding: 0 spacing(extra-tight);
   background-color: color(white, base);
   box-shadow:

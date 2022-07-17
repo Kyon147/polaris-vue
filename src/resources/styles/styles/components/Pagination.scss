@@ -1,5 +1,6 @@
+@use 'sass:math';
 $min-height: control-height();
-$vertical-padding: ($min-height - line-height(body) - rem(2px)) / 2;
+$vertical-padding: math.div(($min-height - line-height(body) - rem(2px)), 2);
 $difference-between-touch-area-and-backdrop: control-height() - control-slim-height();
 
 // This is the adjustment needed to get the icon to appear flush with other

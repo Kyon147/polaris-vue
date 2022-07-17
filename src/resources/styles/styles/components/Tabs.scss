@@ -1,6 +1,7 @@
+@use 'sass:math';
 $border-bottom-height: rem(3px);
 $item-min-height: rem(16px);
-$item-vertical-padding: $item-min-height / 2;
+$item-vertical-padding: math.div($item-min-height, 2);
 $focus-state-box-shadow-color: rgba(92, 106, 196, 0.8);
 
 .Polaris-Tabs {

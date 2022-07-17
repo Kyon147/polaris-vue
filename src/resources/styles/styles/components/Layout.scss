@@ -1,6 +1,7 @@
+@use 'sass:math';
 $secondary-basis: layout-width(secondary, min);
 $primary-basis: layout-width(primary, min);
-$relative-size: $primary-basis / $secondary-basis;
+$relative-size: math.div($primary-basis, $secondary-basis);
 
 .Polaris-Layout {
   display: flex;
