@@ -1,9 +1,11 @@
 <template>
     <div
-        class="Polaris-Frame__ContextualSaveBar Polaris-Frame-CSSAnimation--startFade Polaris-Frame-CSSAnimation--endFade">
+        class="Polaris-Frame__ContextualSaveBar Polaris-Frame-CSSAnimation--startFade" :class="{
+        'Polaris-Frame-CSSAnimation--endFade' : loaded
+        }">
         <div p-color-scheme="dark" style="color: var(--p-text);">
             <div class="Polaris-Frame-ContextualSaveBar">
-                <div class="Polaris-Frame-ContextualSaveBar__Contents">
+                <div class="Polaris-Frame-ContextualSaveBar__Contents" :class="{'Polaris-Frame-ContextualSaveBar--fullWidth' : fullWidth}">
                     <h2 class="Polaris-Frame-ContextualSaveBar__Message">
                         Unsaved changes
                     </h2>
@@ -25,14 +27,6 @@
                                 </polaris-button>
                             </polaris-stack-item>
                         </polaris-stack>
-                        <div class="Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--noWrap">
-                            <div class="Polaris-Stack__Item">
-
-                            </div>
-                            <div class="Polaris-Stack__Item">
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -68,6 +62,16 @@ export default {
             default: false
         }
     },
+    data() {
+        return {
+            loaded: false,
+        }
+    },
+    mounted() {
+        setTimeout(() => {
+            this.loaded = true
+        }, 200)
+    },
     methods: {
         handleAction(action) {
             console.log('handleAction', action);
@@ -84,10 +88,32 @@ export default {
     &__ContextualSaveBar {
         width: 100%;
         position: fixed;
-        z-index: var(--p-z-5);
+        z-index: 5;
         top: 0;
         left: 0;
-        width: 100%;
+
+        --p-frame-offset: 0rem;
+        --p-duration-0: 0ms;
+        --p-duration-50: 50ms;
+        --p-duration-100: 100ms;
+        --p-duration-150: 150ms;
+        --p-duration-200: 200ms;
+        --p-duration-250: 250ms;
+        --p-duration-300: 300ms;
+        --p-duration-350: 350ms;
+        --p-duration-400: 400ms;
+        --p-duration-450: 450ms;
+        --p-duration-500: 500ms;
+        --p-duration-5000: 5000ms;
+        --p-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+        --p-ease-in: cubic-bezier(0.42, 0, 1, 1);
+        --p-ease-out: cubic-bezier(0, 0, 0.58, 1);
+        --p-ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+        --p-linear: cubic-bezier(0, 0, 1, 1);
+        --p-keyframes-bounce: p-keyframes-bounce;
+        --p-keyframes-fade-in: p-keyframes-fade-in;
+        --p-keyframes-pulse: p-keyframes-pulse;
+        --p-keyframes-spin: p-keyframes-spin;
     }
 
     &-ContextualSaveBar {
@@ -120,7 +146,26 @@ export default {
                 }
             }
         }
+
+        &--fullWidth{
+            max-width: none;
+            padding: 0 var(--p-space-4);
+        }
     }
+}
+
+.Polaris-Frame-CSSAnimation--startFade {
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: opacity;
+    transition: opacity var(--p-duration-300) var(--p-ease-out);
+    pointer-events: none;
+}
+
+.Polaris-Frame-CSSAnimation--endFade {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .Polaris-Button.Polaris-Button--outline {
