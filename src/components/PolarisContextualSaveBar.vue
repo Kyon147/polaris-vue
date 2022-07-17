@@ -13,7 +13,7 @@
                         <polaris-stack spacing="tight" :wrap="false">
                             <polaris-stack-item>
                                 <polaris-button
-                                    outline
+                                    outline=""
                                     @click="handleAction(discardAction)"
                                 >
                                     Discard
@@ -21,8 +21,11 @@
                             </polaris-stack-item>
                             <polaris-stack-item>
                                 <polaris-button
-                                    primary
-                                    @click="handleAction(saveAction)">
+                                    primary=""
+                                    @click="handleAction(saveAction)"
+                                    :loading="saveAction.loading"
+                                    :disabled="saveAction.disabled"
+                                >
                                     Save
                                 </polaris-button>
                             </polaris-stack-item>
@@ -74,7 +77,6 @@ export default {
     },
     methods: {
         handleAction(action) {
-            console.log('handleAction', action);
             if (action.onAction) {
                 action.onAction();
             }
