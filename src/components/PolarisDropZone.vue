@@ -487,15 +487,11 @@ export default {
             }
             const fileList = this.getDataTransferFiles(event);
             const {files, acceptedFiles, rejectedFiles} = this.getValidatedFiles(fileList);
-            console.log( files, acceptedFiles, rejectedFiles );
             this.dragTargets = [];
             this.dragging = false;
             this.intervalError = rejectedFiles.length > 0;
-            // tslint:disable-next-line:no-unused-expression
             this.handleOnDrop && this.handleOnDrop(files, acceptedFiles, rejectedFiles);
-            // tslint:disable-next-line:no-unused-expression
             this.handleOnDropAccepted && acceptedFiles.length && this.handleOnDropAccepted(acceptedFiles);
-            // tslint:disable-next-line:no-unused-expression
             this.handleOnDropRejected && rejectedFiles.length && this.handleOnDropRejected(rejectedFiles);
             (event.target).value = '';
         },
@@ -504,7 +500,6 @@ export default {
             if (this.disabled) {
                 return;
             }
-            // tslint:disable-next-line:no-unused-expression
             this.handleOnDragOver && this.handleOnDragOver();
         },
         handleDragEnter(event) {
@@ -512,7 +507,7 @@ export default {
             if (this.disabled) {
                 return;
             }
-            const fileList = getDataTransferFiles(event);
+            const fileList = this.getDataTransferFiles(event);
             if (event.target && !this.dragTargets.includes(event.target)) {
                 this.dragTargets.push(event.target);
             }
@@ -522,7 +517,6 @@ export default {
             const {rejectedFiles} = this.getValidatedFiles(fileList);
             this.dragging = true;
             this.intervalError = rejectedFiles.length > 0;
-            // tslint:disable-next-line:no-unused-expression
             this.handleOnDragEnter && this.handleOnDragEnter();
         },
         handleDragLeave(event) {
@@ -539,7 +533,6 @@ export default {
             }
             this.dragging = false;
             this.intervalError = false;
-            // tslint:disable-next-line:no-unused-expression
             this.handleOnDragLeave && this.handleOnDragLeave();
         },
         adjustSize() {
@@ -560,7 +553,6 @@ export default {
                 size = 'large';
             }
             this.size = size;
-            // tslint:disable-next-line:no-unused-expression
             this.measuring && (this.measuring = false);
         },
         /**
@@ -574,7 +566,6 @@ export default {
         },
         open() {
             const fileInputNode = this.$refs.node && this.$refs.node.querySelector(`#${this.id}`);
-            // tslint:disable-next-line:no-unused-expression
             fileInputNode && fileInputNode instanceof HTMLElement && fileInputNode.click();
         },
         createFileURL(file) {
