@@ -2,15 +2,16 @@
 import ComponentHelpers from '../ComponentHelpers.js';
 import PolarisStackItem from './PolarisStackItem.vue';
 
-
 export default {
     polarisName: 'Stack',
     render(createElement) {
         return createElement('div', {
             'class': this.classes,
-        }, ComponentHelpers.wrapNodesWithComponent(createElement, 
-                                                   this.$slots.default, 
-                                                   PolarisStackItem));
+        }, ComponentHelpers.wrapNodesWithComponent(
+            createElement,
+            this.$slots.default,
+            PolarisStackItem
+        ));
     },
     props: {
         vertical: Boolean,
@@ -25,7 +26,7 @@ export default {
                     'loose',
                     'extraLoose',
                     'none'
-                ].indexOf(v) != -1;
+                ].indexOf(v) !== -1;
             }
         },
         alignment: {
@@ -38,7 +39,7 @@ export default {
                     'center',
                     'fill',
                     'baseline'
-                ].indexOf(v) != -1;
+                ].indexOf(v) !== -1;
             }
         },
         distribution: {
@@ -53,7 +54,7 @@ export default {
                     'fill',
                     'baseline',
                     'fillEvenly'
-                ].indexOf(v) != -1;
+                ].indexOf(v) !== -1;
             }
         },
     },

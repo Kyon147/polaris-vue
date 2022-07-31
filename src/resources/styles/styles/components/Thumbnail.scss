@@ -39,6 +39,12 @@ $stacking-order: (
   width: rem(80px);
 }
 
+.Polaris-Thumbnail--hasIcon {
+   display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .Polaris-Thumbnail__Image {
   position: absolute;
   z-index: z-index(image, $stacking-order);

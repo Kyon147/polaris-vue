@@ -20,9 +20,19 @@
 
                         return direction === 'descending' ? amountB - amountA : amountA - amountB;
                     });
-                }
+                },
+                handleDropZoneDrop(files, acceptedFiles, rejectedFiles) {
+                   console.log( 'accepted files: ', acceptedFiles);
+                    acceptedFiles.map((file) => {
+                        console.log( 'file: ', file);
+                        this.images.push(file);
+                    });
+                },
             },
             data: {
+
+                images: [],
+
                 value0: null,
                 value1: null,
                 value2: null,

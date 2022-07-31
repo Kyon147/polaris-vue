@@ -100,6 +100,7 @@ log.addLogger(logger);
 log.send(log.DEBUG, TAG, 'Initialized logging.');
 
 import VueObserveVisibility from 'vue-observe-visibility'
+import PolarisDropZone from "./components/PolarisDropZone";
 
 export default {
     install(Vue, options) {
@@ -124,6 +125,7 @@ export default {
             Button:                 PolarisButton,
             ButtonGroup:            PolarisButtonGroup,
             SettingToggle:          PolarisSettingToggle,
+            DropZone:               PolarisDropZone,
 
             Avatar:                 PolarisAvatar,
             Badge:                  PolarisBadge,

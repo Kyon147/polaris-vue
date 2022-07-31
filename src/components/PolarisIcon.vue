@@ -1,8 +1,8 @@
 <template>
 <span :class="classes" :aria-label="accessibilityLabel">
-    <div v-if="source == 'placeholder' || !finalSource" class="Polaris-Icon__Placeholder"></div>
+    <div v-if="source === 'placeholder' || !finalSource" class="Polaris-Icon__Placeholder"></div>
     <svg
-        v-if="source != 'placeholder' && finalSource"
+        v-if="source !== 'placeholder' && finalSource"
         class="Polaris-Icon__Svg"
         :viewBox="finalSource.viewBox"
         v-html="finalSource.body"/>
@@ -31,6 +31,7 @@ import {
     chevronRight,
     chevronUp,
     circleCancel,
+    circleArrowUp,
     circleChevronDown,
     circleChevronLeft,
     circleChevronRight,
@@ -77,6 +78,7 @@ export const BUNDLED_ICONS = {
     chevronRight,
     chevronUp,
     circleCancel,
+    circleArrowUp,
     circleChevronDown,
     circleChevronLeft,
     circleChevronRight,

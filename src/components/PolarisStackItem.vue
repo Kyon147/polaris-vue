@@ -6,6 +6,7 @@
 
 <script>
 export default {
+    name:"PolarisStackItem",
     polarisName: 'StackItem',
     props: {
         fill: Boolean

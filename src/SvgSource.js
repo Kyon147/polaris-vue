@@ -16,7 +16,6 @@ export default {
     },
 
     parseSVG(str) {
-        console.log( 'svsource.js', str );
         return {
             viewBox: VIEWBOX_REGEX.exec(str)[1],
             body: str.replace(SVG_REGEX, '')

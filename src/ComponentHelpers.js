@@ -4,12 +4,11 @@ class ComponentHelpers {
     constructor() {
         this.componentNameFormat = name => name;
     }
-    
+
     setComponentNameFormat(format) {
         this.componentNameFormat = format;
     }
-    
-    
+
     makeComponentClass(componentName, properties, state) {
         var classes = {};
         classes[componentName] = true;
@@ -25,29 +24,29 @@ class ComponentHelpers {
 
         return classes;
     }
-    
+
     isNodeOfComponent(node, component) {
         if (!node || !node.componentOptions) {
             return false;
         }
-        
+
         var nodeComponentTagName = node.componentOptions.tag;
         var componentTagName = this.getComponentName(component.polarisName);
-        
+
         return nodeComponentTagName == componentTagName;
     }
-    
+
     getComponentName(polarisName) {
         return this.componentNameFormat(polarisName, changeCase);
     }
-    
+
     wrapNodesWithComponent(createElement, nodes, component, ignoredComponents = []) {
         var children = [];
         for (let node of nodes) {
             if (!node.tag && !node.text.trim()) {
                 continue;
             }
-            
+
             var added = false;
             if (this.isNodeOfComponent(node, component)) {
                 added = true;
@@ -61,12 +60,20 @@ class ComponentHelpers {
                     }
                 }
             }
-            
+
             if (!added) {
                 children.push(createElement(component, {}, [node]));
             }
         }
         return children;
+    }
+
+    classNames(...classes) {
+        return classes.filter(Boolean).join(' ');
+    }
+
+    variationName(name, value) {
+        return `${name}${value.charAt(0).toUpperCase()}${value.slice(1)}`;
     }
 }
 
