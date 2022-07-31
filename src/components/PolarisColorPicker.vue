@@ -30,6 +30,7 @@ import PolarisColorPickerHuePicker from './PolarisColorPickerHuePicker.vue';
 import PolarisColorPickerSlidable from './PolarisColorPickerSlidable.vue';
 
 export default {
+    name: 'PolarisColorPicker',
     model: {
         prop: 'color',
         event: 'change'

@@ -62,6 +62,7 @@ import PolarisButton from './PolarisButton.vue';
 import PolarisUnstyledLink from './PolarisUnstyledLink.vue';
 
 export default {
+    name: 'PolarisPageAction',
     components: {
         DynamicTemplate,
         PolarisIcon,

@@ -5,14 +5,14 @@
         position="Left">
         <slot name="left">{{ left }}</slot>
     </polaris-connected-item>
-    
+
     <polaris-connected-item position="Primary">
         <slot v-if="!$slots.children">
            {{ children }}
         </slot>
         <slot name="children"></slot>
     </polaris-connected-item>
-    
+
     <polaris-connected-item
         v-if="$slots.right || right"
         position="Right">
@@ -27,6 +27,7 @@ import PolarisConnectedItem from './PolarisConnectedItem.vue';
 
 
 export default {
+    name: 'PolarisConnected',
     components: {
         PolarisConnectedItem
     },

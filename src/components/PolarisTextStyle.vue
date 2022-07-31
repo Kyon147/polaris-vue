@@ -8,6 +8,7 @@
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisTextStyle',
     props: {
         variation: {
             type: String,
@@ -17,7 +18,7 @@ export default {
                     'negative',
                     'strong',
                     'subdued'
-                ].indexOf(v) != -1;
+                ].indexOf(v) !== -1;
             }
         }
     },

@@ -1,10 +1,9 @@
 <script>
 import PolarisPopoverSection from './PolarisPopoverSection.vue';
 import PolarisScrollable from './PolarisScrollable.vue';
-
 import ComponentHelpers from '../ComponentHelpers.js';
-
 export default {
+    name: 'PolarisPopoverPane',
     components: {
         PolarisPopoverSection,
         PolarisScrollable

@@ -5,8 +5,8 @@
     </div>
     <div v-if="$slots.action || action" class="Polaris-SettingAction__Action">
         <slot name="action">
-            <polaris-button v-if="action" 
-                            primary 
+            <polaris-button v-if="action"
+                            primary
                             @click="handleAction(action)"
                             :url="action.url"
                             :destructive="action.destructive"
@@ -22,6 +22,7 @@
 
 <script>
 export default {
+    name: 'PolarisSettingAction',
     props: {
         action: null
     },

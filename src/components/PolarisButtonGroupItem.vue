@@ -1,5 +1,5 @@
 <template>
-<div :class="classes" 
+<div :class="classes"
      @focusin="focused = true"
      @focusout="focused = false"
      tabindex="-1">
@@ -10,7 +10,9 @@
 <script>
 import ComponentHelpers from '../ComponentHelpers.js';
 
-export default {
+export default
+{
+    name: 'PolarisButtonGroupItem',
     data() {
         return {
             focused: false

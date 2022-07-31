@@ -16,6 +16,7 @@
 import Vue from 'vue';
 
 export default {
+    name: 'PolarisColorPickerSlidable',
     props: {
         draggerX: Number,
         draggerY: Number

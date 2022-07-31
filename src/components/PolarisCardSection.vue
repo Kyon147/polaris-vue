@@ -15,6 +15,7 @@ import ComponentHelpers from '../ComponentHelpers.js';
 import PolarisSubheading from './PolarisSubheading.vue';
 
 export default {
+    name: 'PolarisCardSection',
     components: {
         PolarisSubheading,
     },

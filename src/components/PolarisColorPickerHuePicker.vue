@@ -15,6 +15,7 @@ import PolarisColorPickerSlidable from './PolarisColorPickerSlidable.vue';
 const VERTICAL_PADDING = 13;
 
 export default {
+    name: 'PolarisColorPickerHuePicker',
     components: {
         PolarisColorPickerSlidable
     },

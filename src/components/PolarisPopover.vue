@@ -38,6 +38,7 @@ import DynamicTag from './DynamicTag.vue';
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisPopover',
     components: {
         DynamicTag,
         PolarisPopoverOverlay

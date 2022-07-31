@@ -21,6 +21,7 @@ import ComponentHelpers from '../ComponentHelpers.js';
 import PolarisPageHeader from './PolarisPageHeader.vue';
 
 export default {
+    name: 'PolarisPage',
     components: {
         PolarisPageHeader,
     },

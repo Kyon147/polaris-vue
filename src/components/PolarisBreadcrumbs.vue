@@ -14,11 +14,10 @@
 </template>
 
 <script>
-import PolarisUnstyledLink from './PolarisUnstyledLink.vue';
-import PolarisIcon from './PolarisIcon.vue';
 import chevronIcon from '../resources/chevron-icon.svg';
 
 export default {
+    name: 'PolarisBreadcrumbs',
     props: {
         /**
          * This takes an array of actions, but only shows the last one in the array

@@ -1,10 +1,10 @@
 <template>
 <div :class="classes">
-    <progress 
-        class="Polaris-ProgressBar__Progress" 
-        :value="realProgress" 
+    <progress
+        class="Polaris-ProgressBar__Progress"
+        :value="realProgress"
         max="100"/>
-    <div 
+    <div
         class="Polaris-ProgressBar__Indicator"
         role="progressbar"
         aria-hidden="true"
@@ -20,6 +20,7 @@
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisProgressBar',
     props: {
         progress: {
             type: Number,

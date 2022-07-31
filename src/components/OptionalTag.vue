@@ -1,6 +1,7 @@
 
 <script>
 export default {
+    name: 'OptionalTag',
     render(createElement) {
         var validSlot = this.$slots.default;
         var child = validSlot ? validSlot[0] : createElement('div');

@@ -19,6 +19,7 @@ import ComponentHelpers from '../ComponentHelpers.js';
 import dateUtils from '../data/date-utils.js';
 
 export default {
+    name: 'PolarisDatePickerDay',
     props: {
         focused: Boolean,
         day: Date,
@@ -52,7 +53,7 @@ export default {
                 'disabled',
                 'today',
             ], this);
-            
+
             if ((this.inRange || this.inHoveringRange) && !this.disabled) {
                 r['Polaris-DatePicker__Day--inRange'] = true;
             }
@@ -77,7 +78,7 @@ export default {
                 this.$emit('click', this.day);
             }
         }
-        
+
     }
 }
 </script>

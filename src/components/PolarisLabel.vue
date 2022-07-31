@@ -1,6 +1,6 @@
 <template>
 <div :class="classes">
-    <label 
+    <label
         :id="id+'Label'"
         :for="id"
         class="Polaris-Label__Text">
@@ -13,6 +13,7 @@
 
 <script>
 export default {
+    name: 'PolarisLabel',
     props: {
         children: String,
         id: String,

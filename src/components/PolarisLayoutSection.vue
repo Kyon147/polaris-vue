@@ -8,6 +8,7 @@
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisLayoutSection',
     props: {
         secondary: Boolean,
         fullWidth: Boolean,

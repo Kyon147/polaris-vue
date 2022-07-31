@@ -11,6 +11,7 @@
 
 <script>
 export default {
+    name: 'PolarisUnstyledLink',
     props: {
         url: String,
         external: Boolean,

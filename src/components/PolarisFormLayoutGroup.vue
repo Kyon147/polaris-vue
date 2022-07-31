@@ -3,7 +3,7 @@
      :class="classes"
      :aria-labelledBy="title ? id+'Title' : null"
      :aria-describedby="helpText ? id+'HelpText' : null">
-    <div v-if="title" 
+    <div v-if="title"
          :id="id+'Title'"
          class="Polaris-FormLayout__Title">
         {{ title }}
@@ -25,6 +25,7 @@
 import PolarisFormLayoutGroupItemWrapper from './PolarisFormLayoutGroupItemWrapper.vue';
 
 export default {
+    name: 'PolarisFormLayoutGroup',
     polarisName: 'FormLayoutGroup',
     components: {
         PolarisFormLayoutGroupItemWrapper,

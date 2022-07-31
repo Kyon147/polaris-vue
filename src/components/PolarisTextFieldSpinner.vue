@@ -30,6 +30,7 @@ import caretUp from '../resources/caret-up.svg';
 import caretDown from '../resources/caret-down.svg';
 
 export default {
+    name: 'PolarisTextFieldSpinner',
     components: {
         PolarisIcon,
     },

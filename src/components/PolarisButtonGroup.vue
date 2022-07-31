@@ -12,6 +12,7 @@
 import PolarisButtonGroupItem from './PolarisButtonGroupItem.vue';
 
 export default {
+    name: 'PolarisButtonGroup',
     components: {
         PolarisButtonGroupItem
     },

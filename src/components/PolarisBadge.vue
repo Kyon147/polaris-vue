@@ -11,6 +11,7 @@
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisBadge',
     props: {
         status: {
             type: String,
@@ -22,7 +23,7 @@ export default {
                     'info',
                     'attention',
                     'warning',
-                ].indexOf(v) != -1;
+                ].indexOf(v) !== -1;
             }
         }
     },

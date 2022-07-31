@@ -4,7 +4,7 @@
         <polaris-label :id="id" :hidden="false" :action="action">
             {{ label }}
         </polaris-label>
-        <polaris-button 
+        <polaris-button
             v-if="action"
             plain
             @click="handleAction(action, true)"
@@ -18,10 +18,10 @@
                 {{ action.content }}
         </polaris-button>
     </div>
-    
+
     <slot name="children"></slot>
     <slot v-if="!$slots.children">{{ children }}</slot>
-    
+
     <div v-if="error && typeof error == 'string'"
          :id="id+'Error'"
          class="Polaris-Labelled__Error">
@@ -31,7 +31,7 @@
         </div>
         {{ error }}
     </div>
-    
+
     <div v-if="helpText || $slots.helpText"
          :id="id+'HelpText'"
          class="Polaris-Labelled__HelpText">
@@ -48,6 +48,7 @@ import PolarisIcon from './PolarisIcon.vue';
 import alertIcon from '../resources/alert-icon.svg';
 
 export default {
+    name: 'PolarisLabelled',
     components: {
         PolarisIcon,
         PolarisLabel,

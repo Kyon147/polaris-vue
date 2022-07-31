@@ -19,6 +19,7 @@ import PolarisIcon from './PolarisIcon.vue';
 import cancelSmall from '../resources/cancel-small.svg';
 
 export default {
+    name: 'PolarisTag',
     components: {
         PolarisIcon
     },

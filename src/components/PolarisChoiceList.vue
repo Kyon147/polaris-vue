@@ -37,6 +37,7 @@ import PolarisRadioButton from './PolarisRadioButton.vue';
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisChoiceList',
     model: {
         prop: 'selected',
         event: 'change'

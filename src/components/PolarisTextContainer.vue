@@ -8,6 +8,7 @@
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisTextContainer',
     props: {
         spacing: {
             type: String,
@@ -24,6 +25,6 @@ export default {
             ], this);
         },
     },
-    
+
 };
 </script>

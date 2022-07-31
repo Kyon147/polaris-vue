@@ -10,6 +10,7 @@ import ComponentHelpers from '../ComponentHelpers.js';
 import DynamicTag from './DynamicTag.vue';
 
 export default {
+    name: 'PolarisDisplayText',
     props: {
         element: {
             type: String,

@@ -21,6 +21,7 @@
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisLayoutAnnotatedSection',
     props: {
         title: String,
         description: String,

@@ -35,6 +35,7 @@ import PolarisButtonGroup from './PolarisButtonGroup.vue';
 import PolarisButton from './PolarisButton.vue';
 
 export default {
+    name: 'PolarisPageActions',
     components: {
         PolarisStack,
         PolarisButtonGroup,

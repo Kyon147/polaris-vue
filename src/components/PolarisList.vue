@@ -11,6 +11,7 @@ import DynamicTag from './DynamicTag.vue';
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisList',
     components: {
         DynamicTag
     },

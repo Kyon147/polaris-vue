@@ -22,9 +22,9 @@
                 </div>
             </polaris-stack-item>
         </polaris-stack>
-        <polaris-button slot="action" 
-                        @click="handleAction(action)" 
-                        :primary="!connected" 
+        <polaris-button slot="action"
+                        @click="handleAction(action)"
+                        :primary="!connected"
                         :url="action.url"
                         :destructive="action.destructive"
                         :disabled="action.disabled"
@@ -51,6 +51,7 @@ import PolarisSettingAction from './PolarisSettingAction.vue';
 import PolarisTextStyle from './PolarisTextStyle.vue';
 
 export default {
+    name: 'PolarisAccountConnection',
     components: {
         PolarisButton,
         PolarisCard,

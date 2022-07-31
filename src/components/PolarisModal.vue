@@ -35,6 +35,7 @@
     import PolarisIcon from './PolarisIcon.vue';
     import cancelSmall from '../resources/cancel-small.svg';
     export default {
+        name: 'PolarisModal',
         components: {
             PolarisIcon
         },

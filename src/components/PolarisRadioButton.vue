@@ -30,6 +30,7 @@
 import PolarisChoice from './PolarisChoice.vue';
 
 export default {
+    name: 'PolarisRadioButton',
     model: {
         prop: 'checked',
         event: 'change'

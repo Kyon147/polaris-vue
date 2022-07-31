@@ -9,11 +9,12 @@
 import DynamicTag from './DynamicTag.vue';
 
 export default {
+    name: 'PolarisHeading',
     props: {
         tag: {
             type: String,
             default: 'h2'
-        }  
+        }
     },
     components: {
         DynamicTag

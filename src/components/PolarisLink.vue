@@ -1,6 +1,6 @@
 <template>
-<a class="Polaris-Link" 
-   :href="url" 
+<a class="Polaris-Link"
+   :href="url"
    :target="external ? '_blank' : ''"
    @click="onClick">
     <slot></slot>
@@ -9,6 +9,7 @@
 
 <script>
 export default {
+    name: 'PolarisLink',
     props: {
         url: String,
         external: Boolean

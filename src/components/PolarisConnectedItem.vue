@@ -9,6 +9,7 @@
 
 <script>
 export default {
+    name: 'PolarisConnectedItem',
     props: {
         position: {
             type: String,
@@ -32,8 +33,8 @@ export default {
             return {
                 'Polaris-Connected__Item': true,
                 'Polaris-Connected__Item--focused': this.focused,
-                'Polaris-Connected__Item--primary': this.position == 'Primary',
-                'Polaris-Connected__Item--connection': this.position != 'Primary'
+                'Polaris-Connected__Item--primary': this.position === 'Primary',
+                'Polaris-Connected__Item--connection': this.position !== 'Primary'
             };
         }
     }

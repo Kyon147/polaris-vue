@@ -4,9 +4,9 @@
         <template slot="children">
             <slot></slot>
         </template>
-        <polaris-button slot="action" 
-                        :primary="!enabled" 
-                        @click="handleAction(action)" 
+        <polaris-button slot="action"
+                        :primary="!enabled"
+                        @click="handleAction(action)"
                         :url="action.url"
                         :accessibility-label="action.accessibilityLabel"
                         :disabled="action.disabled"
@@ -24,6 +24,7 @@ import PolarisSettingAction from './PolarisSettingAction.vue';
 import PolarisButton from './PolarisButton.vue';
 
 export default {
+    name: 'PolarisSettingToggle',
     components: {
         PolarisCard,
         PolarisSettingAction,

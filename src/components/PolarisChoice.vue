@@ -37,6 +37,7 @@ import alertIcon from '../resources/alert-icon.svg';
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisChoice',
     props: {
         id: String,
         label: String,

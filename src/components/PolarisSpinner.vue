@@ -18,6 +18,7 @@ const SIZES = ['small', 'large'];
 const COLORS = ['white', 'teal', 'inkLightest'];
 
 export default {
+    name: 'PolarisSpinner',
     props: {
         size: {
             type: String,
@@ -37,7 +38,7 @@ export default {
     },
     computed: {
         spinnerSVG() {
-            var svg = this.size == 'large' ? spinnerSVGLarge : spinnerSVGSmall;
+            var svg = this.size === 'large' ? spinnerSVGLarge : spinnerSVGSmall;
             return SvgSource.parseSVG(svg);
         },
         classes() {

@@ -14,6 +14,7 @@
 
 <script>
 export default {
+    name: 'PolarisDescriptionList',
     props: {
         items: {
             type: Array,

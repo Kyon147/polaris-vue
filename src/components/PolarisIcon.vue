@@ -107,6 +107,7 @@ export const BUNDLED_ICONS = {
 };
 
 export default {
+    name: 'PolarisIcon',
     props: {
         source: {
             type: String,

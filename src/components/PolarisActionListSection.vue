@@ -23,6 +23,7 @@ import OptionalTag from './OptionalTag.vue';
 import PolarisActionListItem from './PolarisActionListItem.vue';
 
 export default {
+    name: 'PolarisActionListSection',
     components: {
         OptionalTag,
         PolarisActionListItem,

@@ -3,6 +3,7 @@ import ComponentHelpers from '../ComponentHelpers.js';
 import PolarisStackItem from './PolarisStackItem.vue';
 
 export default {
+    name: 'PolarisStack',
     polarisName: 'Stack',
     render(createElement) {
         return createElement('div', {

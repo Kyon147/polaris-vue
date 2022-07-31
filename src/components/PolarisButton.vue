@@ -6,7 +6,7 @@
             blur: onBlur,
             focus: onFocus
         }"
-        :type="submit? 'submit' : 'button'" 
+        :type="submit? 'submit' : 'button'"
         :aria-label="accessibilityLabel"
         :class="classes"
         :data-polaris-unstyled="url ? 'true' : ''"
@@ -38,6 +38,7 @@ import PolarisSpinner from './PolarisSpinner.vue';
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisButton',
     components: {
         DynamicTag,
         PolarisIcon,
@@ -101,18 +102,18 @@ export default {
                 r['Polaris-Button--disabled'] = true;
             }
             return r;
-        }  
+        }
     },
     methods: {
         onClick(e) {
             if (this.disabled) {
                 return;
             }
-            
-            if (this.submit) { 
-                return true; 
+
+            if (this.submit) {
+                return true;
             }
-            
+
             this.$emit('click', e);
         },
         onFocus(e) {

@@ -25,8 +25,7 @@
 <script>
 import PolarisResourceListItem from './PolarisResourceListItem.vue';
 export default {
-    created(){
-    },
+    name: 'PolarisResourceList',
     components: {
         PolarisResourceListItem,
     },

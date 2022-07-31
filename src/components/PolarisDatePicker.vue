@@ -3,7 +3,7 @@
      @keydown="handleKeyDown"
      @keyup="handleKeyUp">
     <div class="Polaris-DatePicker__Header">
-        <polaris-button 
+        <polaris-button
             plain
             :icon="arrowLeft"
             :accessibility-label="prevMonthChangeLabel"
@@ -58,6 +58,7 @@ import arrowLeft from '../resources/arrow-left.svg';
 import arrowRight from '../resources/arrow-right.svg';
 
 export default {
+    name: 'PolarisDatePicker',
     model: {
         prop: 'selected',
         event: 'change',
@@ -88,7 +89,7 @@ export default {
         return {
             arrowLeft: arrowLeft,
             arrowRight: arrowRight,
-            
+
             hoverDate: null,
             focusDate: null,
         };
@@ -107,7 +108,7 @@ export default {
         },
         prevMonth() {
             var month = this.month;
-            if (month == 0) {
+            if (month === 0) {
                 month = 11;
             } else {
                 month--;
@@ -117,14 +118,14 @@ export default {
         prevMonthYear() {
             var month = this.month;
             var year = this.year;
-            if (month == 0) {
+            if (month === 0) {
                 year--;
             }
             return year;
         },
         nextMonth() {
             var month = this.month;
-            if (month == 11) {
+            if (month === 11) {
                 month = 0;
             } else {
                 month++;
@@ -134,7 +135,7 @@ export default {
         nextMonthYear() {
             var month = this.month;
             var year = this.year;
-            if (month == 11) {
+            if (month === 11) {
                 year++;
             }
             return year;
@@ -144,7 +145,7 @@ export default {
         handleDateSelection(e) {
             this.hoverDate = e.end;
             this.focusDate = new Date(e.end);
-            
+
             if (this.allowRange) {
                 this.$emit('change', e);
             } else {
@@ -152,10 +153,10 @@ export default {
             }
         },
         handleKeyDown(e) {
-            
+
         },
         handleKeyUp(e) {
-            
+
         },
         handlePrevMonthClick() {
             this.focusDate = null;
@@ -170,13 +171,13 @@ export default {
                 month: this.nextMonth,
                 year: this.nextMonthYear
             });
-            
+
         },
         handleFocus() {
-            
+
         },
         handleHover() {
-            
+
         }
     }
 };

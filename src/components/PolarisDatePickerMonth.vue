@@ -4,7 +4,7 @@
         {{ realMonthName }} {{ year }}
     </div>
     <div role="rowheader" class="Polaris-DatePicker__WeekHeadings">
-        <polaris-date-picker-weekday 
+        <polaris-date-picker-weekday
             v-for="dayName, dayIndex in weekdays"
             :key="dayIndex"
             :title="abbreviateWeekday(dayName)"
@@ -46,6 +46,7 @@ import PolarisDatePickerDay from './PolarisDatePickerDay.vue';
 import dateUtils from '../data/date-utils.js';
 
 export default {
+    name: 'PolarisDatePickerMonth',
     components: {
         PolarisDatePickerWeekday,
         PolarisDatePickerDay
@@ -81,28 +82,28 @@ export default {
             const firstOfMonth = new Date(this.year, this.month, 1);
             const firstDayOfWeek = firstOfMonth.getDay();
             const weeks = [[]];
-            
+
             var currentWeek = weeks[0];
             var currentDate = firstOfMonth;
-            
+
             for (let i = 0; i < firstDayOfWeek; i++) {
                 currentWeek.push(null);
             }
-            
+
             while (currentDate.getMonth() === this.month) {
                 if (currentWeek.length === 7) {
                     currentWeek = [];
                     weeks.push(currentWeek);
                 }
-            
+
                 currentWeek.push(currentDate);
                 currentDate = new Date(this.year, this.month, currentDate.getDate() + 1);
             }
-            
+
             while (currentWeek.length < 7) {
                 currentWeek.push(null);
             }
-            
+
             return weeks;
         },
         realMonthName() {
@@ -168,7 +169,7 @@ export default {
             }
             this.$emit('change', newValue);
         },
-        
+
         dateIsDisabled(day) {
             if (this.disableDatesBefore && (day < this.disableDatesBefore)
                 || (this.disableDatesAfter && (day > this.disableDatesAfter))) {
@@ -205,7 +206,7 @@ export default {
         isInHoveringRange(day) {
             if (!this.allowRange) { return false; }
             if (!day) { return false; }
-            
+
             return Boolean((this.selected.start === this.selected.end) &&
                             (day > this.selected.start) &&
                             (day <= this.hoverDate));

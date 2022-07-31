@@ -170,6 +170,7 @@ import ComponentHelpers from '../ComponentHelpers.js';
 import PolarisCheckbox from "./PolarisCheckbox.vue";
 
 export default {
+    name: "PolarisResourceListItem",
     components: {
         PolarisCheckbox,
         PolarisActionList,

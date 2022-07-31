@@ -35,6 +35,7 @@
     import PolarisButton from "./PolarisButton.vue";
 
     export default {
+        name: "PolarisResourceListHeader",
         created(){
 
         },

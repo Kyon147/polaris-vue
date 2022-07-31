@@ -16,6 +16,7 @@
 <script>
 import PolarisPositionedOverlay from './PolarisPositionedOverlay.vue';
 export default {
+    name: 'PolarisPopoverOverlay',
     components: {
         PolarisPositionedOverlay
     },

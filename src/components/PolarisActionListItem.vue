@@ -1,14 +1,14 @@
 <template>
 <li>
-    <polaris-unstyled-link 
-        v-if="url" 
-        :url="url" 
-        @click="handleAction(action)" 
+    <polaris-unstyled-link
+        v-if="url"
+        :url="url"
+        @click="handleAction(action)"
         class="Polaris-ActionList__Item">
         <template v-if="icon || image">
             <div class="Polaris-ActionList__Content">
-                <div 
-                    role="presentation" 
+                <div
+                    role="presentation"
                     class="Polaris-ActionList__Image"
                     :style="{ backgroundImage: icon ? null : 'url('+image+')'}">
                     <polaris-icon v-if="icon" :source="icon"/>
@@ -22,15 +22,15 @@
             {{ content }}
         </template>
     </polaris-unstyled-link>
-    <button 
-        v-if="!url" 
-        @click="handleAction(action)" 
-        :disabled="disabled" 
+    <button
+        v-if="!url"
+        @click="handleAction(action)"
+        :disabled="disabled"
         :class="classes">
         <template v-if="icon || image">
             <div class="Polaris-ActionList__Content">
-                <div 
-                    role="presentation" 
+                <div
+                    role="presentation"
                     class="Polaris-ActionList__Image"
                     :style="{ backgroundImage: icon ? null : 'url('+image+')'}">
                     <polaris-icon v-if="icon" :source="icon"/>
@@ -54,6 +54,7 @@ import ComponentHelpers from '../ComponentHelpers.js';
 import PolarisIcon from './PolarisIcon.vue';
 
 export default {
+    name: 'PolarisActionListItem',
     components: {
         PolarisIcon,
     },

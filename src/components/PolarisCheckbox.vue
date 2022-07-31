@@ -52,6 +52,7 @@ import checkIcon from '../resources/checkbox.svg';
 import checkboxErrorIcon from '../resources/checkbox-error-icon.svg';
 
 export default {
+    name: 'PolarisCheckbox',
     model: {
         prop: 'checked',
         event: 'change'

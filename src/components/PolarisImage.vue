@@ -4,6 +4,7 @@
 
 <script>
 export default {
+    name: 'PolarisImage',
     props: {
         alt: String,
         source: String,

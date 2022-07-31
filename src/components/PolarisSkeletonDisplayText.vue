@@ -6,6 +6,7 @@
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisSkeletonDisplayText',
     props: {
         size: {
             type: String,

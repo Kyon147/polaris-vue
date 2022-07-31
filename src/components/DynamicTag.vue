@@ -9,6 +9,7 @@ export default {
             ref: 'element'
         }, this.$slots.default)
     },
+    name: 'DynamicTag',
     props: {
         tag: {
             type: String,

@@ -125,6 +125,7 @@ import ComponentHelpers from '../ComponentHelpers.js';
 import arrowUpDown from '../resources/arrow-up-down.svg';
 
 export default {
+    name: 'PolarisSelect',
     model: {
         prop: 'value',
         event: 'change'

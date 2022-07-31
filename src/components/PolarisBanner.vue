@@ -1,12 +1,12 @@
 <template>
-<div :class="classes" 
-     tabindex="0" 
+<div :class="classes"
+     tabindex="0"
      :role="'banner '+((status == 'warning' || status == 'critical') ? 'alert' : '')"
      :aria-describedby="realId+'Content'"
      :aria-labelledby="realId+'Heading'">
     <div v-if="hasOnDismissHandler" class="Polaris-Banner__Dismiss">
-        <polaris-button plain 
-                        icon-only 
+        <polaris-button plain
+                        icon-only
                         accessibility-label="Dimiss notification"
                         :icon="dismissIcon"
                         @click="onDismiss">
@@ -28,12 +28,12 @@
             <slot>
                 <div v-if="children">{{ children }}</div>
             </slot>
-            
+
             <div v-if="action" class="Polaris-Banner__Actions">
                 <polaris-button-group>
-                    <polaris-button slot="1" 
-                                    outline 
-                                    @click="handleAction(action)" 
+                    <polaris-button slot="1"
+                                    outline
+                                    @click="handleAction(action)"
                                     :url="action.url"
                                     :destructive="action.destructive"
                                     :disabled="action.disabled"
@@ -52,7 +52,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 </template>
 
@@ -73,6 +73,7 @@ import infoIcon  from '../resources/banner/circle-information.svg';
 import dismissIcon from '../resources/dismiss-icon.svg';
 
 export default {
+    name: 'PolarisBanner',
     components: {
         PolarisIcon,
         PolarisHeading,
@@ -92,7 +93,7 @@ export default {
                     'info',
                     'warning',
                     'critical',
-                ].indexOf(v) != -1;
+                ].indexOf(v) !== -1;
             }
         },
         action: Object,
@@ -122,13 +123,13 @@ export default {
             return this._events['dismiss'] && this._events['dismiss'].length > 0;
         },
         realId() {
-            return 'Banner' + this._uid;    
+            return 'Banner' + this._uid;
         },
-        
+
         finalIconSource() {
             return this.iconSource;
         },
-        
+
         iconSource() {
             var icon = this.icon;
             if (!icon) {
@@ -165,14 +166,14 @@ export default {
             var r =  ComponentHelpers.makeComponentClass('Polaris-Banner', [
                 'status'
             ], this);
-            
+
             if (this.hasOnDismissHandler) {
-                r['Polaris-Banner--hasDismiss'] = true;    
+                r['Polaris-Banner--hasDismiss'] = true;
             }
-            
+
             return r;
         }
     }
-    
+
 }
 </script>

@@ -23,6 +23,7 @@ const ENTITIES_TO_REPLACE = {
 const REPLACE_REGEX = /[\n&<>]/g;
 
 export default {
+    name: 'PolarisTextFieldResizer',
     props: {
         contents: String,
         currentHeight: Number,
@@ -51,11 +52,11 @@ export default {
             if (this.$refs.dummyInput == null || this.$refs.minimumLines == null) {
                 return;
             }
-            
+
             const contentHeight = this.$refs.dummyInput.offsetHeight;
             const minimumHeight = this.$refs.minimumLines ? this.$refs.minimumLines.offsetHeight : 0;
             const newHeight = Math.max(contentHeight, minimumHeight);
-            
+
             if (this.currentHeight != newHeight) {
                 this.$emit('heightchange', newHeight);
             }

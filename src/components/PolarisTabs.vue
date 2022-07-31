@@ -23,6 +23,7 @@
 
 <script>
 export default {
+    name: 'PolarisTabs',
     model: {
         prop: 'value',
         event: 'change'

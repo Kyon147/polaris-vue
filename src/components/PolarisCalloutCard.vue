@@ -14,9 +14,9 @@
             </div>
             <div v-if="primaryAction" class="Polaris-CalloutCard__Buttons">
                 <polaris-button-group>
-                    <polaris-button v-if="primaryAction" 
-                                    slot="1" 
-                                    :url="primaryAction.url" 
+                    <polaris-button v-if="primaryAction"
+                                    slot="1"
+                                    :url="primaryAction.url"
                                     @click="handleAction(primaryAction)"
                                     :accessibility-label="primaryAction.accessibilityLabel"
                                     :disabled="primaryAction.disabled"
@@ -24,10 +24,10 @@
                                     :icon="primaryAction.icon">
                         {{ primaryAction.content }}
                     </polaris-button>
-                    <polaris-button v-if="secondaryAction" 
-                                    slot="2" 
-                                    plain 
-                                    :url="secondaryAction.url" 
+                    <polaris-button v-if="secondaryAction"
+                                    slot="2"
+                                    plain
+                                    :url="secondaryAction.url"
                                     @click="handleAction(secondaryAction)"
                                     :accessibility-label="secondaryAction.accessibilityLabel"
                                     :disabled="secondaryAction.disabled"
@@ -51,6 +51,7 @@ import PolarisButtonGroup from './PolarisButtonGroup.vue';
 import PolarisHeading from './PolarisHeading.vue';
 
 export default {
+    name: 'PolarisCalloutCard',
     components: {
         PolarisCard,
         PolarisButton,

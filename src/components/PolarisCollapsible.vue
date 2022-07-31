@@ -15,6 +15,7 @@ import ComponentHelpers from '../ComponentHelpers.js';
 import PolarisVueCollapseTransition from './transitions/CollapseTransition.vue';
 
 export default {
+    name: 'PolarisCollapsible',
     components: {
         PolarisVueCollapseTransition,
     },

@@ -17,6 +17,7 @@ import helpIcon from '../resources/footer-help.svg';
 import PolarisIcon from './PolarisIcon.vue';
 
 export default {
+    name: 'PolarisFooterHelp',
     components: {
         PolarisIcon,
     },

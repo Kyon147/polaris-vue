@@ -9,6 +9,7 @@
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisDatePickerWeekday',
     props: {
         label: {
             type: String,

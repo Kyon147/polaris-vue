@@ -10,8 +10,8 @@ import PolarisIcon from "./PolarisIcon";
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisThumbnail',
     components: {PolarisIcon},
-
     props: {
         size: {
             type: String,

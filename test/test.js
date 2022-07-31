@@ -22,7 +22,6 @@
                     });
                 },
                 handleDropZoneDrop(files, acceptedFiles, rejectedFiles) {
-                   console.log( 'accepted files: ', acceptedFiles);
                     acceptedFiles.map((file) => {
                         console.log( 'file: ', file);
                         this.images.push(file);

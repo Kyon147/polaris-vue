@@ -6,5 +6,6 @@
 
 <script>
 export default {
+    name: 'PolarisVisuallyHidden',
 }
 </script>

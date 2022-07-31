@@ -8,9 +8,9 @@
             </polaris-stack-item>
             <polaris-stack-item>
                 <polaris-button-group>
-                    <polaris-button v-for="action, index in actions" 
+                    <polaris-button v-for="action, index in actions"
                                     key="action"
-                                    :slot="index" 
+                                    :slot="index"
                                     :url="action.url"
                                     @click="handleAction(action)"
                                     :destructive="action.destructive"
@@ -35,8 +35,8 @@
     <div v-if="primaryFooterAction" class="Polaris-Card__Footer">
         <polaris-button-group>
             <template v-if="primaryFooterAction">
-                <polaris-button slot="1" 
-                                primary 
+                <polaris-button slot="1"
+                                primary
                                 @click="handleAction(primaryFooterAction)"
                                 :accessibility-label="primaryFooterAction.accessibilityLabel"
                                 :url="primaryFooterAction.url"
@@ -47,7 +47,7 @@
                 </polaris-button>
             </template>
             <template v-if="secondaryFooterAction">
-                <polaris-button slot="2" 
+                <polaris-button slot="2"
                                 @click="handleAction(secondaryFooterAction)"
                                 :accessibility-label="secondaryFooterAction.accessibilityLabel"
                                 :url="secondaryFooterAction.url"
@@ -68,6 +68,7 @@ import PolarisCardSection from './PolarisCardSection.vue';
 import PolarisButtonGroup from './PolarisButtonGroup.vue';
 
 export default {
+    name: 'PolarisCard',
     components: {
         PolarisButtonGroup,
         PolarisCardSection,

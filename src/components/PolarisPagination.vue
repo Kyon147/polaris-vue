@@ -1,5 +1,5 @@
 <template>
-<nav 
+<nav
     :class="classes"
     :aria-label="accessibilityLabel || 'Pagination'">
     <polaris-unstyled-link
@@ -20,7 +20,7 @@
         <polaris-icon :source="arrowLeft">
         </polaris-icon>
     </polaris-button>
-    
+
     <polaris-unstyled-link
         v-if="nextURL"
         class="Polaris-Pagination__Button"
@@ -53,6 +53,7 @@ import arrowRight from '../resources/arrow-right.svg';
 import arrowLeft from '../resources/arrow-left.svg';
 
 export default {
+    name: 'PolarisPagination',
     components: {
         PolarisButton,
         PolarisUnstyledLink,

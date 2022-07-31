@@ -13,8 +13,8 @@
                 </polaris-text-container>
                 <div v-if="action" class="Polaris-EmptyState__Actions">
                     <polaris-button-group>
-                        <polaris-button slot="1" 
-                                        size="large" 
+                        <polaris-button slot="1"
+                                        size="large"
                                         primary
                                         :url="action.url"
                                         @click="handleAction(action)"
@@ -24,8 +24,8 @@
                                         :icon="action.icon">
                             {{ action.content }}
                         </polaris-button>
-                        <polaris-button slot="2" 
-                                        v-if="secondaryAction" 
+                        <polaris-button slot="2"
+                                        v-if="secondaryAction"
                                         plain
                                         :url="secondaryAction.url"
                                         @click="handleAction(secondaryAction)"
@@ -40,9 +40,9 @@
             </div>
         </div>
         <div v-if="image" class="Polaris-EmptyState__ImageContainer">
-            <img :src="image" 
-                 role="presentation" 
-                 alt="" 
+            <img :src="image"
+                 role="presentation"
+                 alt=""
                  class="Polaris-EmptyState__Image"
                  :srcset="largeImage ? image+' 568w,'+largeImage+' 1136w' : ''"
                  sizes="largeImage ? (max-width: 568px) 60vw : ''">
@@ -56,8 +56,9 @@
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisEmptyState',
     components: {
-        
+
     },
     props: {
         heading: String,

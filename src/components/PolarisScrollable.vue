@@ -13,6 +13,7 @@ const EVENTS_TO_LOCK = ['scroll', 'touchmove', 'wheel'];
 const PREFERS_REDUCED_MOTION = false;
 
 export default {
+    name: 'PolarisScrollable',
     props: {
         vertical: {
             type: Boolean,
@@ -26,14 +27,14 @@ export default {
         topShadow() {
             var scrollArea = this.$refs.scrollArea;
             if (!scrollArea) { return false; }
-            
+
             var scrollTop = scrollArea.scrollTop;
             return scrollTop > 0;
         },
         bottomShadow() {
             var scrollArea = this.$refs.scrollArea;
             if (!scrollArea) { return false; }
-            
+
             return !(scrollArea.scrollTop + scrollArea.clientHeight >= scrollArea.scrollHeight);
         },
         classes() {
@@ -45,7 +46,7 @@ export default {
                 'Polaris-Scrollable--hasBottomShadow': this.bottomShadow
             };
             return r;
-            
+
         }
     }
 };

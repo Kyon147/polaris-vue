@@ -1,6 +1,6 @@
 <template>
 <span :aria-label="label" role="img" :class="classes">
-    <polaris-image v-if="source" 
+    <polaris-image v-if="source"
                    role="presentation"
                    :source="source"
                    class="Polaris-Avatar__Image"
@@ -20,14 +20,15 @@ import PolarisIcon from './PolarisIcon.vue';
 import * as avatars from '../resources/avatars';
 
 var AVATAR_IMAGES = [];
-for (var key in avatars) { 
-    AVATAR_IMAGES.push(avatars[key]); 
+for (var key in avatars) {
+    AVATAR_IMAGES.push(avatars[key]);
 }
 
 const STYLE_CLASSES = ['styleOne', 'styleTwo', 'styleThree', 'styleFour', 'styleFive', 'styleSix'];
 
 
 export default {
+    name: 'PolarisAvatar',
     components: {
         PolarisImage,
         PolarisIcon,
@@ -41,7 +42,7 @@ export default {
                     'small',
                     'medium',
                     'large',
-                ].indexOf(v) != -1;
+                ].indexOf(v) !== -1;
             }
         },
         name: String,
@@ -64,16 +65,16 @@ export default {
             var r = ComponentHelpers.makeComponentClass('Polaris-Avatar', [
                 'size'
             ], this);
-            
+
             var styleClass = this.styleClass(this.name || this.initials);
             r['Polaris-Avatar--'+styleClass] = true;
-            
+
             return r;
         }
     },
     methods: {
         customerPlaceholder(name) {
-            return name 
+            return name
                 ? AVATAR_IMAGES[name.charCodeAt(0) % AVATAR_IMAGES.length]
                 : AVATAR_IMAGES[0];
         },

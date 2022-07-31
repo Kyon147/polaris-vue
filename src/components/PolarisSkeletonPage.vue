@@ -1,12 +1,12 @@
 <template>
-<div 
+<div
     :class="classes"
     role="status"
     aria-label="Page loading">
     <div :class="headerClasses">
-        <polaris-display-text 
+        <polaris-display-text
             v-if="title"
-            size="large" 
+            size="large"
             element="h1">
             {{ title }}
         </polaris-display-text>
@@ -15,7 +15,7 @@
             size="large"/>
 
         <div class="Polaris-SkeletonPage__Actions">
-            <div 
+            <div
                 v-for="action in secondaryActions"
                 class="Polaris-SkeletonPage__Action"
                 :style="{ width: (Math.round(Math.random() * 40 + 60)) + 'px' }">
@@ -37,6 +37,7 @@ import PolarisSkeletonDisplayText from './PolarisSkeletonDisplayText.vue';
 import PolarisSkeletonBodyText from './PolarisSkeletonBodyText.vue';
 
 export default {
+    name: 'PolarisSkeletonPage',
     components: {
         PolarisDisplayText,
         PolarisSkeletonDisplayText,

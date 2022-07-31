@@ -4,16 +4,17 @@ import PolarisFormLayoutItem from './PolarisFormLayoutItem.vue';
 import ComponentHelpers from '../ComponentHelpers.js';
 
 export default {
+    name: 'PolarisFormLayoutGroupItemWrapper',
     render(createElement) {
         return createElement('div', {
                 'class': 'Polaris-FormLayout__Items'
             },
             ComponentHelpers.wrapNodesWithComponent(createElement,
-                                                    this.$slots.default, 
+                                                    this.$slots.default,
                                                     PolarisFormLayoutItem));
     },
     props: {
-        
+
     }
 }
 </script>

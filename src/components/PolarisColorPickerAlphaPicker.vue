@@ -19,6 +19,7 @@ const VERTICAL_PADDING = 13;
 
 
 export default {
+    name: 'PolarisColorPickerAlphaPicker',
     model: {
         prop: 'alpha',
         event: 'change'

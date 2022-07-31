@@ -202,6 +202,7 @@ import PolarisPopover from './PolarisPopover.vue';
 import PolarisPageAction from './PolarisPageAction.vue';
 
 export default {
+    name: 'PolarisPageHeader',
     components: {
         PolarisActionList,
         PolarisPopup,

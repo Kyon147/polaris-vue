@@ -16,6 +16,7 @@ import PolarisActionListSection from './PolarisActionListSection.vue';
 import PolarisIcon from './PolarisIcon.vue';
 
 export default {
+    name: 'PolarisActionList',
     components: {
         DynamicTag,
         PolarisActionListSection,
