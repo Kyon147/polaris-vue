@@ -30,8 +30,8 @@ import {
     chevronLeft,
     chevronRight,
     chevronUp,
-    circleCancel,
     circleArrowUp,
+    circleCancel,
     circleChevronDown,
     circleChevronLeft,
     circleChevronRight,
@@ -130,8 +130,7 @@ export default {
                 }
             }
             try {
-                var svgObject = SvgSource.parseSVG(svgSource);
-                return svgObject;
+                return SvgSource.parseSVG(svgSource);
             } catch (e) {
                 return null;
             }

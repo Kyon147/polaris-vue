@@ -351,7 +351,23 @@ export default {
          */
         actionTitle: {
             type: String,
-            default: `Add files`,
+            default() {
+                console.log( 'type', this.type );
+                if ( this.type === 'file' && this.allowMultiple ){
+                    return 'Add files'
+                } else if (this.type === 'file' && !this.allowMultiple) {
+                    return 'Add file'
+                }
+
+                if ( this.type === 'image' && this.allowMultiple ){
+                    return 'Add images'
+                } else if (this.type === 'image' && !this.allowMultiple) {
+                    return 'Add image'
+                }
+
+                return 'Add files'
+
+            }
         },
         /**
          * Set the actionHint

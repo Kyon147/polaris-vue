@@ -39,7 +39,6 @@ export default {
                 'size',
             ], this);
             classes['Polaris-Thumbnail--hasIcon'] = this.isSvg(this.source)
-            console.log( 'class: ' , classes);
             return classes
         }
     },
