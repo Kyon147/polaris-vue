@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Resource List Test</title>
+        <script src="https://unpkg.com/vue@2.6/dist/vue.js"></script>
+        <script src="../lib/polaris-vue.js"></script>
+        <link rel="stylesheet" href="../lib/polaris-vue.css"></link>
+    </head>
+    <body>
+        <h1>App</h1>
+        <div id="app">
+            <polaris-provider :config="config">
+                <polaris-button>Some button</polaris-button>
+            </polaris-provider>
+        </div>
+
+        <script>
+            Vue.use(PolarisVue);
+
+            var root = new Vue({
+                el: '#app',
+
+                mounted(){
+                    console.log("Root View created");
+                    this.config
+                },
+
+                data() {
+                    return{
+                        config: {
+                            apiKey: 'b2c3e11a485c69f91c248fe323c9baa3',
+                            host: 'YXBweS10ZXN0LXN0b3JlLm15c2hvcGlmeS5jb20vYWRtaW4',
+                            forceRedirect: false
+                        }
+                    }
+                },
+
+                computed: {}
+
+            });
+        </script>
+
+    </body>
+</html>
+<script>
+</script>
+<script>
+
+</script>

@@ -1,4 +1,7 @@
 import styles from './resources/styles/styles.scss'; // eslint-disable-line no-unused-vars
+
+import PolarisProvider from './components/PolarisProvider.vue';
+
 import PolarisAccountConnection from './components/PolarisAccountConnection.vue';
 import PolarisActionList from './components/PolarisActionList.vue';
 import PolarisButton from './components/PolarisButton.vue';
@@ -120,6 +123,8 @@ export default {
 
         const components = {
             // Main components
+            Provider: PolarisProvider,
+
             AccountConnection:      PolarisAccountConnection,
             ActionList:             PolarisActionList,
             Button:                 PolarisButton,

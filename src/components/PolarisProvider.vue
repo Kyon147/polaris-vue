@@ -1,5 +1,7 @@
 <template>
-
+<div class="PolarisProvider">
+    <slot></slot>
+</div>
 </template>
 
 
@@ -27,17 +29,22 @@ export default {
 
     provide() {
         return {
-            app: app
+            useAppBridge: () => this.app
         }
     },
 
-    mounted(){
-        this.app = createApp({
-            apiKey: config.apiKey,
-            host: config.host
-        });
+    created(){
+        if (this.config && this.config.apiKey) {
+            this.app = createApp({
+                apiKey: this.config.apiKey,
+                host: this.config.host,
+                forceRedirect: this.config.forceRedirect
+            });
+        }
     }
-}
+
+
+};
 </script>
 
 <style scoped>
