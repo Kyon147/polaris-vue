@@ -10,6 +10,7 @@
         "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
     },
     "dependencies": {
+        "@shopify/app-bridge": "^3.4.3",
         "change-case": "^3.1.0",
         "drop-console-webpack-plugin": "^3.0.2",
         "sass": "^1.55.0",
@@ -17,9 +18,9 @@
         "vue-observe-visibility": "^1.0.0"
     },
     "devDependencies": {
-        "babel-cli": "6.24.1",
         "@babel/core": "7.1.6",
         "@babel/preset-env": "^7.1.6",
+        "babel-cli": "6.24.1",
         "babel-eslint": "7.2.3",
         "babel-loader": "^8.0.0",
         "babel-plugin-add-module-exports": "0.2.1",
