@@ -1,7 +1,7 @@
 /* global __dirname, require, module*/
 
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+//const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -66,10 +66,6 @@ const config = {
                     }
                 ]
             },
-            /*            {
-                            test: /\.css$/,
-                            loader: ExtractTextPlugin.extract("css-loader")
-                        },*/
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
