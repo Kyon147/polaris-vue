@@ -35,11 +35,22 @@ export default {
 
     created(){
         if (this.config && this.config.apiKey) {
-            this.app = createApp({
-                apiKey: this.config.apiKey,
-                host: this.config.host,
-                forceRedirect: this.config.forceRedirect
-            });
+            try {
+                this.app = createApp({
+                    apiKey: this.config.apiKey,
+                    host: this.config.host,
+                    forceRedirect: this.config.forceRedirect
+                });
+            } catch (e) {
+                console.error(e)
+            }
+        }
+
+        if(!this.config && this.config.apiKey){
+            console.error('Api Key Missing for Provider to load AppBridge')
+        }
+        if(!this.config && this.config.host){
+            console.error('Host param missing to initialise AppBridge')
         }
     }
 
