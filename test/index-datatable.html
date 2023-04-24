@@ -87,7 +87,7 @@
         }
         </style>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue@2.6/dist/vue.js"></script>
         <script src="../lib/polaris-vue.js"></script>
         <link rel="stylesheet" href="../lib/polaris-vue.css"></link>
         <script src="test.js"></script>
@@ -207,7 +207,15 @@
                     hoverable
                     footer-content="Showing 3 of 3 results"
                     default-sort-direction="descending"
+                    truncate
                 >
+                    <template v-for="(row, index) in rows" #[`cell-0-row-${index}`]>
+                        <polaris-link
+                            @click="testAlert"
+                        >
+                            {{row[0]}}
+                        </polaris-link>
+                    </template>
                 </polaris-data-table>
             </polaris-card>
 

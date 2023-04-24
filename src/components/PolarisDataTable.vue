@@ -64,7 +64,14 @@
                                     scope="row"
                                     :title="rowData"
                                 >
+                                    <template v-if="$slots && $slots[`cell-0-row-${index}`]">
+                                        <slot :name="`cell-0-row-${index}`" :data="rowData">
+                                            {{ rowData }}
+                                        </slot>
+                                    </template>
+                                    <template v-else>
                                         {{ rowData }}
+                                    </template>
                                 </th>
                                 <td v-else
                                     :class="[
@@ -74,7 +81,14 @@
                                     ]"
                                     class="Polaris-DataTable__Cell"
                                 >
-                                    {{ rowData }}
+                                    <template v-if="$slots && $slots[`cell-${dataIndex}-row-${index}`]">
+                                        <slot :name="`cell-${dataIndex}-row-${index}`" :data="rowData">
+                                            {{ rowData }}
+                                        </slot>
+                                    </template>
+                                    <template v-else>
+                                        {{ rowData }}
+                                    </template>
                                 </td>
                             </template>
                         </tr>
@@ -210,6 +224,7 @@ export default {
 
     mounted(){
         this.handleInitialSort()
+        console.log( 'slots', this.$slots, this.$scopedSlots );
     },
 
     methods: {
