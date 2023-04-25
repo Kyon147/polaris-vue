@@ -224,7 +224,6 @@ export default {
 
     mounted(){
         this.handleInitialSort()
-        console.log( 'slots', this.$slots, this.$scopedSlots );
     },
 
     methods: {

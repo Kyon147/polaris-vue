@@ -187,9 +187,9 @@
 
             <polaris-card>
                 <polaris-tabs>
-                    <div #Something>
+                    <template slot="some">
                         Something
-                    </div>
+                    </template>
                     <div slot="Rewards">
                         <polaris-data-table
                             :column-content-types="[
@@ -231,13 +231,4 @@
     </body>
 </html>
 <script>
-    import PolarisCard from "../src/components/PolarisCard";
-    export default {
-        components: {PolarisCard},
-        methods: {
-            sort(){
-
-            }
-        }
-    }
 </script>

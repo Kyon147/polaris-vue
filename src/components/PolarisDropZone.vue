@@ -223,7 +223,7 @@ export default {
          */
         allowMultiple: {
             type: Boolean,
-            default: true,
+            default: false,
         },
         /**
          * Sets a disabled state
@@ -352,7 +352,6 @@ export default {
         actionTitle: {
             type: String,
             default() {
-                console.log( 'type', this.type );
                 if ( this.type === 'file' && this.allowMultiple ){
                     return 'Add files'
                 } else if (this.type === 'file' && !this.allowMultiple) {
