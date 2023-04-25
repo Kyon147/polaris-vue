@@ -64,7 +64,7 @@
                                     scope="row"
                                     :title="rowData"
                                 >
-                                    <template v-if="$slots && $slots[`cell-0-row-${index}`]">
+                                    <template v-if="$scopedSlots && $scopedSlots[`cell-0-row-${index}`]">
                                         <slot :name="`cell-0-row-${index}`" :data="rowData">
                                             {{ rowData }}
                                         </slot>
@@ -81,7 +81,7 @@
                                     ]"
                                     class="Polaris-DataTable__Cell"
                                 >
-                                    <template v-if="$slots && $slots[`cell-${dataIndex}-row-${index}`]">
+                                    <template v-if="$scopedSlots && $scopedSlots[`cell-${dataIndex}-row-${index}`]">
                                         <slot :name="`cell-${dataIndex}-row-${index}`" :data="rowData">
                                             {{ rowData }}
                                         </slot>

@@ -186,37 +186,44 @@
             </div>
 
             <polaris-card>
-                <polaris-data-table
-                    :column-content-types="[
+                <polaris-tabs>
+                    <div #Something>
+                        Something
+                    </div>
+                    <div slot="Rewards">
+                        <polaris-data-table
+                            :column-content-types="[
                         'text',
                         'numeric',
                         'numeric',
                         'numeric',
                         'numeric'
                     ]"
-                    :headings="[
+                            :headings="[
                         'Product',
                         'Price',
                         'SKU Number',
                         'Net Quantity',
                         'Net Sales'
                     ]"
-                    :totals="['', '', '', 255, '$1500']"
-                    :rows="rows"
-                    vertical-align="top"
-                    hoverable
-                    footer-content="Showing 3 of 3 results"
-                    default-sort-direction="descending"
-                    truncate
-                >
-                    <template v-for="(row, index) in rows" #[`cell-0-row-${index}`]>
-                        <polaris-link
-                            @click="testAlert"
+                            :totals="['', '', '', 255, '$1500']"
+                            :rows="rows"
+                            vertical-align="top"
+                            hoverable
+                            footer-content="Showing 3 of 3 results"
+                            default-sort-direction="descending"
+                            truncate
                         >
-                            {{row[0]}}
-                        </polaris-link>
-                    </template>
-                </polaris-data-table>
+                            <template v-for="(row, index) in rows" #[`cell-0-row-${index}`]>
+                                <polaris-link
+                                    @click="testAlert"
+                                >
+                                    {{row[0]}}
+                                </polaris-link>
+                            </template>
+                        </polaris-data-table>
+                    </div>
+                </polaris-tabs>
             </polaris-card>
 
 
