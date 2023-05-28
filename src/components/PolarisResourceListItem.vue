@@ -46,9 +46,13 @@
 
         <div class="Polaris-ResourceList__Content">
             <div class="Polaris-ResourceList__Attributes">
-                <p class="Polaris-ResourceList__AttributeOne">
-                    {{ attributeOne }}
-                </p>
+
+                <div v-if="attributeOne || $slots.attributeOne"
+                     class="Polaris-ResourceList__AttributeOne">
+                    <slot name="attributeOne">
+                        {{ attributeOne }}
+                    </slot>
+                </div>
 
                 <div v-if="attributeTwo || $slots.attributeTwo"
                      class="Polaris-ResourceList__AttributeTwo">
