@@ -9,8 +9,8 @@ export function UseI18n() {
         id,
         replacements,
 ) => {
-        if (!lang) {
-            throw new Error('lang is not defined');
+        if (!i18n) {
+            throw new Error('i18n is not defined');
         }
 
         return i18n.translate(id, replacements);
