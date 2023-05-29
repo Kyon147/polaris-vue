@@ -13,7 +13,7 @@ export function UseI18n() {
             throw new Error('i18n is not defined');
         }
 
-        return i18n.translate(id, replacements);
+        return i18n().translate(id, replacements);
     };
 
     return { translate };
