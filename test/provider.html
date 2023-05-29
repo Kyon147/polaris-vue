@@ -8,26 +8,47 @@
         <link rel="stylesheet" href="../lib/polaris-vue.css"></link>
     </head>
     <body>
-        <h1>App</h1>
+        <h1>App Provider</h1>
         <div id="app">
-            <polaris-provider :config="config">
-                <polaris-button>Some button</polaris-button>
+            <polaris-provider :config="config" :i18n="en">
+              <my-button></my-button>
             </polaris-provider>
         </div>
 
         <script>
             Vue.use(PolarisVue);
 
+            Vue.component('my-button', {
+                inject: ['useAppBridge', 'i18n'],
+                template: `<div><polaris-button>{{buttonText}}</polaris-button></div>`,
+                mounted(){
+                    console.log(this.useAppBridge())
+                    console.log( 'winow', window );
+                },
+                computed: {
+                    buttonText(){
+                        return this.i18n().translate('Polaris.Common.button', {
+                            replace: 'replaced text'
+                        }) || 'Default text'
+                    }
+                }
+            })
             var root = new Vue({
                 el: '#app',
 
                 mounted(){
-                    console.log("Root View created");
                     this.config
                 },
 
                 data() {
                     return{
+                        en: {
+                           Polaris: {
+                               Common: {
+                                   button: "Some i11n {replace}"
+                               }
+                           }
+                        },
                         config: {
                             apiKey: 'b2c3e11a485c69f91c248fe323c9baa3',
                             host: 'YXBweS10ZXN0LXN0b3JlLm15c2hvcGlmeS5jb20vYWRtaW4',
@@ -39,6 +60,8 @@
                 computed: {}
 
             });
+
+
         </script>
 
     </body>
