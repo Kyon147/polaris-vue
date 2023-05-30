@@ -29,7 +29,6 @@ export default {
     data(){
         return{
             app: null,
-            i18nContext: undefined
         }
     },
 
@@ -60,14 +59,12 @@ export default {
         if(!this.config && this.config.host){
             console.error('Host param missing to initialise AppBridge')
         }
+    },
 
-        if(this.i18n){
-            console.log( 'props', this.$props );
-            console.log( 'i18n', this.i18n );
-            this.i18nContext = new I18n(this.i18n)
-            console.log( 'i118n created', this.i18nContext );
-        }
-
+    computed:{
+        i18nContext(){
+          return new I18n(this.i18n)
+      }
     }
 
 

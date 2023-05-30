@@ -5,16 +5,14 @@
         <title>Resource List Test</title>
         <script src="https://unpkg.com/vue@2.6/dist/vue.js"></script>
         <script src="../lib/polaris-vue.js"></script>
-        <link rel="stylesheet" href="../lib/polaris-vue.css"></link>
+        <link href="../lib/polaris-vue.css" rel="stylesheet"></link>
     </head>
     <body>
         <h1>App Provider</h1>
         <div id="app">
-            <polaris-i18n-provider :locale="locale">
-                <polaris-provider :config="config" :i18n="locale">
-                    <my-button></my-button>
-                </polaris-provider>
-            </polaris-i18n-provider>
+            <polaris-provider :config="config" :i18n="locale">
+                <my-button></my-button>
+            </polaris-provider>
         </div>
 
         <script type="module">
@@ -23,18 +21,18 @@
 
             Vue.component('my-button', {
                 inject: ['useAppBridge', 'i18n'],
-                template: `<div><polaris-button>{{buttonText}}</polaris-button></div>`,
-                mounted(){
+                template: `
+                    <div>
+                    <polaris-button>{{ buttonText }}</polaris-button>
+                    </div>`,
+                mounted() {
                     console.log(';i18n button', this.i18n())
                 },
                 computed: {
-                    buttonText(){
+                    buttonText() {
                         return this.i18n().translate('Polaris.Common.button', {
                             replace: 'replaced text'
                         }) || 'Default text'
-                    },
-                    i18n(){
-                        return new useI18n();
                     }
                 }
             })
@@ -43,7 +41,7 @@
                 el: '#app',
 
                 data() {
-                    return{
+                    return {
                         locale: {},
                         config: {
                             apiKey: 'b2c3e11a485c69f91c248fe323c9baa3',
@@ -53,12 +51,12 @@
                     }
                 },
 
-                async created(){
-                    try{
-                        const dict = await import ('../src/resources/locales/en.json', {assert: {type: 'json'}})
+                async created() {
+                    try {
+                        const dict = await import ('../test/locales/en.json', {assert: {type: 'json'}})
                         this.locale = dict.default;
-                        console.log( 'locale', this.locale );
-                    } catch(e){
+                        console.log('locale', this.locale);
+                    } catch (e) {
                         console.log(e)
                     }
                 },
@@ -66,9 +64,6 @@
                 computed: {}
 
             });
-
-
-
 
         </script>
 
