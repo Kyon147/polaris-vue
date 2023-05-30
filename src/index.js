@@ -1,5 +1,6 @@
 import styles from './resources/styles/styles.scss'; // eslint-disable-line no-unused-vars
 
+import PolarisI18nProvider from './components/I18nProvider.vue';
 import PolarisProvider from './components/PolarisProvider.vue';
 
 import PolarisAccountConnection from './components/PolarisAccountConnection.vue';
@@ -123,6 +124,7 @@ export default {
 
         const components = {
             // Main components
+            I18nProvider: PolarisI18nProvider,
             Provider: PolarisProvider,
 
             AccountConnection:      PolarisAccountConnection,

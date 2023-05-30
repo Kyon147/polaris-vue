@@ -10,45 +10,41 @@
     <body>
         <h1>App Provider</h1>
         <div id="app">
-            <polaris-provider :config="config" :i18n="en">
-              <my-button></my-button>
-            </polaris-provider>
+            <polaris-i18n-provider :locale="locale">
+                <polaris-provider :config="config" :i18n="locale">
+                    <my-button></my-button>
+                </polaris-provider>
+            </polaris-i18n-provider>
         </div>
 
-        <script>
+        <script type="module">
+
             Vue.use(PolarisVue);
 
             Vue.component('my-button', {
                 inject: ['useAppBridge', 'i18n'],
                 template: `<div><polaris-button>{{buttonText}}</polaris-button></div>`,
                 mounted(){
-                    console.log(this.useAppBridge())
-                    console.log( 'winow', window );
+                    console.log(';i18n button', this.i18n())
                 },
                 computed: {
                     buttonText(){
                         return this.i18n().translate('Polaris.Common.button', {
                             replace: 'replaced text'
                         }) || 'Default text'
+                    },
+                    i18n(){
+                        return new useI18n();
                     }
                 }
             })
-            var root = new Vue({
-                el: '#app',
 
-                mounted(){
-                    this.config
-                },
+            new Vue({
+                el: '#app',
 
                 data() {
                     return{
-                        en: {
-                           Polaris: {
-                               Common: {
-                                   button: "Some i11n {replace}"
-                               }
-                           }
-                        },
+                        locale: {},
                         config: {
                             apiKey: 'b2c3e11a485c69f91c248fe323c9baa3',
                             host: 'YXBweS10ZXN0LXN0b3JlLm15c2hvcGlmeS5jb20vYWRtaW4',
@@ -57,9 +53,21 @@
                     }
                 },
 
+                async created(){
+                    try{
+                        const dict = await import ('../src/resources/locales/en.json', {assert: {type: 'json'}})
+                        this.locale = dict.default;
+                        console.log( 'locale', this.locale );
+                    } catch(e){
+                        console.log(e)
+                    }
+                },
+
                 computed: {}
 
             });
+
+
 
 
         </script>

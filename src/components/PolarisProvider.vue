@@ -62,11 +62,11 @@ export default {
         }
 
         if(this.i18n){
+            console.log( 'props', this.$props );
+            console.log( 'i18n', this.i18n );
             this.i18nContext = new I18n(this.i18n)
             console.log( 'i118n created', this.i18nContext );
         }
-
-
 
     }
 
