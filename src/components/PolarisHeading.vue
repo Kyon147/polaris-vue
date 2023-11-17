@@ -1,5 +1,5 @@
 <template>
-<dynamic-tag :tag="tag" class="Polaris-Heading">
+<dynamic-tag :tag="tag" class="Polaris-Heading" :class="['Polaris-Heading--' + variant]">
     <slot></slot>
 </dynamic-tag>
 </template>
@@ -14,6 +14,18 @@ export default {
         tag: {
             type: String,
             default: 'h2'
+        },
+        variant: {
+            type: String,
+            default: 'default',
+            validator(v) {
+                return [
+                    'default',
+                    'headingLg',
+                    'headingMd',
+                    'headingSm',
+                ].indexOf(v) !== -1;
+            }
         }
     },
     components: {

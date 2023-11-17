@@ -5,73 +5,99 @@ $secondary-action-vertical-padding: 0.5 * (control-height() - line-height(body))
 $secondary-action-horizontal-padding: 1.5 * spacing(tight);
 
 @mixin banner-colors($highlight, $background) {
-  background-color: $background;
-  box-shadow:
-    inset 0 $accent-height 0 0 $highlight,
-    inset shadow(transparent),
-    shadow();
+    background-color: $background;
+    //box-shadow: inset 0 $accent-height 0 0 $highlight,
+    //inset shadow(transparent),
+    //shadow();
 
-  &:focus {
-    box-shadow:
-      inset 0 $accent-height 0 0 $highlight,
-      inset 0 0 0 $accent-height $highlight,
-      shadow();
-  }
+    &:focus {
+        box-shadow: inset 0 $accent-height 0 0 $highlight,
+        inset 0 0 0 $accent-height $highlight,
+        shadow();
+    }
 }
 
 .Polaris-Banner {
-  @include banner-colors(color(ink, lighter), color(sky, light));
-  position: relative;
-  display: flex;
-  padding: spacing();
-  border-radius: 0 0 border-radius() border-radius();
-  transition: box-shadow duration() easing();
-  transition-delay: duration(fast);
+    @include banner-colors(color(ink, lighter), color(sky, light));
+    position: relative;
+    display: flex;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: inset 0 0px 0 0 #637381, inset 0 0 0 0 rgba(0, 0, 0, 0),
+    0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+    font-size: 13px;
+    flex-direction: column;
+    transition: box-shadow duration() easing();
+    transition-delay: duration(fast);
 
-  + .Polaris-Banner {
-    margin-top: spacing(loose);
-  }
+    + .Polaris-Banner {
+        margin-top: spacing(loose);
+    }
 
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+        outline: none;
+    }
 }
 
 .Polaris-Banner--hasDismiss {
-  padding-right: $dismiss-size + (2 * spacing());
+    position: relative;
+  //padding-right: $dismiss-size + (2 * spacing());
+}
+
+.Polaris-Banner__Dismiss{
+    position: absolute;
+}
+
+.Polaris-Banner--statusDefault {
+    @include banner-colors(color(teal), color(white));
 }
 
 .Polaris-Banner--statusSuccess {
-  @include banner-colors(color(green), color(green, lighter));
+    @include banner-colors(color(green), color(white));
+    .Polaris-Banner__Heading {
+        background: color(green);
+        color: color(white);
+    }
 }
 
 .Polaris-Banner--statusInfo {
-  @include banner-colors(color(teal), color(teal, lighter));
+    @include banner-colors(color(teal), color(white));
 }
 
 .Polaris-Banner--statusWarning {
-  @include banner-colors(color(yellow), color(yellow, lighter));
+    @include banner-colors(color(orange), color(white));
+    .Polaris-Banner__Heading {
+        background: color(orange);
+    }
 }
 
 .Polaris-Banner--statusCritical {
-  @include banner-colors(color(red), color(red, lighter));
+    @include banner-colors(color(red), color(white));
+    .Polaris-Banner__Heading {
+        background: color(red);
+        color: color(white);
+    }
 }
 
 .Polaris-Banner__Ribbon {
-  flex: 0 0 $ribbon-flex-basis;
-  margin-right: spacing();
+    flex: 0 0 $ribbon-flex-basis;
+    margin-right: spacing();
 }
 
 .Polaris-Banner__Heading {
-  margin-top: spacing(extra-tight);
+    margin-top: 0 !important;
+    padding: 10px 16px;
+    border-radius: 12px 12px 0 0;
+    background: color(teal);
 }
 
 .Polaris-Banner__Actions {
-  margin-top: spacing();
+    margin-top: spacing();
 }
 
 .Polaris-Banner__Content {
-  margin: spacing(tight) 0;
+    padding: 12px 16px 16px;
+    margin: 0;
 }
 
 // We need pretty high specificity to do the descendant selectors
@@ -80,62 +106,62 @@ $secondary-action-horizontal-padding: 1.5 * spacing(tight);
 // stylelint-disable selector-max-specificity
 
 .Polaris-Banner__SecondaryAction {
-  @include unstyled-button;
-  @include unstyled-link;
-  margin: (-1 * $secondary-action-vertical-padding) (-0.5 * $secondary-action-horizontal-padding);
-  padding: $secondary-action-vertical-padding $secondary-action-horizontal-padding;
-  color: color(ink);
+    @include unstyled-button;
+    @include unstyled-link;
+    margin: (-1 * $secondary-action-vertical-padding) (-0.5 * $secondary-action-horizontal-padding);
+    padding: $secondary-action-vertical-padding $secondary-action-horizontal-padding;
+    color: color(ink);
 
-  &:hover > .Polaris-Banner__Text::after {
-    opacity: 0.75;
-  }
-
-  &:active > .Polaris-Banner__Text::after {
-    opacity: 0;
-  }
-
-  &:focus > .Polaris-Banner__Text {
-    &::before {
-      opacity: 1;
+    &:hover > .Polaris-Banner__Text::after {
+        opacity: 0.75;
     }
 
-    &::after {
-      opacity: 0;
+    &:active > .Polaris-Banner__Text::after {
+        opacity: 0;
     }
-  }
+
+    &:focus > .Polaris-Banner__Text {
+        &::before {
+            opacity: 1;
+        }
+
+        &::after {
+            opacity: 0;
+        }
+    }
 }
 
 // stylelint-enable selector-max-specificity
 
 .Polaris-Banner__Text {
-  position: relative;
+    position: relative;
 
-  &::after,
-  &::before {
-    content: '';
-    position: absolute;
-  }
+    &::after,
+    &::before {
+        content: '';
+        position: absolute;
+    }
 
-  &::before {
-    @include plain-button-backdrop;
-    opacity: 0;
-  }
+    &::before {
+        @include plain-button-backdrop;
+        opacity: 0;
+    }
 
-  &::after {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: block;
-    border: 1px solid currentColor;
-    opacity: 0.25;
-    will-change: opacity;
-    transition: opacity duration() easing();
-  }
+    &::after {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        border: 1px solid currentColor;
+        opacity: 0.25;
+        will-change: opacity;
+        transition: opacity duration() easing();
+    }
 }
 
 .Polaris-Banner__Dismiss {
-  position: absolute;
-  top: $accent-height;
-  right: 0;
-  padding: (spacing(tight) * 1.5);
+    position: absolute;
+    top: $accent-height;
+    right: $accent-height;
+    padding: (spacing(tight));
 }

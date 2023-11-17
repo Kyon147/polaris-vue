@@ -12,17 +12,18 @@
                         @click="onDismiss">
         </polaris-button>
     </div>
-    <div class="Polaris-Banner__Ribbon">
-        <polaris-icon :source="iconSource"
-                      :color="iconColor"
-                      backdrop>
-        </polaris-icon>
-    </div>
     <div>
         <div v-if="title" class="Polaris-Banner__Heading" :id="realId+'Heading'">
-            <polaris-heading tag="p">
-                {{ title }}
-            </polaris-heading>
+            <polaris-stack alignment="center">
+                <polaris-icon
+                    class="Polaris-Banner__Icon"
+                    :source="iconSource"
+                    :color="iconColor">
+                </polaris-icon>
+                <polaris-heading tag="p" variant="headingSm">
+                    {{ title }}
+                </polaris-heading>
+            </polaris-stack>
         </div>
         <div v-if="$slots.default || action || secondaryAction || children" class="Polaris-Banner__Content" id="realId+'Content'">
             <slot>
@@ -65,7 +66,7 @@ import PolarisButton from './PolarisButton.vue';
 import PolarisButtonGroup from './PolarisButtonGroup.vue';
 
 import successIcon from '../resources/banner/circle-check-mark.svg';
-import fallbackIcon  from '../resources/banner/flag.svg';
+import fallbackIcon  from '../resources/banner/circle-information.svg';
 import warningIcon  from '../resources/banner/circle-alert.svg';
 import criticalIcon  from '../resources/banner/circle-barred.svg';
 import infoIcon  from '../resources/banner/circle-information.svg';
@@ -151,15 +152,15 @@ export default {
         iconColor() {
             switch (this.status) {
                 case 'success':
-                    return 'greenDark';
+                    return 'white';
                 case 'info':
-                    return 'tealDark';
+                    return 'black';
                 case 'warning':
-                    return 'yellowDark';
+                    return 'black';
                 case 'critical':
-                    return 'redDark';
+                    return 'white';
                 default:
-                    return 'inkLighter';
+                    return 'black';
             }
         },
         classes() {

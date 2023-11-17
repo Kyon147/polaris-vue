@@ -1,4 +1,8 @@
 .Polaris-Heading {
   @include text-style-heading;
   margin: 0;
+
+    &--headingSm{
+        font-size: font-size(heading, small);
+    }
 }

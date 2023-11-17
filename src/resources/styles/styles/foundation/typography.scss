@@ -23,7 +23,7 @@ $line-height-data: (
     base: rem(20px)
   ),
   button: (
-    base: rem(16px)
+    base: rem(20px)
   ),
   button-large: (
     base: rem(20px)
@@ -53,7 +53,8 @@ $font-size-data: (
   ),
   heading: (
     base: rem(17px),
-    large-screen: rem(16px)
+    large-screen: rem(16px),
+      small: rem(13px)
   ),
   subheading: (
     base: rem(13px),
@@ -68,8 +69,8 @@ $font-size-data: (
     large-screen: rem(14px)
   ),
   button: (
-    base: rem(15px),
-    large-screen: rem(14px)
+    base: rem(13px),
+    large-screen: rem(13px)
   ),
   button-large: (
     base: rem(17px),

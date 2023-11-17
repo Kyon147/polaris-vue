@@ -1081,6 +1081,9 @@
                     <polaris-banner title="Order archived">
                         <p>This order was archived on March 7, 2017 at 3:12pm EDT.</p>
                     </polaris-banner>
+                    <polaris-banner title="Order problem!" status="critical">
+                        <p>This order was archived on March 7, 2017 at 3:12pm EDT.</p>
+                    </polaris-banner>
                 </div>
                 <pre class="code"><code class="html">&#x3C;polaris-banner title=&#x22;Order archived&#x22;&#x3E;
     &#x3C;p&#x3E;This order was archived on March 7, 2017 at 3:12pm EDT.&#x3C;/p&#x3E;
@@ -1094,13 +1097,26 @@
                         status="warning">
                         <p>This order was archived on March 7, 2017 at 3:12pm EDT.</p>
                     </polaris-banner>
+                    <polaris-banner
+                        title="Order archived"
+                        status="warning">
+                        <p>This order was archived on March 7, 2017 at 3:12pm EDT.</p>
+                    </polaris-banner>
                 </div>
-                <pre class="code"><code class="html">&#x3C;polaris-banner
+                <pre class="code">
+                    <code class="html">&#x3C;polaris-banner
     title=&#x22;Order archived&#x22;
     icon=&#x22;&#x26;lt;svg class=&#x26;quot;Polaris-Icon__Svg&#x26;quot; viewBox=&#x26;quot;0 0 20 20&#x26;quot;&#x26;gt;&#x26;lt;path d=&#x26;quot;M13.707 10.707a.997.997 0 0 1-1.414 0L11 9.414V17a1 1 0 1 1-2 0V9.414l-1.293 1.293a.999.999 0 1 1-1.414-1.414l3-3a.999.999 0 0 1 1.414 0l3 3a.999.999 0 0 1 0 1.414zM17 2a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-3a1 1 0 1 1 0-2h2V4H4v9h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14z&#x26;quot; fill-rule=&#x26;quot;evenodd&#x26;quot;&#x26;gt;&#x26;lt;/path&#x26;gt;&#x26;lt;/svg&#x26;gt;&#x22;
     status=&#x22;warning&#x22;&#x3E;
     &#x3C;p&#x3E;This order was archived on March 7, 2017 at 3:12pm EDT.&#x3C;/p&#x3E;
-&#x3C;/polaris-banner&#x3E;</code></pre>
+&#x3C;/polaris-banner&#x3E;
+
+&#x3C;polaris-banner
+    title=&#x22;Order archived&#x22;
+    status=&#x22;warning&#x22;&#x3E;
+    &#x3C;p&#x3E;This order was archived on March 7, 2017 at 3:12pm EDT.&#x3C;/p&#x3E;
+&#x3C;/polaris-banner&#x3E;</code>
+                </pre>
             </div>
             <div class="testCase">
                 <div class="example">
